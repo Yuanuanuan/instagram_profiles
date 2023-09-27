@@ -1,5 +1,6 @@
 .home-main {
   .main-container {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
     .limit-news-container {
       height: 100px;
       overflow-x: scroll;
@@ -66,11 +67,18 @@
       }
     }
     .post-container {
+      max-height: calc(100vh - 208px);
       background-color: var(--bg-color);
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
       .post {
         width: 100vw;
         .title {
           height: 48px;
+          padding: 0 16px;
+          border-bottom: 1px solid var(--hr-color);
 
           display: flex;
           align-items: center;
@@ -100,8 +108,70 @@
           }
         }
         .content-image {
+          display: flex;
+          overflow-x: hidden;
           img {
             width: 100vw;
+          }
+        }
+        .footer {
+          padding: 0 16px;
+          .tools {
+            justify-content: space-between;
+            .tool {
+              * {
+                width: 40px;
+                height: 40px;
+                svg {
+                  width: 24px;
+                  height: 24px;
+                  color: var(--text-color);
+                  fill: var(--text-color);
+                  pointer-events: none;
+                }
+              }
+              .love {
+                & svg:nth-child(2) {
+                  display: none;
+                }
+                &.active svg:first-child{
+                  display: none;
+                }
+                &.active svg:last-child{
+                  display: block;
+                }
+              }
+            }
+            .save {
+              width: 40px;
+              height: 40px;
+              svg {
+                width: 24px;
+                height: 24px;
+                color: var(--text-color);
+              }
+            }
+          }
+          .like-bar {
+            height: 18px;
+            font-size: 15px;
+            line-height: 18px;
+            color: var(--text-color);
+          }
+          .content {
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            p {
+              font-size: 15px;
+              line-height: 18px;
+              white-space: pre-line;
+            }
+            span {
+              font-weight: 600;
+            }
+          }
+          .date {
+            font-size: 12px;
+            color: var(--detial);
           }
         }
       }

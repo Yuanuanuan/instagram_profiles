@@ -8,6 +8,8 @@ header {
   width: 100vw;
   height: 60px;
   background-color: var(--bg-color);
+  font-family: 'Segoe UI';
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,14 +25,12 @@ header {
       font-size: 1.5rem;
       font-family: 'Pacifico', serif;
     }
-    .message-icon {
-      svg {
-        path:nth-child(1) {
-          stroke: var(--text-color);
-        }
-        path:nth-child(2) {
-          fill:var(--text-color);
-        }
+    .toggle-icon {
+      * {
+        pointer-events: none;
+      }
+      .sun-icon {
+        display: none;
       }
     }
   }

@@ -14,6 +14,7 @@ body.dark-mode {
   --text-color: rgba(245, 245, 245);
   --bg-color: rgba(0, 0, 0);
   --hr-color: rgb(54, 54, 54);
+  --detial: #a8a8a8;
 }
 
 body {
@@ -21,6 +22,7 @@ body {
   height: 100vh;
   position: relative;
   background-color: var(--bg-color);
+  --detial: #737373;
 }
 
 .flex {
