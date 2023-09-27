@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.light-mode {
+  --text-color: rgba(0, 0, 0);
+  --bg-color: #fff;
+  --hr-color: #dbdbdb;
+}
+
+body.dark-mode {
+  --text-color: rgba(245, 245, 245);
+  --bg-color: rgba(0, 0, 0);
+  --hr-color: rgb(54, 54, 54);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: var(--bg-color);
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media screen and (min-width: 768px) {
+  // header 欄切換去左邊
+}
+
+@media screen and (min-width: 1160px) {
+  // 電腦版多了右邊欄
+}
+
+@media screen and (min-width: 1264px) {
+  // 左邊header欄打開
+}
+
+@import './header';
+@import './nav';
+@import './home-main';

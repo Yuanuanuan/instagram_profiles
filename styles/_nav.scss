@@ -1,0 +1,22 @@
+nav {
+  width: 100vw;
+  height: 48px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  ul {
+    width: inherit;
+    height: inherit;
+    list-style: none;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    li {
+      svg {
+        color: var(--text-color);
+        fill: var(--text-color);
+      }
+    }
+  }
+}

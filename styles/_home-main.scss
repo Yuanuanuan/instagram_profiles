@@ -1,0 +1,110 @@
+.home-main {
+  .main-container {
+    .limit-news-container {
+      height: 100px;
+      overflow-x: scroll;
+      border-bottom: 1px solid var(--hr-color);
+
+      display: grid;
+      grid-auto-flow: column;
+      grid-gap: 10px;
+      align-items: center;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .limit-item {
+        width: 66px;
+        height: 85px;
+        flex-direction: column;
+        .user-image {
+          width: 66px;
+          height: 66px;
+          border-radius: 50%;
+          background: linear-gradient(45deg, #fcd983, #d820cc);
+          position: relative;
+          &::after {
+            content: '';
+            width: 60px;
+            height: 60px;
+            background: var(--bg-color);
+            border-radius: 50%;
+            border: 1px solid #c9c9c9;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+          }
+          a {
+            width: 60px;
+            height: 60px;
+            img {
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              border: 3px solid var(--bg-color);
+              pointer-events: none;
+            }
+          }
+          img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--bg-color);
+          }
+        }
+        h1 {
+          max-width: 70px;
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 16px;
+          color: var(--text-color);
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+    .post-container {
+      background-color: var(--bg-color);
+      .post {
+        width: 100vw;
+        .title {
+          height: 48px;
+
+          display: flex;
+          align-items: center;
+          .user-img {
+            width: 42px;
+            height: 42px;
+            margin-right: 4px;
+            img {
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+            }
+          }
+          .describe {
+            flex: 1;
+            .user-name {
+              color: var(--text-color);
+            }
+          }
+          .icon {
+            width: 42px;
+            height: 42px;
+            svg {
+              margin-left: 8px;
+              fill: var(--text-color);
+            }
+          }
+        }
+        .content-image {
+          img {
+            width: 100vw;
+          }
+        }
+      }
+    }
+  }
+}
