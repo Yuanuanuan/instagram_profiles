@@ -27,6 +27,14 @@ body {
   --hashtag: #00376B;
 }
 
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .flex {
   display: flex;
   justify-content: center;
@@ -275,6 +283,7 @@ nav ul li svg {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
   overflow: hidden;
 }
 .home-main .main-container .post-container .post .footer .content p {

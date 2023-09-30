@@ -1,6 +1,14 @@
 const limitItems = document.querySelector('.limit-news-container');
 const toggleIcon = document.querySelector('.toggle-icon');
 
+const loading = document.querySelector('.loading');
+const loadingSuccess = document.querySelector('.loading-success');
+
+window.onload = () => {
+  loading.style.display = 'none';
+  loadingSuccess.style.display = '1';
+}
+
 // make a moon-sun toggle function 
 toggleIcon.addEventListener('click', (e) => {
   const moonIcon = document.querySelector('.moon-icon');
