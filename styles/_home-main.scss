@@ -131,13 +131,11 @@
             width: 100vw;
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
-            pointer-events: none;
             &::-webkit-scrollbar {
               display: none;
             }
             img {
               width: 100vw;
-              pointer-events: none;
               scroll-snap-align: start;
             }
           }
@@ -190,6 +188,10 @@
           }
           .content {
             font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
             p {
               font-size: 15px;
               line-height: 18px;
@@ -207,6 +209,12 @@
               color: var(--hashtag);
               
             }
+          }
+          .more-btn {
+            display: inline-block;
+            border: none;
+            background-color: transparent;
+            color: var(--detial)
           }
           .date {
             font-size: 12px;

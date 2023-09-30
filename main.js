@@ -39,6 +39,26 @@ loveBtn.forEach((btn) => {
   })
 })
 
+// 當文章超過兩行時才顯示更多按紐
+const footer = document.querySelectorAll('.footer');
+
+footer.forEach((article) => {
+  const content = article.querySelector('.content');
+  const moreBtn = article.querySelector('.more-btn');
+
+  if (content.clientHeight >= 36) {
+    moreBtn.style.display = 'block';
+
+    moreBtn.addEventListener('click', () => {
+      content.style.display = 'block';
+      moreBtn.style.display = 'none';
+    });
+  } else {
+    moreBtn.style.display = 'none'; 
+  }
+})
+
+// make images carousel (.continue-design-post)
 const container = document.querySelector('.continue-design-post');
 const images = document.querySelectorAll('.continue-design-post img');
 const dotsContainer = document.querySelector('.dots');
