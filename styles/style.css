@@ -15,6 +15,7 @@ body.dark-mode {
   --bg-color: rgba(0, 0, 0);
   --hr-color: rgb(54, 54, 54);
   --detial: #a8a8a8;
+  --hashtag: #e0f1ff;
 }
 
 body {
@@ -23,6 +24,7 @@ body {
   position: relative;
   background-color: var(--bg-color);
   --detial: #737373;
+  --hashtag: #00376B;
 }
 
 .flex {
@@ -182,6 +184,7 @@ nav ul li svg {
   flex: 1;
 }
 .home-main .main-container .post-container .post .title .describe .user-name {
+  font-weight: 600;
   color: var(--text-color);
 }
 .home-main .main-container .post-container .post .title .icon {
@@ -193,16 +196,44 @@ nav ul li svg {
   fill: var(--text-color);
 }
 .home-main .main-container .post-container .post .content-image {
-  display: flex;
-  overflow-x: hidden;
+  position: relative;
 }
-.home-main .main-container .post-container .post .content-image img {
+.home-main .main-container .post-container .post .content-image .dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.home-main .main-container .post-container .post .content-image .dots .dot {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.5019607843);
+  border-radius: 50%;
+  margin: 0 2px;
+}
+.home-main .main-container .post-container .post .content-image .dots .dot.active {
+  background-color: #007bff;
+}
+.home-main .main-container .post-container .post .content-image .images {
+  display: flex;
   width: 100vw;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  pointer-events: none;
+}
+.home-main .main-container .post-container .post .content-image .images::-webkit-scrollbar {
+  display: none;
+}
+.home-main .main-container .post-container .post .content-image .images img {
+  width: 100vw;
+  pointer-events: none;
+  scroll-snap-align: start;
 }
 .home-main .main-container .post-container .post .footer {
   padding: 0 16px;
 }
 .home-main .main-container .post-container .post .footer .tools {
+  position: relative;
   justify-content: space-between;
 }
 .home-main .main-container .post-container .post .footer .tools .tool * {
@@ -237,6 +268,7 @@ nav ul li svg {
 .home-main .main-container .post-container .post .footer .like-bar {
   height: 18px;
   font-size: 15px;
+  font-weight: 600;
   line-height: 18px;
   color: var(--text-color);
 }
@@ -247,9 +279,17 @@ nav ul li svg {
   font-size: 15px;
   line-height: 18px;
   white-space: pre-line;
+  color: var(--text-color);
 }
-.home-main .main-container .post-container .post .footer .content span {
+.home-main .main-container .post-container .post .footer .content span.user-id {
   font-weight: 600;
+}
+.home-main .main-container .post-container .post .footer .content a {
+  text-decoration: none;
+  color: var(--hashtag);
+}
+.home-main .main-container .post-container .post .footer .content .hashtag {
+  color: var(--hashtag);
 }
 .home-main .main-container .post-container .post .footer .date {
   font-size: 12px;

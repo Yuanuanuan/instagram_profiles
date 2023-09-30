@@ -95,6 +95,7 @@
           .describe {
             flex: 1;
             .user-name {
+              font-weight: 600;
               color: var(--text-color);
             }
           }
@@ -108,15 +109,43 @@
           }
         }
         .content-image {
-          display: flex;
-          overflow-x: hidden;
-          img {
+          position: relative;
+          .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            .dot {
+              width: 6px;
+              height: 6px;
+              background-color: #ffffff80;
+              border-radius: 50%;
+              margin: 0 2px;
+              &.active {
+                background-color: #007bff;
+              }
+            }
+          }
+          .images {
+            display: flex;
             width: 100vw;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            pointer-events: none;
+            &::-webkit-scrollbar {
+              display: none;
+            }
+            img {
+              width: 100vw;
+              pointer-events: none;
+              scroll-snap-align: start;
+            }
           }
         }
         .footer {
           padding: 0 16px;
           .tools {
+            position: relative;
             justify-content: space-between;
             .tool {
               * {
@@ -155,6 +184,7 @@
           .like-bar {
             height: 18px;
             font-size: 15px;
+            font-weight: 600;
             line-height: 18px;
             color: var(--text-color);
           }
@@ -164,9 +194,18 @@
               font-size: 15px;
               line-height: 18px;
               white-space: pre-line;
+              color: var(--text-color);
             }
-            span {
+            span.user-id {
               font-weight: 600;
+            }
+            a {
+              text-decoration: none;
+              color: var(--hashtag);
+            }
+            .hashtag {
+              color: var(--hashtag);
+              
             }
           }
           .date {

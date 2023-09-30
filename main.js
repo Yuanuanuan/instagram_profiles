@@ -33,67 +33,41 @@ const loveBtn = document.querySelectorAll('.love')
 
 loveBtn.forEach((btn) => {
   btn.addEventListener('click', (e) => {
-    console.log(e.target);
     if (e.target.classList.contains('love')) {
       e.target.classList.toggle('active');
     }
   })
 })
 
-const imageContainer = document.querySelector('.continue-design-post');
+const container = document.querySelector('.continue-design-post');
 const images = document.querySelectorAll('.continue-design-post img');
+const dotsContainer = document.querySelector('.dots');
 let currentIndex = 0;
-let startX = null;
-let currentX = null;
-let isDragging = false;
-let animationFrameId;
 
-imageContainer.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-  currentX = startX;
-  isDragging = true;
-  cancelAnimationFrame(animationFrameId);
-});
+// 初始化藍點
+for (let i = 0; i < images.length; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    dotsContainer.appendChild(dot);
+}
 
-imageContainer.addEventListener('touchmove', (e) => {
-  if (isDragging) {
-    currentX = e.touches[0].clientX;
+// 初始化圖片和藍點
+container.scrollLeft = 0;
+dotsContainer.querySelector('.dot').classList.add('active');
 
-    // 移动图片
-    const diffX = currentX - startX;
-    images[currentIndex].style.transform = `translateX(${diffX}px)`;
+// 更新藍點狀態
+function updateDots() {
+    const dots = dotsContainer.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
 
-    // 移动下一张图片（右边）
-    const nextIndex = (currentIndex + 1) % images.length;
-    const nextImageOffset = diffX + imageContainer.clientWidth;
-    
-    images[nextIndex].style.transform = `translateX(${nextImageOffset}px)`;
-  }
-});
-
-imageContainer.addEventListener('touchend', () => {
-  if (isDragging) {
-    isDragging = false;
-    const diffX = currentX - startX;
-
-    // 如果移动距离超过容器宽度的一半，切换到下一张图片
-    if (Math.abs(diffX) > imageContainer.clientWidth / 2) {
-      currentIndex = (diffX > 0) ? (currentIndex - 1 + images.length) % images.length : (currentIndex + 1) % images.length;
-    }
-
-    // 动画过渡到新的索引位置
-    const targetX = -currentIndex * imageContainer.clientWidth;
-    const easing = 0.2; // 缓动效果
-    function animate() {
-      const currentTranslateX = parseFloat(images[currentIndex].style.transform.split('(')[1]);
-      const deltaX = (targetX - currentTranslateX) * easing;
-      images.forEach((image, index) => {
-        image.style.transform = `translateX(${currentTranslateX + deltaX}px)`;
-      });
-      if (Math.abs(deltaX) > 0.5) {
-        animationFrameId = requestAnimationFrame(animate);
-      }
-    }
-    animate();
-  }
+container.addEventListener('scroll', () => {
+    currentIndex = Math.round(container.scrollLeft / window.innerWidth);
+    updateDots();
 });
