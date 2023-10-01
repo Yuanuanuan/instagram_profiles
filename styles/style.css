@@ -8,6 +8,8 @@ body.light-mode {
   --text-color: rgba(0, 0, 0);
   --bg-color: #fff;
   --hr-color: #dbdbdb;
+  --detial: #737373;
+  --hashtag: #00376B;
 }
 
 body.dark-mode {
@@ -20,19 +22,85 @@ body.dark-mode {
 
 body {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   position: relative;
   background-color: var(--bg-color);
-  --detial: #737373;
-  --hashtag: #00376B;
 }
 
 .loading {
   width: 100vw;
   height: 100vh;
+  font-size: 4rem;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 3px;
+  position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+.loading .loading-text {
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 10vh;
+}
+.loading .loading-icon .squares {
+  width: 100%;
+}
+.loading .loading-icon .squares .square {
+  width: 8px;
+  height: 8px;
+  margin: 5vh 4px 0;
+}
+.loading .loading-icon .squares .square:nth-child(1) {
+  background-color: #feda77;
+}
+.loading .loading-icon .squares .square:nth-child(2) {
+  background-color: #f58529;
+}
+.loading .loading-icon .squares .square:nth-child(3) {
+  background-color: #dd2a7b;
+}
+.loading .loading-icon .squares .square:nth-child(4) {
+  background-color: #8134af;
+}
+.loading .loading-icon .squares .square:nth-child(5) {
+  background-color: #515bd4;
+}
+.loading .instagram-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loading .instagram-logo img {
+  width: 80px;
+  height: 80px;
+}
+.loading .loading-footer {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  position: absolute;
+  bottom: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.loading .loading-footer h3 {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #888;
+}
+.loading .loading-footer div img {
+  width: 24px;
+  margin-right: 4px;
+}
+.loading .loading-footer div h1 {
+  font-size: 1rem;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  background: linear-gradient(to right, #fd1d1d 0%, #e1306c 60%, #c13584 90%, #833ab4 95%, #5851d8 97%, #405de6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .flex {

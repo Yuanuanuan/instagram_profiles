@@ -46,6 +46,11 @@ window.onload = () => {
   loading.style.display = 'none';
   loadingSuccess.style.display = '1';
 
+  // setTimeout(() => {
+  //   loading.style.display = 'none';
+  //   loadingSuccess.style.display = '1';
+  // }, 2000)
+
   // 初始化圖片和藍點
   container.scrollLeft = 0;
   dotsContainer.querySelector('.dot').classList.add('active');
