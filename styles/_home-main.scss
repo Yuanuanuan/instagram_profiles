@@ -188,11 +188,18 @@
           }
           .content {
             font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             text-overflow: ellipsis;
-            overflow: hidden;
+            // &.limited {
+            //   display: -webkit-box;
+            //   -webkit-line-clamp: 2;
+            //   -webkit-box-orient: vertical;
+            //   text-overflow: ellipsis;
+            // }
             p {
               font-size: 15px;
               line-height: 18px;

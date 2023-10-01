@@ -45,56 +45,58 @@ loveBtn.forEach((btn) => {
 window.onload = () => {
   loading.style.display = 'none';
   loadingSuccess.style.display = '1';
-  // 當文章超過兩行時才顯示更多按紐
-  const footer = document.querySelectorAll('.footer');
-
-  footer.forEach((article) => {
-    const content = article.querySelector('.content');
-    const moreBtn = article.querySelector('.more-btn');
-
-    if (content.clientHeight >= 36) {
-      moreBtn.style.display = 'block';
-
-      moreBtn.addEventListener('click', () => {
-        content.style.display = 'block';
-        moreBtn.style.display = 'none';
-      });
-    } else {
-      moreBtn.style.display = 'none'; 
-    }
-  })
-
-  // make images carousel (.continue-design-post)
-  const container = document.querySelector('.continue-design-post');
-  const images = document.querySelectorAll('.continue-design-post img');
-  const dotsContainer = document.querySelector('.dots');
-  let currentIndex = 0;
-
-  // 初始化藍點
-  for (let i = 0; i < images.length; i++) {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      dotsContainer.appendChild(dot);
-  }
 
   // 初始化圖片和藍點
   container.scrollLeft = 0;
   dotsContainer.querySelector('.dot').classList.add('active');
-
-  // 更新藍點狀態
-  function updateDots() {
-      const dots = dotsContainer.querySelectorAll('.dot');
-      dots.forEach((dot, index) => {
-          if (index === currentIndex) {
-              dot.classList.add('active');
-          } else {
-              dot.classList.remove('active');
-          }
-      });
-  }
-
-  container.addEventListener('scroll', () => {
-      currentIndex = Math.round(container.scrollLeft / window.innerWidth);
-      updateDots();
-  });
 }
+
+// 當文章超過兩行時才顯示更多按紐
+const footer = document.querySelectorAll('.footer');
+
+footer.forEach((article) => {
+  const content = article.querySelector('.content');
+  const moreBtn = article.querySelector('.more-btn');
+  
+  if (content.clientHeight > 30) {
+    moreBtn.style.display = 'block';
+    
+    moreBtn.addEventListener('click', () => {
+      content.style.webkitLineClamp = 'initial'; // 移除行数限制
+      moreBtn.style.display = 'none';
+    });
+  } else {
+    moreBtn.style.display = 'none';
+  }
+});
+
+
+// make images carousel (.continue-design-post)
+const container = document.querySelector('.continue-design-post');
+const images = document.querySelectorAll('.continue-design-post img');
+const dotsContainer = document.querySelector('.dots');
+let currentIndex = 0;
+
+// 初始化藍點
+for (let i = 0; i < images.length; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    dotsContainer.appendChild(dot);
+}
+
+// 更新藍點狀態
+function updateDots() {
+    const dots = dotsContainer.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+container.addEventListener('scroll', () => {
+    currentIndex = Math.round(container.scrollLeft / window.innerWidth);
+    updateDots();
+});
