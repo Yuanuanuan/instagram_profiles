@@ -33,7 +33,9 @@ body {
   font-size: 4rem;
   font-family: "Playfair Display", serif;
   letter-spacing: 3px;
+  background-color: #fff;
   position: relative;
+  z-index: 10000;
   display: flex;
   flex-direction: column;
   align-items: center;
