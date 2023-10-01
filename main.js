@@ -1,27 +1,29 @@
 const limitItems = document.querySelector('.limit-news-container');
-const toggleIcon = document.querySelector('.toggle-icon');
+const toggleIcon = document.querySelectorAll('.toggle-icon');
 
 const loading = document.querySelector('.loading');
 const loadingSuccess = document.querySelector('.loading-success');
 
 // make a moon-sun toggle function 
-toggleIcon.addEventListener('click', (e) => {
-  const moonIcon = document.querySelector('.moon-icon');
-  const sunIcon = document.querySelector('.sun-icon');
-  const body = document.body;
-  if (!e.target.classList.contains('toggle-icon')) return;
-
-  if (body.classList.contains('light-mode')) {
-    moonIcon.style.display = 'none';
-    sunIcon.style.display = 'block';
-    body.classList.add('dark-mode');
-    body.classList.remove('light-mode');
-  } else {
-    moonIcon.style.display = 'block';
-    sunIcon.style.display = 'none';
-    body.classList.remove('dark-mode');
-    body.classList.add('light-mode');
-  }
+toggleIcon.forEach((item) => {
+  item.addEventListener('click', (e) => {
+    const moonIcon = item.querySelector('.moon-icon');
+    const sunIcon = item.querySelector('.sun-icon');
+    const body = document.body;
+    if (!e.target.classList.contains('toggle-icon')) return;
+  
+    if (body.classList.contains('light-mode')) {
+      moonIcon.style.display = 'none';
+      sunIcon.style.display = 'block';
+      body.classList.add('dark-mode');
+      body.classList.remove('light-mode');
+    } else {
+      moonIcon.style.display = 'block';
+      sunIcon.style.display = 'none';
+      body.classList.remove('dark-mode');
+      body.classList.add('light-mode');
+    }
+  })
 })
 
 // make a view user info function on limit news
@@ -71,7 +73,7 @@ footer.forEach((article) => {
 });
 
 
-// make images carousel (.continue-design-post)
+// 製作照片換頁功能 (.continue-design-post)
 const container = document.querySelector('.continue-design-post');
 const images = document.querySelectorAll('.continue-design-post img');
 const dotsContainer = document.querySelector('.dots');
@@ -101,8 +103,11 @@ container.addEventListener('scroll', () => {
     updateDots();
 });
 
+// 切換頁面功能
 const mains = document.querySelectorAll('.main');
 const homeMain = document.getElementById('home-main');
+const searchMain = document.getElementById('search-main');
+const messageMain = document.getElementById('message-main');
 const userMain = document.getElementById('user-main');
 
 const nav = document.querySelector('nav');
@@ -121,12 +126,28 @@ nav.addEventListener('click', (e) => {
       })
       homeMain.style.display = 'block';
     }
+
+    if (e.target.classList.contains('search-icon')) {
+      mains.forEach((item) => {
+        item.style.display = 'none';
+      })
+      searchMain.style.display = 'block';
+    }
+
+    if (e.target.classList.contains('message-icon')) {
+      mains.forEach((item) => {
+        item.style.display = 'none';
+      })
+      messageMain.style.display = 'block';
+    }
+
     if (e.target.classList.contains('user-icon')) {
       mains.forEach((item) => {
         item.style.display = 'none';
       })
       userMain.style.display = 'block';
     }
+
     if (e.target.classList.contains('add-post-icon')) {
       modal.style.transform = 'scale(1, 1)';
       modal.style.opacity = '1';
@@ -136,7 +157,6 @@ nav.addEventListener('click', (e) => {
     }
 
     e.target.classList.add('active');
-    console.log(e.target)
   }
 })
 
