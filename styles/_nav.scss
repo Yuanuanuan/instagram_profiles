@@ -1,9 +1,11 @@
 nav {
   width: 100vw;
   height: 48px;
-  position: absolute;
+  background-color: var(--bg-color);
+  position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 1000;
   ul {
     width: inherit;
     height: inherit;
@@ -16,6 +18,25 @@ nav {
       svg {
         color: var(--text-color);
         fill: var(--text-color);
+        path {
+          pointer-events: none;
+        }
+      }
+      .home-icon.active path {
+        stroke: url(#Gradient);
+        fill: url(#Gradient);
+      }
+      .search-icon.active path, .search-icon.active line {
+        stroke: url(#Gradient);
+      }
+      .message-icon.active {
+        fill: url(#Gradient);
+        path {
+          stroke: url(#Gradient);
+        }
+      }
+      .user-icon.active {
+        fill: url(#Gradient);
       }
     }
   }

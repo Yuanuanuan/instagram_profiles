@@ -46,11 +46,6 @@ window.onload = () => {
   loading.style.display = 'none';
   loadingSuccess.style.display = '1';
 
-  // setTimeout(() => {
-  //   loading.style.display = 'none';
-  //   loadingSuccess.style.display = '1';
-  // }, 2000)
-
   // 初始化圖片和藍點
   container.scrollLeft = 0;
   dotsContainer.querySelector('.dot').classList.add('active');
@@ -105,3 +100,43 @@ container.addEventListener('scroll', () => {
     currentIndex = Math.round(container.scrollLeft / window.innerWidth);
     updateDots();
 });
+
+const mains = document.querySelectorAll('.main');
+const homeMain = document.getElementById('home-main');
+const userMain = document.getElementById('user-main');
+
+const nav = document.querySelector('nav');
+const modal = document.querySelector('.modal')
+
+nav.addEventListener('click', (e) => {
+  if (e.target instanceof SVGElement) {
+    const items = nav.querySelectorAll('svg');
+    items.forEach((item) => {
+      item.classList.remove('active');
+    })
+
+    if (e.target.classList.contains('home-icon')) {
+      mains.forEach((item) => {
+        item.style.display = 'none';
+      })
+      homeMain.style.display = 'block';
+    }
+    if (e.target.classList.contains('user-icon')) {
+      mains.forEach((item) => {
+        item.style.display = 'none';
+      })
+      userMain.style.display = 'block';
+    }
+    if (e.target.classList.contains('add-post-icon')) {
+      modal.style.transform = 'scale(1, 1)';
+      modal.style.opacity = '1';
+    } else {
+      modal.style.transform = 'scale(0, 0)';
+      modal.style.opacity = '0';
+    }
+
+    e.target.classList.add('active');
+    console.log(e.target)
+  }
+})
+

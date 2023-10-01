@@ -22,7 +22,7 @@ body.dark-mode {
 
 body {
   width: 100vw;
-  height: 100dvh;
+  height: 100vh;
   position: relative;
   background-color: var(--bg-color);
 }
@@ -103,6 +103,45 @@ body {
   color: transparent;
 }
 
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background: center/cover url("../images/coding.jfif");
+  position: fixed;
+  z-index: 999;
+  transform: scale(0, 0);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.modal::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(51, 51, 51, 0.5019607843);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+.modal div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  color: #ccc;
+  font-size: 1.3rem;
+  font-family: "Poppins", sans-serif;
+}
+
+#all-main {
+  height: calc(100dvh - 48px);
+  display: flex;
+  overflow-x: hidden;
+}
+
 .flex {
   display: flex;
   justify-content: center;
@@ -140,9 +179,11 @@ header .header-wrapper .toggle-icon .sun-icon {
 nav {
   width: 100vw;
   height: 48px;
-  position: absolute;
+  background-color: var(--bg-color);
+  position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 1000;
 }
 nav ul {
   width: inherit;
@@ -156,7 +197,30 @@ nav ul li svg {
   color: var(--text-color);
   fill: var(--text-color);
 }
+nav ul li svg path {
+  pointer-events: none;
+}
+nav ul li .home-icon.active path {
+  stroke: url(#Gradient);
+  fill: url(#Gradient);
+}
+nav ul li .search-icon.active path, nav ul li .search-icon.active line {
+  stroke: url(#Gradient);
+}
+nav ul li .message-icon.active {
+  fill: url(#Gradient);
+}
+nav ul li .message-icon.active path {
+  stroke: url(#Gradient);
+}
+nav ul li .user-icon.active {
+  fill: url(#Gradient);
+}
 
+.home-main {
+  width: 100vw;
+  height: 100%;
+}
 .home-main .main-container {
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
 }
@@ -228,6 +292,7 @@ nav ul li svg {
   max-height: calc(100vh - 208px);
   background-color: var(--bg-color);
   overflow-y: scroll;
+  padding-bottom: 48px;
 }
 .home-main .main-container .post-container::-webkit-scrollbar {
   display: none;
