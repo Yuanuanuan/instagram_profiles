@@ -7,19 +7,27 @@ const loadingSuccess = document.querySelector('.loading-success');
 // make a moon-sun toggle function 
 toggleIcon.forEach((item) => {
   item.addEventListener('click', (e) => {
-    const moonIcon = item.querySelector('.moon-icon');
-    const sunIcon = item.querySelector('.sun-icon');
+    const moonIcon = document.querySelectorAll('.moon-icon');
+    const sunIcon = document.querySelectorAll('.sun-icon');
     const body = document.body;
     if (!e.target.classList.contains('toggle-icon')) return;
   
     if (body.classList.contains('light-mode')) {
-      moonIcon.style.display = 'none';
-      sunIcon.style.display = 'block';
+      moonIcon.forEach((item) => {
+        item.style.display = 'none';
+      })
+      sunIcon.forEach((item) => {
+        item.style.display = 'block';
+      })
       body.classList.add('dark-mode');
       body.classList.remove('light-mode');
     } else {
-      moonIcon.style.display = 'block';
-      sunIcon.style.display = 'none';
+      moonIcon.forEach((item) => {
+        item.style.display = 'block';
+      })
+      sunIcon.forEach((item) => {
+        item.style.display = 'none';
+      })
       body.classList.remove('dark-mode');
       body.classList.add('light-mode');
     }
@@ -72,7 +80,6 @@ footer.forEach((article) => {
   }
 });
 
-
 // 製作照片換頁功能 (.continue-design-post)
 const container = document.querySelector('.continue-design-post');
 const images = document.querySelectorAll('.continue-design-post img');
@@ -122,30 +129,30 @@ nav.addEventListener('click', (e) => {
 
     if (e.target.classList.contains('home-icon')) {
       mains.forEach((item) => {
-        item.style.display = 'none';
+        item.style.transform = 'scale(0, 1)';
       })
-      homeMain.style.display = 'block';
+      homeMain.style.transform = 'scale(1, 1)';
     }
 
     if (e.target.classList.contains('search-icon')) {
       mains.forEach((item) => {
-        item.style.display = 'none';
+        item.style.transform = 'scale(0, 1)';
       })
-      searchMain.style.display = 'block';
+      searchMain.style.transform = 'scale(1, 1)';
     }
 
     if (e.target.classList.contains('message-icon')) {
       mains.forEach((item) => {
-        item.style.display = 'none';
+        item.style.transform = 'scale(0, 1)';
       })
-      messageMain.style.display = 'block';
+      messageMain.style.transform = 'scale(1, 1)';
     }
 
     if (e.target.classList.contains('user-icon')) {
       mains.forEach((item) => {
-        item.style.display = 'none';
+        item.style.transform = 'scale(0, 1)';
       })
-      userMain.style.display = 'block';
+      userMain.style.transform = 'scale(1, 1)';
     }
 
     if (e.target.classList.contains('add-post-icon')) {
