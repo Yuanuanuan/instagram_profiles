@@ -87,6 +87,16 @@
     <section class="modal">
       <div class="flex">To be developed...</div>
     </section>
+
+    <section class="loading-modal">
+      <div class="squares flex">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+    </section>
     <!-- home-main -->
     <main id="all-main">
       <section class="home-main main" id="home-main">
@@ -1605,7 +1615,21 @@
       </section>
 
       <section class="search-main main" id="search-main">
+        <header>
+          <div class="search-bar">
+            <div class="search-bar-box flex">
+              <div class="search-icon flex">
+                <svg color="rgb(142, 142, 142)" fill="rgb(142, 142, 142)" height="16" role="img" viewBox="0 0 24 24" width="16">
+                  <path d="M19 10.5A8.5 8.5 0 1 1 10.5 2a8.5 8.5 0 0 1 8.5 8.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line>
+                </svg>
+              </div>
+              <input type="text" placeholder="搜尋">
+            </div>
+          </div>
+        </header>
+        <section class="search-result">
 
+        </section>
       </section>
 
       <section class="add-post-main main" id="add-post-main">
@@ -1613,7 +1637,29 @@
       </section>
 
       <section class="message-main main" id="message-main">
-
+        <header>
+          <div class="header-wrapper">
+            <div class="title">Contact Me</div>
+            <div class="toggle-icon">
+              <svg width="24px" height="24px" class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0">
+                </g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier"> 
+                  <path d="M3.32031 11.6835C3.32031 16.6541 7.34975 20.6835 12.3203 20.6835C16.1075 20.6835 19.3483 18.3443 20.6768 15.032C19.6402 15.4486 18.5059 15.6834 17.3203 15.6834C12.3497 15.6834 8.32031 11.654 8.32031 6.68342C8.32031 5.50338 8.55165 4.36259 8.96453 3.32996C5.65605 4.66028 3.32031 7.89912 3.32031 11.6835Z" stroke="rgba(0, 0, 0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  </path>
+                </g>
+              </svg>
+              <svg width="24px" height="24px" class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5001M17.6859 17.69L18.5 18.5001M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="rgba(245, 245, 245)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </header>
       </section>
   
       <section class="user-main main" id="user-main">

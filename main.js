@@ -108,6 +108,7 @@ nav.addEventListener('click', (e) => {
         item.style.transform = 'scale(0, 1)';
       })
       searchMain.style.transform = 'scale(1, 1)';
+      fetchData({ page: 1});
     }
 
     if (e.target.classList.contains('message-icon')) {
@@ -195,3 +196,43 @@ menuBox.addEventListener('click', (e) =>{
     e.target.parentElement.style.borderBottom = '1px solid var(--text-color)';
   }
 })
+
+// fetch data
+const fetchData = ({ page }) => {
+  const auth = "qxWbhXu3WCyLDTgXfBDPFPHHPHXxdKqnvn6E5MiGTKTyFLrMKH5lTPcf";
+  const initialURL = `https://api.pexels.com/v1/curated?page=${page}&per_page=30`;
+  const loadingModal = document.querySelector('.loading-modal');
+
+  loadingModal.style.display = 'block';
+  fetch(initialURL, { headers: { Authorization: auth }})
+    .then (res => {
+      return res.json();
+    })
+    .then (data => {
+      console.log(data.photos);
+      data.photos.forEach((photo) => {
+        const image = `
+        <div class="result-image">
+          <img src=${photo.src.medium} alt="images">
+        </div>
+        `;
+
+        document.querySelector('.search-result').insertAdjacentHTML('beforeend', image);
+      })
+    })
+    .then(() => {
+      loadingModal.style.display = 'none'
+    })
+}
+
+// 當滑到最底就抓取新資料
+const searchBar = document.querySelector('.search-result');
+const loadingModal = document.querySelector('.loading-modal');
+let pages = 2;
+
+searchBar.addEventListener('scroll', (e) =>{
+  if (searchBar.scrollHeight - searchBar.scrollTop === searchBar.clientHeight) {
+    fetchData({ page: pages })
+    pages ++;
+  }
+});
