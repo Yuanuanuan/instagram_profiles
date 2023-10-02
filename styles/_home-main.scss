@@ -4,7 +4,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  transform: scale(0, 1);
+  transform: scale(1, 1);
   .main-container {
     font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
     .limit-news-container {
@@ -201,6 +201,7 @@
             -webkit-box-orient: vertical;
             text-overflow: ellipsis;
             p {
+              width: 100%;
               font-size: 15px;
               line-height: 18px;
               white-space: pre-line;

@@ -226,7 +226,7 @@ nav ul li .user-icon.active {
   position: absolute;
   top: 0;
   left: 0;
-  transform: scale(0, 1);
+  transform: scale(1, 1);
 }
 .home-main .main-container {
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
@@ -423,6 +423,7 @@ nav ul li .user-icon.active {
   text-overflow: ellipsis;
 }
 .home-main .main-container .post-container .post .footer .content p {
+  width: 100%;
   font-size: 15px;
   line-height: 18px;
   white-space: pre-line;
@@ -455,6 +456,7 @@ nav ul li .user-icon.active {
   position: absolute;
   top: 0;
   left: 0;
+  transform: scale(0, 1);
 }
 .user-main header .user-id {
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;

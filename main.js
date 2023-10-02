@@ -46,8 +46,16 @@ const loveBtn = document.querySelectorAll('.love')
 
 loveBtn.forEach((btn) => {
   btn.addEventListener('click', (e) => {
+    const numBar = e.target.parentElement.parentElement.parentElement.querySelector('.like-bar > div > span')
+    
     if (e.target.classList.contains('love')) {
       e.target.classList.toggle('active');
+    }
+
+    if (e.target.classList.contains('active')) {
+      numBar.innerText = Number(numBar.innerText) + 1;
+    } else {
+      numBar.innerText = Number(numBar.innerText) - 1;
     }
   })
 })
@@ -140,7 +148,7 @@ window.onload = () => {
     const images = container.querySelectorAll('img');
     const dotsContainer = post.querySelector('.dots');
     let currentIndex = 0;
-    
+
     // 初始化藍點
     for (let i = 1; i <= images.length; i++) {
       if (images.length === 1) return
