@@ -87,16 +87,6 @@
     <section class="modal">
       <div class="flex">To be developed...</div>
     </section>
-
-    <section class="loading-modal">
-      <div class="squares flex">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-      </div>
-    </section>
     <!-- home-main -->
     <main id="all-main">
       <section class="home-main main" id="home-main">
@@ -1623,12 +1613,21 @@
                   <path d="M19 10.5A8.5 8.5 0 1 1 10.5 2a8.5 8.5 0 0 1 8.5 8.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line>
                 </svg>
               </div>
-              <input type="text" placeholder="搜尋">
+              <input class="search-input" type="text" placeholder="搜尋">
             </div>
           </div>
         </header>
-        <section class="search-result">
-
+        <section class="search-result-wrapper">
+          <div class="search-result"></div>
+          <section class="loading-modal">
+            <div class="squares flex">
+              <div class="square"></div>
+              <div class="square"></div>
+              <div class="square"></div>
+              <div class="square"></div>
+              <div class="square"></div>
+            </div>
+          </section>
         </section>
       </section>
 
