@@ -92,6 +92,7 @@
   .skills {
     width: 100%;
     overflow-x: scroll;
+    margin-bottom: 21px;
 
     display: grid;
     grid-auto-flow: column;
@@ -117,6 +118,23 @@
       }
       .skill-name {
         font-size: 14px;
+        color: var(--text-color);
+      }
+    }
+  }
+  .menu-bar {
+    height: 45px;
+    .menu-bar-box {
+      height: 100%;
+      div {
+        height: 100%;
+        flex: 1;
+        svg * {
+          pointer-events: none;
+        }
+        svg.active {
+          color: var(--text-color)
+        }
       }
     }
   }

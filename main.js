@@ -180,3 +180,18 @@ window.onload = () => {
 
   })
 }
+
+// user page 的選項按鈕切換
+const menuBox = document.querySelector('.menu-bar-box');
+
+menuBox.addEventListener('click', (e) =>{
+  if (e.target instanceof SVGElement) {
+    const items = menuBox.querySelectorAll('svg');
+    items.forEach((item) => {
+      item.classList.remove('active');
+      item.parentElement.style.borderBottom = 'none';
+    })
+    e.target.classList.add('active');
+    e.target.parentElement.style.borderBottom = '1px solid var(--text-color)';
+  }
+})

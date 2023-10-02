@@ -542,6 +542,7 @@ nav ul li .user-icon.active {
 .user-main .skills {
   width: 100%;
   overflow-x: scroll;
+  margin-bottom: 21px;
   display: grid;
   grid-auto-flow: column;
   grid-gap: 10px;
@@ -568,4 +569,21 @@ nav ul li .user-icon.active {
 }
 .user-main .skills .skill .skill-name {
   font-size: 14px;
+  color: var(--text-color);
+}
+.user-main .menu-bar {
+  height: 45px;
+}
+.user-main .menu-bar .menu-bar-box {
+  height: 100%;
+}
+.user-main .menu-bar .menu-bar-box div {
+  height: 100%;
+  flex: 1;
+}
+.user-main .menu-bar .menu-bar-box div svg * {
+  pointer-events: none;
+}
+.user-main .menu-bar .menu-bar-box div svg.active {
+  color: var(--text-color);
 }/*# sourceMappingURL=style.css.map */
