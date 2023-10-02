@@ -52,15 +52,6 @@ loveBtn.forEach((btn) => {
   })
 })
 
-window.onload = () => {
-  loading.style.display = 'none';
-  loadingSuccess.style.display = '1';
-
-  // 初始化圖片和藍點
-  container.scrollLeft = 0;
-  dotsContainer.querySelector('.dot').classList.add('active');
-}
-
 // 當文章超過兩行時才顯示更多按紐
 const footer = document.querySelectorAll('.footer');
 
@@ -78,36 +69,6 @@ footer.forEach((article) => {
   } else {
     moreBtn.style.display = 'none';
   }
-});
-
-// 製作照片換頁功能 (.continue-design-post)
-const container = document.querySelector('.continue-design-post');
-const images = document.querySelectorAll('.continue-design-post img');
-const dotsContainer = document.querySelector('.dots');
-let currentIndex = 0;
-
-// 初始化藍點
-for (let i = 0; i < images.length; i++) {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    dotsContainer.appendChild(dot);
-}
-
-// 更新藍點狀態
-function updateDots() {
-    const dots = dotsContainer.querySelectorAll('.dot');
-    dots.forEach((dot, index) => {
-        if (index === currentIndex) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
-}
-
-container.addEventListener('scroll', () => {
-    currentIndex = Math.round(container.scrollLeft / window.innerWidth);
-    updateDots();
 });
 
 // 切換頁面功能
@@ -167,3 +128,47 @@ nav.addEventListener('click', (e) => {
   }
 })
 
+window.onload = () => {
+  loading.style.display = 'none';
+  loadingSuccess.style.display = '1';
+
+  // 製作照片換頁功能 (.continue-design-post)
+  const contentImages = document.querySelectorAll('.content-image');
+
+  contentImages.forEach((post) => {
+    const container = post.querySelector('.post-images');
+    const images = container.querySelectorAll('img');
+    const dotsContainer = post.querySelector('.dots');
+    let currentIndex = 0;
+    
+    // 初始化藍點
+    for (let i = 1; i <= images.length; i++) {
+      if (images.length === 1) return
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      dotsContainer.appendChild(dot);
+    }
+
+    // 更新藍點狀態
+    function updateDots() {
+      const dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach((dot, index) => {
+          if (index === currentIndex) {
+              dot.classList.add('active');
+          } else {
+              dot.classList.remove('active');
+          }
+      });
+    }
+
+    container.addEventListener('scroll', () => {
+      currentIndex = Math.round(container.scrollLeft / window.innerWidth);
+      updateDots();
+    });
+
+    // 初始化圖片和藍點
+    container.scrollLeft = 0;
+    dotsContainer.querySelector('.dot').classList.add('active');
+
+  })
+}

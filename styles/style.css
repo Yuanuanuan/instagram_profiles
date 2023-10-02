@@ -357,16 +357,16 @@ nav ul li .user-icon.active {
 .home-main .main-container .post-container .post .content-image .dots .dot.active {
   background-color: #007bff;
 }
-.home-main .main-container .post-container .post .content-image .images {
+.home-main .main-container .post-container .post .content-image .post-images {
   display: flex;
   width: 100vw;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
 }
-.home-main .main-container .post-container .post .content-image .images::-webkit-scrollbar {
+.home-main .main-container .post-container .post .content-image .post-images::-webkit-scrollbar {
   display: none;
 }
-.home-main .main-container .post-container .post .content-image .images img {
+.home-main .main-container .post-container .post .content-image .post-images img {
   width: 100vw;
   scroll-snap-align: start;
 }
