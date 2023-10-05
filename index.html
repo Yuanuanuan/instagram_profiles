@@ -1660,25 +1660,29 @@
           </div>
         </header>
         <div class="message-content">
+          <div class="message-content-title">
+            Send Me A Message.
+          </div>
           <form>
-            <div class="name-bar">
+            <div class="input-box">
               <input type="text" class="name-input" id="name" required>
               <label for="name" class="name-label">Name</label>
             </div>
-            <div class="email-bar">
+            <div class="input-box">
               <input type="email" class="email-input" id="email" required>
               <label for="email" class="email-label">Email</label>
             </div>
-            <div class="subject-bar">
+            <div class="input-box">
               <input type="text" class="subject-input" id="subject" required>
               <label for="subject" class="subject-label">Subject</label>
             </div>
-            <div class="message-bar">
+            <div class="input-box message-area">
               <textarea name="user-message" id="message" cols="30" rows="10" class="message-text" required></textarea>
               <label for="message" class="message-label">Message</label>
             </div>
 
             <button type="submit" class="form-btn">
+              Send Message
               <svg viewBox="0 0 24 24" fill="none">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1687,11 +1691,10 @@
                   </path>
                 </g>
               </svg>
-              Send Message
             </button>
           </form>
         </div>
-        <div class="envelope-wrapper">
+        <!-- <div class="envelope-wrapper">
           <div class="envelope">
             <img src="./images/seal.png" alt="">
             <div class="top"></div>
@@ -1700,7 +1703,7 @@
             <div class="bottom"></div>
             <div class="ps">Send Email To Me</div>
           </div>
-        </div>
+        </div> -->
       </section>
   
       <section class="user-main main" id="user-main">

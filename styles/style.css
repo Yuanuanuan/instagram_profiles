@@ -11,6 +11,8 @@ body.light-mode {
   --detial: #737373;
   --hashtag: #00376B;
   --search-color: #efefef;
+  --form-color: #ededed;
+  --input-foucs: #4f4f4f;
 }
 
 body.dark-mode {
@@ -20,6 +22,8 @@ body.dark-mode {
   --detial: #a8a8a8;
   --hashtag: #e0f1ff;
   --search-color: #262626;
+  --form-color: #3d3d3d;
+  --input-foucs: #f5f6f7;
 }
 
 body {
@@ -459,6 +463,7 @@ nav ul li .user-icon.active {
   position: absolute;
   top: 0;
   left: 0;
+  transform: scale(0, 1);
 }
 .user-main header .user-id {
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
@@ -691,8 +696,7 @@ nav ul li .user-icon.active {
   position: absolute;
   top: 0;
   left: 0;
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-  transform: scale(0, 1);
+  font-family: "Poppins", sans-serif;
 }
 .message-main header .title {
   font-weight: 600;
@@ -703,42 +707,104 @@ nav ul li .user-icon.active {
   width: 90%;
   margin: 0 auto;
   padding: 16px;
-  background-color: #c9c9c9;
+}
+.message-main .message-content .message-content-title {
+  width: 100%;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 500;
+  padding: 0 0 16px 0;
+  color: var(--text-color);
 }
 .message-main .message-content form {
   display: grid;
-  row-gap: 1rem;
+  row-gap: 1.15rem;
+}
+.message-main .message-content .input-box {
+  position: relative;
+  width: 100%;
 }
 .message-main .message-content input {
-  height: 52px;
   width: 100%;
+  height: 52px;
+  padding: 0 16px;
   background-color: transparent;
-  border: 1px solid var(--search-color);
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  border: 2px solid #919191;
+  color: var(--text-color);
+}
+.message-main .message-content input:focus {
+  border: 3px solid var(--input-foucs);
+}
+.message-main .message-content input:focus::-moz-placeholder {
+  opacity: 0;
+}
+.message-main .message-content input:focus::placeholder {
+  opacity: 0;
+}
+.message-main .message-content input:-webkit-autofill {
+  -webkit-transition: background-color 6000s, color 6000s;
+  transition: background-color 6000s, color 6000s;
 }
 .message-main .message-content label {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 12px;
+  left: 10px;
+  color: #919191;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  padding: 0 6px;
+  pointer-events: none;
+  transition: top 0.4s;
 }
-.message-main .message-content .name-bar, .message-main .message-content .email-bar, .message-main .message-content .subject-bar {
+.message-main .message-content input:focus + label {
+  top: -12px;
+}
+.message-main .message-content .message-area {
   position: relative;
 }
-.message-main .message-content .message-bar {
-  position: relative;
+.message-main .message-content .message-area textarea {
+  width: 100%;
+  height: 20vh;
+  padding: 0 16px;
+  background-color: transparent;
+  font-size: 16px;
+  border: 2px solid #919191;
+  outline: none;
+  resize: none;
+  padding-top: 1rem;
 }
-.message-main .message-content .message-bar textarea {
-  background-color: var(--search-color);
-  border: none;
+.message-main .message-content .message-area textarea:focus {
+  border: 3px solid var(--input-foucs);
+}
+.message-main .message-content .message-area textarea:focus + label {
+  top: -12px;
 }
 .message-main .message-content .form-btn {
-  width: 100%;
+  width: 80%;
+  height: 56px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  background-color: #B58658;
+  color: var(--bg-color);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .message-main .message-content .form-btn svg {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
 }
 .message-main .message-content .form-btn svg path {
-  stroke: var(--text-color);
+  stroke: var(--bg-color);
 }
 .message-main .envelope {
   width: 300px;
