@@ -142,6 +142,11 @@ nav.addEventListener('click', (e) => {
   }
 })
 
+modal.addEventListener('click', () => {
+  modal.style.transform = 'scale(0, 0)';
+  modal.style.opacity = '0';
+})
+
 window.onload = () => {
   loading.style.display = 'none';
   loadingSuccess.style.display = '1';
