@@ -66,9 +66,15 @@ const footer = document.querySelectorAll('.footer');
 footer.forEach((article) => {
   const content = article.querySelector('.content');
   const moreBtn = article.querySelector('.more-btn');
+  const paragraph = article.querySelector('p');
   
   if (content.clientHeight > 30) {
     moreBtn.style.display = 'block';
+
+    paragraph.addEventListener('click', () =>{
+      content.style.webkitLineClamp = 'initial'; // 移除行数限制
+      moreBtn.style.display = 'none';
+    });
     
     moreBtn.addEventListener('click', () => {
       content.style.webkitLineClamp = 'initial'; // 移除行数限制
