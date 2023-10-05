@@ -292,15 +292,10 @@ searchBar.addEventListener('scroll', (e) =>{
 
 // const envelopeAnimation = gsap.timeline({ paused: true });
 
-// envelopeAnimation
-//   .to('.message-content', {y: -100})
-//   .to('.message-content', {y: 100})
-
 // envelope.addEventListener('click', (e) => {
 //   const top = envelope.querySelector('.top');
 //   const messageContent = document.querySelector('.message-content');
 //   top.style.transform = 'rotateX(180deg)';
-//   envelopeAnimation.play();
 // })
 
 fetchData({ page: 1 });

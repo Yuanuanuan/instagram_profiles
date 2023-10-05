@@ -707,6 +707,7 @@ nav ul li .user-icon.active {
   width: 90%;
   margin: 0 auto;
   padding: 16px;
+  z-index: -1;
 }
 .message-main .message-content .message-content-title {
   width: 100%;
@@ -761,6 +762,9 @@ nav ul li .user-icon.active {
   pointer-events: none;
   transition: top 0.4s;
 }
+.message-main .message-content input:valid + label {
+  top: 8px;
+}
 .message-main .message-content input:focus + label {
   top: -12px;
 }
@@ -773,6 +777,7 @@ nav ul li .user-icon.active {
   padding: 0 16px;
   background-color: transparent;
   font-size: 16px;
+  font-family: "Poppins", sans-serif;
   border: 2px solid #919191;
   outline: none;
   resize: none;
@@ -806,18 +811,27 @@ nav ul li .user-icon.active {
 .message-main .message-content .form-btn svg path {
   stroke: var(--bg-color);
 }
-.message-main .envelope {
+.message-main .envelope-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.message-main .envelope-wrapper .envelope {
   width: 300px;
-  margin: 50px auto 0;
   height: 200px;
   background-color: #222;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   cursor: pointer;
-  overflow-y: hidden;
 }
-.message-main .envelope img {
+.message-main .envelope-wrapper .envelope:hover .top {
+  transform: rotateX(180deg);
+}
+.message-main .envelope-wrapper .envelope img {
   width: 56px;
   height: 56px;
   position: absolute;
@@ -826,7 +840,7 @@ nav ul li .user-icon.active {
   transform: translate(-50%, -50%);
   z-index: 5;
 }
-.message-main .envelope .top {
+.message-main .envelope-wrapper .envelope .top {
   position: absolute;
   top: 0;
   left: 0;
@@ -838,7 +852,7 @@ nav ul li .user-icon.active {
   transition: transform 0.5s ease-in-out;
   transform-origin: top;
 }
-.message-main .envelope .top::after {
+.message-main .envelope-wrapper .envelope .top::after {
   content: "";
   position: absolute;
   top: -130px;
@@ -848,7 +862,7 @@ nav ul li .user-icon.active {
   border-left: 140px solid transparent;
   border-right: 140px solid transparent;
 }
-.message-main .envelope .top::before {
+.message-main .envelope-wrapper .envelope .top::before {
   content: "";
   position: absolute;
   top: -130px;
@@ -858,7 +872,7 @@ nav ul li .user-icon.active {
   border-left: 130px solid transparent;
   border-right: 130px solid transparent;
 }
-.message-main .envelope .left {
+.message-main .envelope-wrapper .envelope .left {
   position: absolute;
   top: 0;
   left: 0;
@@ -868,7 +882,7 @@ nav ul li .user-icon.active {
   border-left: 150px solid #333;
   pointer-events: none;
 }
-.message-main .envelope .right {
+.message-main .envelope-wrapper .envelope .right {
   position: absolute;
   top: 0;
   right: 0;
@@ -878,7 +892,7 @@ nav ul li .user-icon.active {
   border-right: 150px solid #333;
   pointer-events: none;
 }
-.message-main .envelope .bottom {
+.message-main .envelope-wrapper .envelope .bottom {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -887,14 +901,4 @@ nav ul li .user-icon.active {
   border-left: 150px solid transparent;
   border-right: 150px solid transparent;
   pointer-events: none;
-}
-.message-main .envelope .ps {
-  position: absolute;
-  bottom: 2px;
-  right: 12px;
-  z-index: 7;
-  font-size: 1.2rem;
-  font-family: "Hurricane", cursive;
-  font-weight: 400;
-  color: var(--bg-color);
 }/*# sourceMappingURL=style.css.map */
