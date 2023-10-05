@@ -735,6 +735,16 @@ nav ul li .user-icon.active {
   outline: none;
   border: 2px solid #919191;
   color: var(--text-color);
+  transition: border 0.4s background-color 0.4s;
+}
+.message-main .message-content input::-moz-placeholder {
+  color: #919191;
+  -moz-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+.message-main .message-content input::placeholder {
+  color: #919191;
+  transition: opacity 0.4s;
 }
 .message-main .message-content input:focus {
   border: 3px solid var(--input-foucs);
@@ -751,22 +761,26 @@ nav ul li .user-icon.active {
 }
 .message-main .message-content label {
   position: absolute;
-  top: 12px;
-  left: 10px;
+  top: 8px;
+  left: 12px;
   color: #919191;
   font-size: 16px;
   font-weight: normal;
   font-family: "Poppins", sans-serif;
   background-color: var(--bg-color);
-  padding: 0 6px;
+  padding: 2px 6px;
   pointer-events: none;
-  transition: top 0.4s;
+  transition: top 0.5s, opacity 0.4s, background-color 0.4s;
+  opacity: 0;
 }
-.message-main .message-content input:valid + label {
-  top: 8px;
+.message-main .message-content input:not(:-moz-placeholder-shown) + label {
+  opacity: 1;
+  top: -16px;
 }
-.message-main .message-content input:focus + label {
-  top: -12px;
+.message-main .message-content input:focus + label,
+.message-main .message-content input:not(:placeholder-shown) + label {
+  opacity: 1;
+  top: -16px;
 }
 .message-main .message-content .message-area {
   position: relative;
@@ -783,11 +797,32 @@ nav ul li .user-icon.active {
   resize: none;
   padding-top: 1rem;
 }
+.message-main .message-content .message-area textarea::-moz-placeholder {
+  color: #919191;
+  -moz-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+.message-main .message-content .message-area textarea::placeholder {
+  color: #919191;
+  transition: opacity 0.2s;
+}
 .message-main .message-content .message-area textarea:focus {
   border: 3px solid var(--input-foucs);
 }
-.message-main .message-content .message-area textarea:focus + label {
-  top: -12px;
+.message-main .message-content .message-area textarea:focus::-moz-placeholder {
+  opacity: 0;
+}
+.message-main .message-content .message-area textarea:focus::placeholder {
+  opacity: 0;
+}
+.message-main .message-content .message-area textarea:not(:-moz-placeholder-shown) + label {
+  opacity: 1;
+  top: -16px;
+}
+.message-main .message-content .message-area textarea:focus + label,
+.message-main .message-content .message-area textarea:not(:placeholder-shown) + label {
+  opacity: 1;
+  top: -16px;
 }
 .message-main .message-content .form-btn {
   width: 80%;
@@ -799,6 +834,7 @@ nav ul li .user-icon.active {
   background-color: #B58658;
   color: var(--bg-color);
   border: none;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -817,6 +853,7 @@ nav ul li .user-icon.active {
   position: absolute;
   top: 0;
   left: 0;
+  display: none;
 }
 .message-main .envelope-wrapper .envelope {
   width: 300px;
