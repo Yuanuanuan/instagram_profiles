@@ -739,12 +739,12 @@ nav ul li .user-icon.active {
 }
 .message-main .message-content input::-moz-placeholder {
   color: #919191;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
 }
 .message-main .message-content input::placeholder {
   color: #919191;
-  transition: opacity 0.4s;
+  transition: opacity 0.3s;
 }
 .message-main .message-content input:focus {
   border: 3px solid var(--input-foucs);
@@ -770,7 +770,7 @@ nav ul li .user-icon.active {
   background-color: var(--bg-color);
   padding: 2px 6px;
   pointer-events: none;
-  transition: top 0.5s, opacity 0.4s, background-color 0.4s;
+  transition: top 0.5s, opacity 0.2s, background-color 0.4s;
   opacity: 0;
 }
 .message-main .message-content input:not(:-moz-placeholder-shown) + label {
