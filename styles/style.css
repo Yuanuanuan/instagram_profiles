@@ -158,7 +158,6 @@ header {
   width: 100vw;
   height: 60px;
   background-color: var(--bg-color);
-  font-family: "Segoe UI";
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -699,4 +698,137 @@ nav ul li .user-icon.active {
   font-weight: 600;
   font-size: 20px;
   color: var(--text-color);
+}
+.message-main .message-content {
+  width: 90%;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: #c9c9c9;
+}
+.message-main .message-content form {
+  display: grid;
+  row-gap: 1rem;
+}
+.message-main .message-content input {
+  height: 52px;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--search-color);
+}
+.message-main .message-content label {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.message-main .message-content .name-bar, .message-main .message-content .email-bar, .message-main .message-content .subject-bar {
+  position: relative;
+}
+.message-main .message-content .message-bar {
+  position: relative;
+}
+.message-main .message-content .message-bar textarea {
+  background-color: var(--search-color);
+  border: none;
+}
+.message-main .message-content .form-btn {
+  width: 100%;
+}
+.message-main .message-content .form-btn svg {
+  width: 32px;
+  height: 32px;
+}
+.message-main .message-content .form-btn svg path {
+  stroke: var(--text-color);
+}
+.message-main .envelope {
+  width: 300px;
+  margin: 50px auto 0;
+  height: 200px;
+  background-color: #222;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow-y: hidden;
+}
+.message-main .envelope img {
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+.message-main .envelope .top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  border-top: 130px solid #222;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  pointer-events: none;
+  transition: transform 0.5s ease-in-out;
+  transform-origin: top;
+}
+.message-main .envelope .top::after {
+  content: "";
+  position: absolute;
+  top: -130px;
+  left: -140px;
+  z-index: 5;
+  border-top: 120px solid #B58658;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+}
+.message-main .envelope .top::before {
+  content: "";
+  position: absolute;
+  top: -130px;
+  left: -130px;
+  z-index: 6;
+  border-top: 110px solid #222;
+  border-left: 130px solid transparent;
+  border-right: 130px solid transparent;
+}
+.message-main .envelope .left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid transparent;
+  border-left: 150px solid #333;
+  pointer-events: none;
+}
+.message-main .envelope .right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid transparent;
+  border-right: 150px solid #333;
+  pointer-events: none;
+}
+.message-main .envelope .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  border-bottom: 100px solid #333;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  pointer-events: none;
+}
+.message-main .envelope .ps {
+  position: absolute;
+  bottom: 2px;
+  right: 12px;
+  z-index: 7;
+  font-size: 1.2rem;
+  font-family: "Hurricane", cursive;
+  font-weight: 400;
+  color: var(--bg-color);
 }/*# sourceMappingURL=style.css.map */
