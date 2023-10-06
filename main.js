@@ -292,15 +292,53 @@ searchBar.addEventListener('scroll', (e) =>{
   }
 });
 
-// 信件點擊事件
-// const envelope = document.querySelector('.envelope');
+// 表單發送事件
+const form = document.querySelector('.message-form');
+const envelope = document.querySelector('.envelope-wrapper');
 
-// const envelopeAnimation = gsap.timeline({ paused: true });
+// 表單發送動畫
+const formAnimation = gsap.timeline({ paused: true});
+const envelopeTop = envelope.querySelector('.envelope .top');
+formAnimation
+  .from('.envelope', {
+    y:200, 
+    opacity: 0, 
+    duration: .4
+  })
+  .to(envelopeTop, { 
+    rotateX: 180, 
+    transformOrigin: 'top center', 
+    duration: 0.2,
+    onComplete: () => {
+      envelopeTop.style.zIndex = -1;
+    }
+  })
+  .from('.paper-content', {
+    y: -700, 
+    opacity: 1, 
+    duration: .8,
+    onComplete: () => {
+      envelopeTop.style.zIndex = 4;
+    }
+  })
+  .to(envelopeTop, { 
+    rotateX: 0, 
+    transformOrigin: 'top center', 
+    duration: 0.4,
+  })
+  .to('.envelope', {scale: 1.1, duration: .3})
+  .to('.envelope', {scale: 0.2, duration: .2})
+  .to('.envelope', {x: 300, y:-300, opacity: 0, duration: .5}, '<0.05')
 
-// envelope.addEventListener('click', (e) => {
-//   const top = envelope.querySelector('.top');
-//   const messageContent = document.querySelector('.message-content');
-//   top.style.transform = 'rotateX(180deg)';
-// })
+form.addEventListener('click', (e) =>{
+  e.preventDefault();
+  envelope.style.display = 'block';
+  formAnimation.play();
+  formAnimation.restart();
+  form.reset();
+});
+
+
+
 
 fetchData({ page: 1 });
