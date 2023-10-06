@@ -334,6 +334,30 @@ form.addEventListener('click', (e) =>{
   form.reset();
 });
 
+// 點擊貼文跳出視窗並顯示正確貼文
+const gridPost = document.querySelector('.grid-post')
+const experienceModal = document.querySelector('.experience-modal');
+const experiencePostContainer = experienceModal.querySelector('.post-container');
+
+gridPost.addEventListener('click', (e) =>{
+  e.preventDefault();
+  const target = e.target
+  if (target.classList.contains('post')) {
+    const currentPost = document.getElementById(`${target.classList[1]}`)
+    experienceModal.style.transform = 'scale(1, 1)';
+    experienceModal.style.opacity = '1';
+    experiencePostContainer.scrollTo({
+      top: currentPost.offsetTop - 60
+    });
+  }
+});
+
+const backIcon = document.querySelector('.back-icon');
+// 點擊視窗中back按鈕關閉視窗
+backIcon.onclick = () => {
+  experienceModal.style.transform = 'scale(0, 0)';
+  experienceModal.style.opacity = '0';
+}
 
 
 
