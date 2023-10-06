@@ -181,7 +181,7 @@ window.onload = () => {
     }
 
     container.addEventListener('scroll', () => {
-      currentIndex = Math.round(container.scrollLeft / window.innerWidth);
+      currentIndex = Math.round(container.scrollLeft / container.clientWidth);
       updateDots();
     });
 
@@ -196,15 +196,11 @@ window.onload = () => {
 const menuBox = document.querySelector('.menu-bar-box');
 
 menuBox.addEventListener('click', (e) =>{
-  if (e.target instanceof SVGElement) {
-    const items = menuBox.querySelectorAll('svg');
-    items.forEach((item) => {
-      item.classList.remove('active');
-      item.parentElement.style.borderBottom = 'none';
-    })
-    e.target.classList.add('active');
-    e.target.parentElement.style.borderBottom = '1px solid var(--text-color)';
-  }
+  const items = menuBox.querySelectorAll('div')
+  items.forEach((item) => {
+    item.classList.remove('active');
+  })
+  e.target.classList.add('active');
 })
 
 const loadingModal = document.querySelector('.loading-modal');
