@@ -457,7 +457,7 @@ nav ul li .user-icon.active {
 }
 
 .user-main {
-  width: 100%;
+  width: inherit;
   height: 100%;
   font-family: "Poppins", "Segoe UI", Helvetica, Arial, sans-serif;
   position: absolute;
@@ -621,11 +621,12 @@ nav ul li .user-icon.active {
   color: var(--text-color);
 }
 .user-main .post-banner {
-  width: 100%;
+  width: inherit;
   height: calc(100vh - 472px);
   margin-top: 1px;
   overflow: scroll;
   display: flex;
+  flex-wrap: nowrap;
 }
 .user-main .post-banner::-webkit-scrollbar {
   display: none;
@@ -634,7 +635,7 @@ nav ul li .user-icon.active {
   width: inherit;
 }
 .user-main .post-banner .experience-banner .grid-post {
-  width: 100%;
+  width: inherit;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1px;
@@ -651,10 +652,10 @@ nav ul li .user-icon.active {
   pointer-events: none;
 }
 .user-main .post-banner .projects-banner {
-  width: 100%;
+  width: inherit;
 }
 .user-main .post-banner .resume-banner {
-  width: 100%;
+  width: inherit;
 }
 .user-main .experience-modal {
   width: 100%;
@@ -1098,6 +1099,7 @@ nav ul li .user-icon.active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 0 0 16px 16px;
   cursor: pointer;
 }
 .message-main .envelope-wrapper .envelope:hover .top {
@@ -1151,6 +1153,7 @@ nav ul li .user-icon.active {
   border-top: 100px solid transparent;
   border-bottom: 100px solid transparent;
   border-left: 150px solid #333;
+  border-radius: 16px;
   pointer-events: none;
 }
 .message-main .envelope-wrapper .envelope .right {
@@ -1161,6 +1164,7 @@ nav ul li .user-icon.active {
   border-top: 100px solid transparent;
   border-bottom: 100px solid transparent;
   border-right: 150px solid #333;
+  border-radius: 16px;
   pointer-events: none;
 }
 .message-main .envelope-wrapper .envelope .bottom {
@@ -1171,6 +1175,7 @@ nav ul li .user-icon.active {
   border-bottom: 100px solid #333;
   border-left: 150px solid transparent;
   border-right: 150px solid transparent;
+  border-radius: 16px;
   pointer-events: none;
 }
 .message-main .envelope-wrapper .envelope .paper {

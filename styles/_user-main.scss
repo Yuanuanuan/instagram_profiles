@@ -1,5 +1,5 @@
 .user-main {
-  width: 100%;
+  width: inherit;
   height: 100%;
   font-family: 'Poppins', 'Segoe UI', Helvetica, Arial, sans-serif;
   position: absolute;
@@ -167,18 +167,19 @@
     }
   }
   .post-banner {
-    width: 100%;
+    width: inherit;
     height: calc(100vh - 472px);
     margin-top: 1px;
     overflow: scroll;
     display: flex;
+    flex-wrap: nowrap;
     &::-webkit-scrollbar {
       display: none;
     }
     .experience-banner {
       width: inherit;
       .grid-post {
-        width: 100%;
+        width: inherit;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 1px;
@@ -195,10 +196,10 @@
       }
     }
     .projects-banner {
-      width: 100%;
+      width: inherit;
     }
     .resume-banner {
-      width: 100%;
+      width: inherit;
     }
   }
   .experience-modal {

@@ -303,7 +303,7 @@ formAnimation
   })
   .to(envelopeTop, { 
     rotateX: 180, 
-    transformOrigin: 'top center', 
+    transformOrigin: 'top center',
     duration: 0.2,
     onComplete: () => {
       envelopeTop.style.zIndex = -1;
