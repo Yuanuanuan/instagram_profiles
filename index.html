@@ -1663,21 +1663,21 @@
           <div class="message-content-title">
             Send Me A Message.
           </div>
-          <form class="message-form">
+          <form class="message-form" id="form-contact">
             <div class="input-box">
-              <input type="text" class="name-input" id="name" required placeholder="Name">
+              <input type="text" class="name-input" id="name" name="name" required placeholder="Name">
               <label for="name" class="name-label">Name</label>
             </div>
             <div class="input-box">
-              <input type="email" class="email-input" id="email" placeholder="Email" required>
+              <input type="email" class="email-input" id="email" name="email" placeholder="Email" required>
               <label for="email" class="email-label">Email</label>
             </div>
             <div class="input-box">
-              <input type="text" class="subject-input" id="subject" placeholder="Subject" required>
+              <input type="text" class="subject-input" id="subject" name="subject" placeholder="Subject" required>
               <label for="subject" class="subject-label">Subject</label>
             </div>
             <div class="input-box message-area">
-              <textarea name="user-message" id="message" cols="30" rows="10" class="message-text" required placeholder="Message"></textarea>
+              <textarea name="message" id="message" cols="30" rows="10" class="message-text" required placeholder="Message"></textarea>
               <label for="message" class="message-label">Message</label>
             </div>
 
@@ -1696,7 +1696,7 @@
         </div>
         <div class="envelope-wrapper">
           <div class="envelope">
-            <img src="./images/seal.png" alt="">
+            <img src="./images/seal.png" alt="" class="seal-img">
             <div class="top"></div>
             <div class="right"></div>
             <div class="left"></div>
@@ -1704,6 +1704,13 @@
             <div class="paper">
               <div class="paper-content">Thank you !</div>
             </div>
+          </div>
+        </div>
+        <div class="error-modal">
+          <div class="emoji">😔</div>
+          <div class="error-text">
+            <h1>Oops!</h1>
+            <h2>An Unknown Error</h2>
           </div>
         </div>
       </section>
@@ -2128,6 +2135,7 @@
     </section>
   </div>
 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script type="module" src="main.js"></script>
 </body>
 </html>

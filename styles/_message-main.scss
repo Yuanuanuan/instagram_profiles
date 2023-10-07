@@ -252,4 +252,34 @@
       }
     }
   }
+  .error-modal {
+    width: 80%;
+    height: 40%;
+    position: absolute;
+    background-color: #fdfdfd;
+    box-shadow: 0 0 10px 5px #e0e0e0, inset 0 0 10px 5px #fbfbfb;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 36px;
+    display: none;
+    pointer-events: none;
+    text-align: center;
+    .emoji {
+      margin-top: 36px;
+      font-size: 5rem;
+    }
+    .error-text {
+      font-family: 'Poppins', sans-serif;
+      h1 {
+        margin-top: 16px;
+        font-size: 2rem;
+      }
+      h2 {
+        margin-top: 16px;
+        font-size: 1.25rem;
+        font-weight: normal;
+      }
+    }
+  }
 }

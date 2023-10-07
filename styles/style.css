@@ -1389,4 +1389,34 @@ nav ul li .user-icon.active {
   font-family: 500;
   font-family: "Pacifico", sans-serif;
   padding-top: 1rem;
+}
+.message-main .error-modal {
+  width: 80%;
+  height: 40%;
+  position: absolute;
+  background-color: #fdfdfd;
+  box-shadow: 0 0 10px 5px #e0e0e0, inset 0 0 10px 5px #fbfbfb;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 36px;
+  display: none;
+  pointer-events: none;
+  text-align: center;
+}
+.message-main .error-modal .emoji {
+  margin-top: 36px;
+  font-size: 5rem;
+}
+.message-main .error-modal .error-text {
+  font-family: "Poppins", sans-serif;
+}
+.message-main .error-modal .error-text h1 {
+  margin-top: 16px;
+  font-size: 2rem;
+}
+.message-main .error-modal .error-text h2 {
+  margin-top: 16px;
+  font-size: 1.25rem;
+  font-weight: normal;
 }/*# sourceMappingURL=style.css.map */
