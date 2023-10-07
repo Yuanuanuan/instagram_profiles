@@ -174,9 +174,16 @@ body {
   align-items: center;
 }
 
-
 @media screen and (min-width: 768px) {
-  // header 欄切換去左邊
+  #all-main {
+    width: calc(100vw - 73px);
+    height: 100vh;
+    margin-left: 73px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  // 換成電腦版了 要把滑動效果全部改成點擊
 }
 
 @media screen and (min-width: 1160px) {

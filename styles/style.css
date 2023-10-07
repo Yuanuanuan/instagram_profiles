@@ -168,6 +168,13 @@ body {
   align-items: center;
 }
 
+@media screen and (min-width: 768px) {
+  #all-main {
+    width: calc(100vw - 73px);
+    height: 100vh;
+    margin-left: 73px;
+  }
+}
 header {
   width: 100vw;
   height: 60px;
@@ -203,6 +210,10 @@ nav {
   bottom: 0;
   left: 0;
   z-index: 1000;
+  border-top: 1px solid var(--hr-color);
+}
+nav .ig-icon {
+  display: none;
 }
 nav ul {
   width: inherit;
@@ -235,7 +246,47 @@ nav ul li .message-icon.active path {
 nav ul li .user-icon.active {
   fill: url(#Gradient);
 }
+nav .toggle-icon {
+  display: none;
+}
+nav .toggle-icon * {
+  pointer-events: none;
+}
+nav .toggle-icon .sun-icon {
+  display: none;
+}
 
+@media screen and (min-width: 768px) {
+  nav {
+    width: 73px;
+    padding: 0 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-right: 1px solid var(--hr-color);
+    border-top: 0;
+  }
+  nav .ig-icon {
+    display: block;
+    margin: 3rem 0;
+  }
+  nav .ig-icon svg {
+    fill: var(--text-color);
+  }
+  nav ul {
+    flex-direction: column;
+    justify-content: start;
+  }
+  nav ul li {
+    margin: 1.5rem 0;
+  }
+  nav .toggle-icon {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+}
 .home-main {
   width: 100%;
   height: 100%;
@@ -243,9 +294,16 @@ nav ul li .user-icon.active {
   top: 0;
   left: 0;
   transform: scale(0, 1);
+  overflow-y: hidden;
 }
 .home-main .main-container {
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  overflow-y: scroll;
+  height: 100%;
+  padding-bottom: 32px;
+}
+.home-main .main-container::-webkit-scrollbar {
+  display: none;
 }
 .home-main .main-container .limit-news-container {
   height: 100px;
@@ -312,15 +370,14 @@ nav ul li .user-icon.active {
   text-overflow: ellipsis;
 }
 .home-main .main-container .post-container {
-  max-height: calc(100vh - 208px);
+  max-width: 100%;
   background-color: var(--bg-color);
-  overflow-y: scroll;
 }
 .home-main .main-container .post-container::-webkit-scrollbar {
   display: none;
 }
 .home-main .main-container .post-container .post {
-  width: 100vw;
+  width: 100%;
 }
 .home-main .main-container .post-container .post .title {
   height: 48px;
@@ -375,7 +432,7 @@ nav ul li .user-icon.active {
 }
 .home-main .main-container .post-container .post .content-image .post-images {
   display: flex;
-  width: 100vw;
+  width: 100%;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
 }
@@ -383,7 +440,7 @@ nav ul li .user-icon.active {
   display: none;
 }
 .home-main .main-container .post-container .post .content-image .post-images img {
-  width: 100vw;
+  width: 100%;
   scroll-snap-align: start;
 }
 .home-main .main-container .post-container .post .footer {
@@ -466,6 +523,27 @@ nav ul li .user-icon.active {
   color: var(--detial);
 }
 
+@media screen and (min-width: 470px) {
+  .home-main .main-container .post-container {
+    max-width: 470px;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 630px) {
+  .home-main .main-container .limit-news-container {
+    max-width: 610px;
+    margin: 0 auto;
+    border-bottom: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .home-main .main-container {
+    max-height: 100vh;
+  }
+  .home-main .main-container header {
+    display: none;
+  }
+}
 .user-main {
   width: inherit;
   height: 100%;
@@ -1024,13 +1102,20 @@ nav ul li .user-icon.active {
 }
 
 .search-main {
-  width: 100%;
-  height: 100%;
+  width: inherit;
+  height: inherit;
   position: absolute;
   top: 0;
   left: 0;
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
   transform: scale(0, 1);
+  overflow: scroll;
+}
+.search-main::-webkit-scrollbar {
+  display: none;
+}
+.search-main header {
+  width: 100%;
 }
 .search-main header .search-bar {
   width: 100%;
@@ -1059,8 +1144,7 @@ nav ul li .user-icon.active {
   position: relative;
 }
 .search-main .search-result-wrapper .search-result {
-  height: calc(100vh - 108px);
-  overflow: scroll;
+  height: calc(100vh - 60px);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -1115,6 +1199,36 @@ nav ul li .user-icon.active {
   background-color: #515bd4;
 }
 
+@media screen and (min-width: 480px) {
+  .search-main .search-result-wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .search-main .search-result-wrapper .search-result .result-image {
+    width: 160px;
+    height: 160px;
+  }
+}
+@media screen and (min-width: 488px) {
+  .search-main .search-result-wrapper {
+    max-width: 488px;
+  }
+  .search-main .search-result-wrapper .search-result {
+    grid-gap: 4px;
+  }
+}
+@media screen and (min-width: 630px) {
+  .search-main header {
+    max-width: 630px;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 768px) {
+  .search-main .search-result-wrapper .search-result .result-image {
+    width: 160px;
+    height: 160px;
+  }
+}
 .message-main {
   width: 100%;
   height: 100%;
