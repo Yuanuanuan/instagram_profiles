@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "Gold Lines";
+  src: url("../fonts/Gold Lines Trial.otf");
+}
 * {
   margin: 0;
   padding: 0;
@@ -36,7 +40,7 @@ body {
 .loading {
   width: 100vw;
   height: 100vh;
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-family: "Playfair Display", serif;
   letter-spacing: 3px;
   background-color: #fff;
@@ -49,6 +53,11 @@ body {
 .loading .loading-text {
   color: rgba(0, 0, 0, 0.6);
   margin-top: 10vh;
+  opacity: 0;
+}
+.loading .loading-text .char {
+  font-family: "Gold Lines", serif;
+  opacity: 0;
 }
 .loading .loading-icon .squares {
   width: 100%;
@@ -57,6 +66,7 @@ body {
   width: 8px;
   height: 8px;
   margin: 5vh 4px 0;
+  opacity: 0;
 }
 .loading .loading-icon .squares .square:nth-child(1) {
   background-color: #feda77;
@@ -465,7 +475,7 @@ nav ul li .user-icon.active {
   left: 0;
 }
 .user-main header .user-id {
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: "Poppins", "Segoe UI", Helvetica, Arial, sans-serif;
   font-weight: 600;
   font-size: 18px;
   color: var(--text-color);
@@ -625,36 +635,35 @@ nav ul li .user-icon.active {
   height: calc(100vh - 472px);
   margin-top: 1px;
   overflow: scroll;
+  scroll-snap-type: x mandatory;
   display: flex;
   flex-wrap: nowrap;
 }
 .user-main .post-banner::-webkit-scrollbar {
   display: none;
 }
-.user-main .post-banner .experience-banner {
+.user-main .post-banner .post-box {
   width: inherit;
+  scroll-snap-align: start;
 }
-.user-main .post-banner .experience-banner .grid-post {
+.user-main .post-banner .post-box .grid-post {
   width: inherit;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1px;
 }
-.user-main .post-banner .experience-banner .grid-post .post {
+.user-main .post-banner .post-box .grid-post .post {
   width: calc(33.3333333333vw - 1px);
   height: calc(33.3333333333vw - 1px);
 }
-.user-main .post-banner .experience-banner .grid-post .post img {
+.user-main .post-banner .post-box .grid-post .post img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   pointer-events: none;
 }
-.user-main .post-banner .projects-banner {
-  width: inherit;
-}
-.user-main .post-banner .resume-banner {
+.user-main .post-banner .resume-banner div {
   width: inherit;
 }
 .user-main .experience-modal {
@@ -681,12 +690,13 @@ nav ul li .user-icon.active {
   max-height: calc(100vh - 108px);
   background-color: var(--bg-color);
   overflow-y: scroll;
+  scroll-snap-align: start;
 }
 .user-main .experience-modal .post-container::-webkit-scrollbar {
   display: none;
 }
 .user-main .experience-modal .post-container .post {
-  width: 100vw;
+  width: inherit;
 }
 .user-main .experience-modal .post-container .post .title {
   height: 48px;
@@ -749,7 +759,10 @@ nav ul li .user-icon.active {
   display: none;
 }
 .user-main .experience-modal .post-container .post .content-image .post-images img {
-  width: 100vw;
+  width: inherit;
+  height: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
   scroll-snap-align: start;
 }
 .user-main .experience-modal .post-container .post .footer {
@@ -828,6 +841,184 @@ nav ul li .user-icon.active {
   color: var(--detial);
 }
 .user-main .experience-modal .post-container .post .footer .date {
+  font-size: 12px;
+  color: var(--detial);
+}
+.user-main .projects-modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-color);
+  transform: scale(0, 0);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.user-main .projects-modal header {
+  height: 60px;
+}
+.user-main .projects-modal header .back-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-color);
+  pointer-events: none;
+}
+.user-main .projects-modal .post-container {
+  max-height: calc(100vh - 108px);
+  background-color: var(--bg-color);
+  overflow-y: scroll;
+  scroll-snap-align: start;
+}
+.user-main .projects-modal .post-container::-webkit-scrollbar {
+  display: none;
+}
+.user-main .projects-modal .post-container .post {
+  width: inherit;
+}
+.user-main .projects-modal .post-container .post .title {
+  height: 48px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--hr-color);
+  display: flex;
+  align-items: center;
+}
+.user-main .projects-modal .post-container .post .title .user-img {
+  width: 42px;
+  height: 42px;
+  margin-right: 4px;
+}
+.user-main .projects-modal .post-container .post .title .user-img img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.user-main .projects-modal .post-container .post .title .describe {
+  flex: 1;
+}
+.user-main .projects-modal .post-container .post .title .describe .user-name {
+  font-weight: 600;
+  color: var(--text-color);
+}
+.user-main .projects-modal .post-container .post .title .icon {
+  width: 42px;
+  height: 42px;
+}
+.user-main .projects-modal .post-container .post .title .icon svg {
+  margin-left: 8px;
+  fill: var(--text-color);
+}
+.user-main .projects-modal .post-container .post .content-image {
+  position: relative;
+}
+.user-main .projects-modal .post-container .post .content-image .dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.user-main .projects-modal .post-container .post .content-image .dots .dot {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.5019607843);
+  border-radius: 50%;
+  margin: 0 2px;
+}
+.user-main .projects-modal .post-container .post .content-image .dots .dot.active {
+  background-color: #007bff;
+}
+.user-main .projects-modal .post-container .post .content-image .post-images {
+  display: flex;
+  width: 100vw;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+.user-main .projects-modal .post-container .post .content-image .post-images::-webkit-scrollbar {
+  display: none;
+}
+.user-main .projects-modal .post-container .post .content-image .post-images img {
+  width: inherit;
+  height: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+  scroll-snap-align: start;
+}
+.user-main .projects-modal .post-container .post .footer {
+  padding: 0 16px;
+}
+.user-main .projects-modal .post-container .post .footer .tools {
+  position: relative;
+  justify-content: space-between;
+}
+.user-main .projects-modal .post-container .post .footer .tools .tool * {
+  width: 40px;
+  height: 40px;
+}
+.user-main .projects-modal .post-container .post .footer .tools .tool * svg {
+  width: 24px;
+  height: 24px;
+  color: var(--text-color);
+  fill: var(--text-color);
+  pointer-events: none;
+}
+.user-main .projects-modal .post-container .post .footer .tools .tool .love svg:nth-child(2) {
+  display: none;
+}
+.user-main .projects-modal .post-container .post .footer .tools .tool .love.active svg:first-child {
+  display: none;
+}
+.user-main .projects-modal .post-container .post .footer .tools .tool .love.active svg:last-child {
+  display: block;
+}
+.user-main .projects-modal .post-container .post .footer .tools .save {
+  width: 40px;
+  height: 40px;
+}
+.user-main .projects-modal .post-container .post .footer .tools .save svg {
+  width: 24px;
+  height: 24px;
+  color: var(--text-color);
+}
+.user-main .projects-modal .post-container .post .footer .like-bar {
+  height: 18px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--text-color);
+}
+.user-main .projects-modal .post-container .post .footer .content {
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+.user-main .projects-modal .post-container .post .footer .content p {
+  width: 100%;
+  font-size: 15px;
+  line-height: 18px;
+  white-space: pre-line;
+  color: var(--text-color);
+}
+.user-main .projects-modal .post-container .post .footer .content span.user-id {
+  font-weight: 600;
+}
+.user-main .projects-modal .post-container .post .footer .content a {
+  text-decoration: none;
+  color: var(--hashtag);
+}
+.user-main .projects-modal .post-container .post .footer .content .hashtag {
+  color: var(--hashtag);
+}
+.user-main .projects-modal .post-container .post .footer .more-btn {
+  display: inline-block;
+  border: none;
+  background-color: transparent;
+  color: var(--detial);
+}
+.user-main .projects-modal .post-container .post .footer .date {
   font-size: 12px;
   color: var(--detial);
 }

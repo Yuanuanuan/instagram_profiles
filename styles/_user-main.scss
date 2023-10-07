@@ -8,7 +8,7 @@
   // transform: scale(0, 1);
   header {
     .user-id {
-      font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-family: 'Poppins', 'Segoe UI', Helvetica, Arial, sans-serif;
       font-weight: 600;
       font-size: 18px;
       color: var(--text-color);
@@ -171,13 +171,16 @@
     height: calc(100vh - 472px);
     margin-top: 1px;
     overflow: scroll;
+    scroll-snap-type: x mandatory;
+    
     display: flex;
     flex-wrap: nowrap;
     &::-webkit-scrollbar {
       display: none;
     }
-    .experience-banner {
+    .post-box {
       width: inherit;
+      scroll-snap-align: start;
       .grid-post {
         width: inherit;
         display: grid;
@@ -195,11 +198,10 @@
         }
       }
     }
-    .projects-banner {
-      width: inherit;
-    }
     .resume-banner {
-      width: inherit;
+      div {
+        width: inherit;
+      }
     }
   }
   .experience-modal {
@@ -227,11 +229,12 @@
       max-height: calc(100vh - 108px);
       background-color: var(--bg-color);
       overflow-y: scroll;
+      scroll-snap-align: start;
       &::-webkit-scrollbar {
         display: none;
       }
       .post {
-        width: 100vw;
+        width: inherit;
         .title {
           height: 48px;
           padding: 0 16px;
@@ -292,7 +295,194 @@
               display: none;
             }
             img {
-              width: 100vw;
+              width: inherit;
+              height: inherit;
+              object-fit: cover;
+              scroll-snap-align: start;
+            }
+          }
+        }
+        .footer {
+          padding: 0 16px;
+          .tools {
+            position: relative;
+            justify-content: space-between;
+            .tool {
+              * {
+                width: 40px;
+                height: 40px;
+                svg {
+                  width: 24px;
+                  height: 24px;
+                  color: var(--text-color);
+                  fill: var(--text-color);
+                  pointer-events: none;
+                }
+              }
+              .love {
+                & svg:nth-child(2) {
+                  display: none;
+                }
+                &.active svg:first-child{
+                  display: none;
+                }
+                &.active svg:last-child{
+                  display: block;
+                }
+              }
+            }
+            .save {
+              width: 40px;
+              height: 40px;
+              svg {
+                width: 24px;
+                height: 24px;
+                color: var(--text-color);
+              }
+            }
+          }
+          .like-bar {
+            height: 18px;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 18px;
+            color: var(--text-color);
+          }
+          .content {
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            p {
+              width: 100%;
+              font-size: 15px;
+              line-height: 18px;
+              white-space: pre-line;
+              color: var(--text-color);
+            }
+            span.user-id {
+              font-weight: 600;
+            }
+            a {
+              text-decoration: none;
+              color: var(--hashtag);
+            }
+            .hashtag {
+              color: var(--hashtag);
+              
+            }
+          }
+          .more-btn {
+            display: inline-block;
+            border: none;
+            background-color: transparent;
+            color: var(--detial)
+          }
+          .date {
+            font-size: 12px;
+            color: var(--detial);
+          }
+        }
+      }
+    }
+  }
+  .projects-modal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-color);
+    transform: scale(0, 0);
+    opacity: 0;
+    transition: transform .4s ease, opacity .4s ease;
+    header {
+      height: 60px;
+      .back-icon {
+        svg {
+          width: 24px;
+          height: 24px;
+          fill: var(--text-color);
+          pointer-events: none;
+        }
+      }
+    }
+    .post-container {
+      max-height: calc(100vh - 108px);
+      background-color: var(--bg-color);
+      overflow-y: scroll;
+      scroll-snap-align: start;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .post {
+        width: inherit;
+        .title {
+          height: 48px;
+          padding: 0 16px;
+          border-bottom: 1px solid var(--hr-color);
+
+          display: flex;
+          align-items: center;
+          .user-img {
+            width: 42px;
+            height: 42px;
+            margin-right: 4px;
+            img {
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+            }
+          }
+          .describe {
+            flex: 1;
+            .user-name {
+              font-weight: 600;
+              color: var(--text-color);
+            }
+          }
+          .icon {
+            width: 42px;
+            height: 42px;
+            svg {
+              margin-left: 8px;
+              fill: var(--text-color);
+            }
+          }
+        }
+        .content-image {
+          position: relative;
+          .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            .dot {
+              width: 6px;
+              height: 6px;
+              background-color: #ffffff80;
+              border-radius: 50%;
+              margin: 0 2px;
+              &.active {
+                background-color: #007bff;
+              }
+            }
+          }
+          .post-images {
+            display: flex;
+            width: 100vw;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            &::-webkit-scrollbar {
+              display: none;
+            }
+            img {
+              width: inherit;
+              height: inherit;
+              object-fit: cover;
               scroll-snap-align: start;
             }
           }

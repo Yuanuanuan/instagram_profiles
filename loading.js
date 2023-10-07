@@ -1,18 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
+  const loadingText = document.querySelector('.loading-text');
   const text = new SplitType('.loading-text');
   const squares = document.querySelectorAll('.square');
+
+  loadingText.style.opacity = '1';
 
   const loadingAnimation = gsap.timeline()
   
   loadingAnimation
-    .from('.char', {
-      scale: 2,
-      opacity: 0,
-      duration: .4,
-      delay: .5,
+    .to('.char', {
+      scale: 1,
+      opacity: 1,
+      duration: .6,
       stagger: .04,
+      yoyo: true
     })
-    .from(squares, {opacity: 0})
+    .to(squares, {opacity: 1})
 
   const squareAnimation = gsap.timeline({repeat: -1});
 
