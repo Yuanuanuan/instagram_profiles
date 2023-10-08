@@ -170,6 +170,7 @@
                 }
               }
               .love {
+                cursor: pointer;
                 & svg:nth-child(2) {
                   display: none;
                 }
@@ -184,10 +185,17 @@
             .save {
               width: 40px;
               height: 40px;
+              cursor: pointer;
+              &.active {
+                svg polygon{
+                  fill: var(--text-color);
+                }
+              }
               svg {
                 width: 24px;
                 height: 24px;
                 color: var(--text-color);
+                pointer-events: none;
               }
             }
           }
@@ -229,7 +237,8 @@
             display: inline-block;
             border: none;
             background-color: transparent;
-            color: var(--detial)
+            color: var(--detial);
+            cursor: pointer;
           }
           .date {
             font-size: 12px;
@@ -239,6 +248,9 @@
       }
     }
   }
+  .article {
+    width: 280px;
+  }
 }
 
 @media screen and (min-width: 470px) {
@@ -247,6 +259,14 @@
       .post-container {
         max-width: 470px;
         margin: 0 auto;
+        .post {
+          .title {
+            padding: 0;
+          }
+          .footer {
+            padding: 0;
+          }
+        }
       }
     }
   }
@@ -271,6 +291,9 @@
       header {
         display: none;
       }
+      .limit-news-container {
+        margin-top: 2rem;
+      }
     }
   }
 }
@@ -279,13 +302,27 @@
   .home-main {
     width: calc(100vw - 73px);
     display: flex;
-    .main-container {
-      flex: 1;
-    }
+    justify-content: center;
+    align-items: center;
     .article {
-      width: 320px;
       height: 100vh;
-      padding-top: 2rem;
+      padding-top: 3rem;
+      margin-left: 3rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1264px) {
+  .home-main {
+    width: calc(100vw - 244px);
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .home-main {
+    .article {
+      margin-left: 4rem;
+      padding-top: 4rem;
     }
   }
 }

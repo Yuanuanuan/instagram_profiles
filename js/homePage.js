@@ -28,6 +28,17 @@ loveBtn.forEach((btn) => {
   })
 })
 
+const saveIcon = document.querySelectorAll('.save')
+
+saveIcon.forEach((icon) => {
+  icon.addEventListener('click', (e) => {
+    console.log(e.target)
+    if (e.target.classList.contains('save')) {
+      e.target.classList.toggle('active');
+    }
+  })
+})
+
 // 當文章超過兩行時才顯示更多按紐
 const footer = document.querySelectorAll('.footer');
 

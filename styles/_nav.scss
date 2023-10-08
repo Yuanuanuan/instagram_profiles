@@ -9,6 +9,18 @@ nav {
   border-top: 1px solid var(--hr-color);
   .ig-icon {
     display: none;
+    svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--text-color);
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 500;
+      font-family: 'Pacifico', serif;
+      color: var(--text-color);
+      display: none;
+    }
   }
   ul {
     width: inherit;
@@ -19,9 +31,11 @@ nav {
     justify-content: space-around;
     align-items: center;
     li {
+      cursor: pointer;
       svg {
         color: var(--text-color);
         fill: var(--text-color);
+        pointer-events: none;
         path {
           pointer-events: none;
         }
@@ -42,14 +56,37 @@ nav {
       .user-icon.active {
         fill: url(#Gradient);
       }
+      .home-icon.active ~ h1,
+      .search-icon.active ~ h1,
+      .message-icon.active ~ h1,
+      .user-icon.active ~ h1 {
+        font-weight: 600;
+      }
+      h1 {
+        color: var(--text-color);
+        font-size: 18px;
+        font-weight: 400;
+        font-family: 'Poppins', sans-serif;
+        pointer-events: none;
+        display: none;
+      }
     }
   }
   .toggle-icon {
     display: none;
+    cursor: pointer;
     * {
       pointer-events: none;
     }
     .sun-icon {
+      display: none;
+    }
+    h1 {
+      color: var(--text-color);
+      font-size: 18px;
+      font-weight: 400;
+      font-family: 'Poppins', sans-serif;
+      pointer-events: none;
       display: none;
     }
   }
@@ -67,8 +104,8 @@ nav {
     border-right: 1px solid var(--hr-color);
     border-top: 0;
     .ig-icon {
-      display: block;
       margin: 3rem 0;
+      display: block;
       svg {
         fill: var(--text-color);
       }
@@ -83,6 +120,56 @@ nav {
     .toggle-icon {
       display: block;
       margin-bottom: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1264px) {
+  // 左邊header欄打開
+  nav {
+    width: 244px;
+    .ig-icon {
+      display: flex;
+      width: 100%;
+      margin: 3rem 0;
+      padding: 0 36px;
+      justify-content: start;
+      svg {
+        width: 32px;
+        height: 32px;
+        margin-right: 16px;
+      }
+      h1 {
+        display: block;
+      }
+    }
+    ul {
+      width: 100%;
+      padding: 0 36px;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      li {
+        svg {
+          margin-right: 12px;
+        }
+        h1 {
+          display: block;
+        }
+      }
+    }
+    .toggle-icon {
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      margin-bottom: 1.5rem;
+      padding: 0 36px;
+      svg {
+        margin-right: 12px;
+      }
+      h1 {
+        display: block;
+      }
     }
   }
 }

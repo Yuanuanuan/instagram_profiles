@@ -8,6 +8,7 @@ const toggleIcon = document.querySelectorAll('.toggle-icon');
 // make a moon-sun toggle function 
 toggleIcon.forEach((item) => {
   item.addEventListener('click', (e) => {
+    const toggleIconText = e.target.querySelector('.toggle-text');
     const moonIcon = document.querySelectorAll('.moon-icon');
     const sunIcon = document.querySelectorAll('.sun-icon');
     const body = document.body;
@@ -22,6 +23,9 @@ toggleIcon.forEach((item) => {
       })
       body.classList.add('dark-mode');
       body.classList.remove('light-mode');
+      if (toggleIconText) {
+        toggleIconText.innerText = 'Light Mode';
+      }
     } else {
       moonIcon.forEach((item) => {
         item.style.display = 'block';
@@ -31,6 +35,9 @@ toggleIcon.forEach((item) => {
       })
       body.classList.remove('dark-mode');
       body.classList.add('light-mode');
+      if (toggleIconText) {
+        toggleIconText.innerText = 'Dark Mode';
+      }
     }
   })
 })
@@ -46,41 +53,42 @@ const nav = document.querySelector('nav');
 const addPostModal = document.querySelector('.add-post-modal')
 
 nav.addEventListener('click', (e) => {
-  if (e.target instanceof SVGElement) {
+  if (e.target instanceof HTMLLIElement) {
+    console.log(e.target.childNodes[1])
     const items = nav.querySelectorAll('svg');
     items.forEach((item) => {
       item.classList.remove('active');
     })
 
-    if (e.target.classList.contains('home-icon')) {
+    if (e.target.childNodes[1].classList.contains('home-icon')) {
       mains.forEach((item) => {
         item.style.transform = 'scale(0, 1)';
       })
       homeMain.style.transform = 'scale(1, 1)';
     }
 
-    if (e.target.classList.contains('search-icon')) {
+    if (e.target.childNodes[1].classList.contains('search-icon')) {
       mains.forEach((item) => {
         item.style.transform = 'scale(0, 1)';
       })
       searchMain.style.transform = 'scale(1, 1)';
     }
 
-    if (e.target.classList.contains('message-icon')) {
+    if (e.target.childNodes[1].classList.contains('message-icon')) {
       mains.forEach((item) => {
         item.style.transform = 'scale(0, 1)';
       })
       messageMain.style.transform = 'scale(1, 1)';
     }
 
-    if (e.target.classList.contains('user-icon')) {
+    if (e.target.childNodes[1].classList.contains('user-icon')) {
       mains.forEach((item) => {
         item.style.transform = 'scale(0, 1)';
       })
       userMain.style.transform = 'scale(1, 1)';
     }
 
-    if (e.target.classList.contains('add-post-icon')) {
+    if (e.target.childNodes[1].classList.contains('add-post-icon')) {
       addPostModal.style.transform = 'scale(1, 1)';
       addPostModal.style.opacity = '1';
     } else {
@@ -88,7 +96,7 @@ nav.addEventListener('click', (e) => {
       addPostModal.style.opacity = '0';
     }
 
-    e.target.classList.add('active');
+    e.target.childNodes[1].classList.add('active');
   }
 })
 
