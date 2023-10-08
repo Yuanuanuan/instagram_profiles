@@ -6,10 +6,6 @@ menuBox.addEventListener('click', (e) =>{
   const items = menuBox.querySelectorAll('.menu-box-tool')
   const projectBanner = document.querySelector('.projects-banner');
   let scrollValue = 0;
-
-  items.forEach((item) => {
-    item.classList.remove('active');
-  })
   if (e.target.classList.contains('experience')) {
     scrollValue = 0;
   }
@@ -19,12 +15,18 @@ menuBox.addEventListener('click', (e) =>{
   if (e.target.classList.contains('resume')) {
     scrollValue = projectBanner.clientWidth * 2;
   }
+
   postBanner.scrollTo({
     left: scrollValue,
     behavior: 'smooth'
   })
 
-  e.target.classList.add('active');
+  setTimeout(() => {
+    items.forEach((item) => {
+      item.classList.remove('active');
+    })
+    e.target.classList.add('active');
+  }, 500)
 })
 
 // 點擊experience貼文跳出視窗並顯示正確貼文
