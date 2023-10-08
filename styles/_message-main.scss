@@ -88,6 +88,7 @@
         z-index: 1;
         transform: translate(-50%, -50%);
         background-color: var(--detial);
+        border-radius: 50%;
       }
     }
     .message-content-title {
@@ -101,6 +102,7 @@
     form {
       display: grid;
       row-gap: 1.15rem;
+      margin-bottom: 24px;
       .input-box {
         position: relative;
         width: 100%;

@@ -639,6 +639,38 @@
           }
         }
       }
+      .experience-modal {
+        .post-container {
+          max-width: 500px;
+          margin: 0 auto;
+          .post {
+            .content-image {
+              .post-images {
+                max-width: 500px;
+                img {
+                  max-width: 500px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .projects-modal {
+        .post-container {
+          max-width: 500px;
+          margin: 0 auto;
+          .post {
+            .content-image {
+              .post-images {
+                max-width: 500px;
+                img {
+                  max-width: 500px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

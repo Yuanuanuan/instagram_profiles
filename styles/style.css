@@ -1155,6 +1155,26 @@ nav .toggle-icon .sun-icon {
     width: 165.6666666667px;
     height: 165.6666666667px;
   }
+  .user-main .user-main-container .experience-modal .post-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .user-main .user-main-container .experience-modal .post-container .post .content-image .post-images {
+    max-width: 500px;
+  }
+  .user-main .user-main-container .experience-modal .post-container .post .content-image .post-images img {
+    max-width: 500px;
+  }
+  .user-main .user-main-container .projects-modal .post-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .user-main .user-main-container .projects-modal .post-container .post .content-image .post-images {
+    max-width: 500px;
+  }
+  .user-main .user-main-container .projects-modal .post-container .post .content-image .post-images img {
+    max-width: 500px;
+  }
 }
 .search-main {
   width: inherit;
@@ -1371,6 +1391,7 @@ nav .toggle-icon .sun-icon {
   z-index: 1;
   transform: translate(-50%, -50%);
   background-color: var(--detial);
+  border-radius: 50%;
 }
 .message-main .message-content .message-content-title {
   width: 100%;
@@ -1383,6 +1404,7 @@ nav .toggle-icon .sun-icon {
 .message-main .message-content form {
   display: grid;
   row-gap: 1.15rem;
+  margin-bottom: 24px;
 }
 .message-main .message-content form .input-box {
   position: relative;
