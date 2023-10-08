@@ -28,11 +28,11 @@ loveBtn.forEach((btn) => {
   })
 })
 
+// make a save it function
 const saveIcon = document.querySelectorAll('.save')
 
 saveIcon.forEach((icon) => {
   icon.addEventListener('click', (e) => {
-    console.log(e.target)
     if (e.target.classList.contains('save')) {
       e.target.classList.toggle('active');
     }

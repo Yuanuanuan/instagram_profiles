@@ -4,7 +4,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  transform: scale(0, 1);
+  // transform: scale(0, 1);
   .user-main-container {
     width: 100%;
     height: 100%;
@@ -18,7 +18,7 @@
       .user-id {
         font-family: 'Poppins', 'Segoe UI', Helvetica, Arial, sans-serif;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 20px;
         color: var(--text-color);
       }
     }
@@ -33,6 +33,8 @@
         height: 77px;
         border-radius: 50%;
         margin-right: 28px;
+        border: 2px solid #c9c9c9;
+        padding: 5px;
       }
       .info {
         flex: 1;
@@ -144,6 +146,7 @@
           height: 100%;
           flex: 1;
           flex-direction: column;
+          cursor: pointer;
           * {
             pointer-events: none;
           }
@@ -197,6 +200,7 @@
           .post {
             width: calc(100vw * (1 / 3) - 1px);
             height: calc(100vw * (1 / 3) - 1px);
+            cursor: pointer;
             img {
               width: 100%;
               height: 100%;
@@ -214,8 +218,8 @@
     }
     .experience-modal {
       width: 100%;
-      height: 100%;
-      position: absolute;
+      height: 100vh;
+      position: fixed;
       top: 0;
       left: 0;
       background-color: var(--bg-color);
@@ -225,6 +229,7 @@
       header {
         height: 60px;
         .back-icon {
+          cursor: pointer;
           svg {
             width: 24px;
             height: 24px;
@@ -235,6 +240,7 @@
       }
       .post-container {
         max-height: calc(100vh - 108px);
+        padding-bottom: 2rem;
         background-color: var(--bg-color);
         overflow-y: scroll;
         scroll-snap-align: start;
@@ -400,7 +406,7 @@
     .projects-modal {
       width: 100%;
       height: 100%;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       background-color: var(--bg-color);
@@ -410,6 +416,7 @@
       header {
         height: 60px;
         .back-icon {
+          cursor: pointer;
           svg {
             width: 24px;
             height: 24px;
@@ -513,6 +520,7 @@
                   }
                 }
                 .love {
+                  cursor: pointer;
                   & svg:nth-child(2) {
                     display: none;
                   }
@@ -527,7 +535,12 @@
               .save {
                 width: 40px;
                 height: 40px;
+                cursor: pointer;
+                &.active polygon{
+                  fill: var(--text-color);
+                }
                 svg {
+                  pointer-events: none;
                   width: 24px;
                   height: 24px;
                   color: var(--text-color);
@@ -589,11 +602,16 @@
   .user-main {
     .user-main-container {
       .user-main-title {
+        justify-content: stretch;
         img {
           width: 110px;
           height: 110px;
           margin-left: 12px;
           margin-right: 28px;
+        }
+        .info {
+          flex: none;
+          width: 270px;
         }
       }
       .intro {
@@ -620,18 +638,25 @@
 @media screen and (min-width: 500px) {
   .user-main {
     .user-main-container {
-      header, 
-      .user-main-title, 
-      .intro, .skills, 
-      .menu-bar, 
-      .post-banner {
+      header {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .user-main-title,
+      .intro,
+      .skills,
+      .menu-bar {
         max-width: 500px;
         margin: 0 auto;
       }
       .post-banner {
+        max-width: 500px;
+        margin: 0 auto;
         .post-box {
-          width: 500px;
+          max-width: 500px;
           .grid-post {
+            max-width: 500px;
+            margin: 0 auto;
             .post {
               width: calc(500px * (1 / 3) - 1px);
               height: calc(500px * (1 / 3) - 1px);
@@ -675,6 +700,22 @@
   }
 }
 
+@media screen and (min-width: 700px) {
+  .user-main {
+    .user-main-container {
+      .user-main-title {
+        img {
+          width: 140px;
+          height: 140px;
+          margin-top: 16px;
+          margin-left: 48px;
+          margin-right: 28px;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
   .user-main {
     .user-main-container {
@@ -686,6 +727,156 @@
           }
           .toggle-icon {
             display: none;
+          }
+        }
+      }
+      .experience-modal {
+        padding-left: 73px;
+        .post-container {
+          height: calc(100vh - 60px);
+        }
+      }
+      .projects-modal {
+        padding-left: 73px;
+        .post-container {
+          height: calc(100vh - 60px);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .user-main {
+    .user-main-container {
+      header {
+        max-width: 635px;
+        height: 70px;
+        .header-wrapper {
+          .user-id {
+            font-size: 1.5rem;
+          }
+        }
+      }
+      .user-main-title,
+      .intro,
+      .skills,
+      .menu-bar {
+        max-width: 635px;
+      }
+      .user-main-title {
+        justify-content: stretch;
+        img {
+          width: 180px;
+          height: 180px;
+          margin-left: 12px;
+          margin-right: 28px;
+        }
+        .info {
+          flex: none;
+          width: 270px;
+        }
+      }
+      .post-banner {
+        max-width: 635px;
+        .post-box {
+          max-width: 635px;
+          .grid-post {
+            max-width: 635px;
+            margin: 0 auto;
+            grid-gap: 4px;
+            .post {
+              width: calc(635px * (1 / 3) - 4px);
+              height: calc(635px * (1 / 3) - 4px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1160px) {
+  .user-main {
+    .user-main-container {
+      header {
+        max-width: 935px;
+        height: 80px;
+        .header-wrapper {
+          .user-id {
+            font-size: 1.8rem;
+          }
+        }
+      }
+      .user-main-title,
+      .intro,
+      .skills,
+      .menu-bar {
+        max-width: 935px;
+      }
+      .user-main-title {
+        img {
+          width: 180px;
+          height: 180px;
+          margin-left: 12px;
+          margin-right: 28px;
+        }
+        .info {
+          flex: none;
+          width: 270px;
+        }
+      }
+      .post-banner {
+        max-width: 935px;
+        .post-box {
+          max-width: 935px;
+          .grid-post {
+            max-width: 935px;
+            .post {
+              width: calc(935px * (1 / 3) - 4px);
+              height: calc(935px * (1 / 3) - 4px);
+            }
+          }
+        }
+      }
+      .experience-modal {
+        header {
+          .header-wrapper {
+            max-width: 635px;
+            margin: 0 auto;
+          }
+        }
+      }
+      .projects-modal {
+        header {
+          .header-wrapper {
+            max-width: 635px;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1264px) {
+  .user-main {
+    .user-main-container {
+      .experience-modal {
+        padding-left: 244px;
+        header {
+          .header-wrapper {
+            max-width: 635px;
+            margin: 0 auto;
+          }
+        }
+      }
+      .projects-modal {
+        padding-left: 244px;
+        header {
+          .header-wrapper {
+            max-width: 635px;
+            margin: 0 auto;
           }
         }
       }

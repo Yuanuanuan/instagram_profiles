@@ -4,6 +4,7 @@ const menuBox = document.querySelector('.menu-bar-box');
 
 menuBox.addEventListener('click', (e) =>{
   const items = menuBox.querySelectorAll('.menu-box-tool')
+  const projectBanner = document.querySelector('.projects-banner');
   let scrollValue = 0;
 
   items.forEach((item) => {
@@ -13,10 +14,10 @@ menuBox.addEventListener('click', (e) =>{
     scrollValue = 0;
   }
   if (e.target.classList.contains('projects')) {
-    scrollValue = 393;
+    scrollValue = projectBanner.clientWidth;
   }
   if (e.target.classList.contains('resume')) {
-    scrollValue = 393 * 2;
+    scrollValue = projectBanner.clientWidth * 2;
   }
   postBanner.scrollTo({
     left: scrollValue,
