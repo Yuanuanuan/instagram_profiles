@@ -674,3 +674,21 @@
     }
   }
 }
+
+@media screen and (min-width: 768px) {
+  .user-main {
+    .user-main-container {
+      header {
+        .header-wrapper {
+          .user-id {
+            margin: 0 auto;
+            font-size: 1.4rem;
+          }
+          .toggle-icon {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

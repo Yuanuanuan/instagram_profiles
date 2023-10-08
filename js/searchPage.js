@@ -34,11 +34,15 @@ const searchData = ({ page, input}) => {
 
   loadingModal.style.display = 'block';
 
+  console.log(document.querySelector('.search-result'));
+
   fetch(url, { headers: { Authorization: auth }})
     .then (res => {
+      console.log(document.querySelector('.search-result'));
       return res.json();
     })
     .then (data => {
+      console.log(document.querySelector('.search-result'))
       data.photos.forEach((photo) => {
         const image = `
         <div class="result-image">
