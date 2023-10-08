@@ -43,7 +43,7 @@ const messageMain = document.getElementById('message-main');
 const userMain = document.getElementById('user-main');
 
 const nav = document.querySelector('nav');
-const modal = document.querySelector('.modal')
+const addPostModal = document.querySelector('.add-post-modal')
 
 nav.addEventListener('click', (e) => {
   if (e.target instanceof SVGElement) {
@@ -81,18 +81,18 @@ nav.addEventListener('click', (e) => {
     }
 
     if (e.target.classList.contains('add-post-icon')) {
-      modal.style.transform = 'scale(1, 1)';
-      modal.style.opacity = '1';
+      addPostModal.style.transform = 'scale(1, 1)';
+      addPostModal.style.opacity = '1';
     } else {
-      modal.style.transform = 'scale(0, 0)';
-      modal.style.opacity = '0';
+      addPostModal.style.transform = 'scale(0, 0)';
+      addPostModal.style.opacity = '0';
     }
 
     e.target.classList.add('active');
   }
 })
 
-modal.addEventListener('click', () => {
-  modal.style.transform = 'scale(0, 0)';
-  modal.style.opacity = '0';
+addPostModal.addEventListener('click', () => {
+  addPostModal.style.transform = 'scale(0, 0)';
+  addPostModal.style.opacity = '0';
 })

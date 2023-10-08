@@ -128,7 +128,7 @@ body {
   }
 }
 
-.modal {
+.add-post-modal {
   width: 100vw;
   height: 100vh;
   background: center/cover url('../images/coding.jfif');
@@ -155,7 +155,7 @@ body {
     position: relative;
     z-index: 2;
     color: #ccc;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-family: 'Poppins', sans-serif;
   }
 }
@@ -179,6 +179,13 @@ body {
     width: calc(100vw - 73px);
     height: 100vh;
     margin-left: 73px;
+  }
+  .add-post-modal {
+    width: calc(100vw - 73px);
+    margin-left: 73px;
+    div {
+      font-size: 1.8rem;
+    }
   }
 }
 

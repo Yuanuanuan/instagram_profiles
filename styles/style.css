@@ -121,7 +121,7 @@ body {
   color: transparent;
 }
 
-.modal {
+.add-post-modal {
   width: 100vw;
   height: 100vh;
   background: center/cover url("../images/coding.jfif");
@@ -131,7 +131,7 @@ body {
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }
-.modal::after {
+.add-post-modal::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -144,13 +144,13 @@ body {
           backdrop-filter: blur(4px);
   pointer-events: none;
 }
-.modal div {
+.add-post-modal div {
   width: 100%;
   height: 100%;
   position: relative;
   z-index: 2;
   color: #ccc;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-family: "Poppins", sans-serif;
 }
 
@@ -173,6 +173,13 @@ body {
     width: calc(100vw - 73px);
     height: 100vh;
     margin-left: 73px;
+  }
+  .add-post-modal {
+    width: calc(100vw - 73px);
+    margin-left: 73px;
+  }
+  .add-post-modal div {
+    font-size: 1.8rem;
   }
 }
 header {
@@ -545,33 +552,43 @@ nav .toggle-icon .sun-icon {
   }
 }
 .user-main {
-  width: inherit;
+  width: 100%;
   height: 100%;
-  font-family: "Poppins", "Segoe UI", Helvetica, Arial, sans-serif;
   position: absolute;
   top: 0;
   left: 0;
+  transform: scale(0, 1);
 }
-.user-main header .user-id {
+.user-main .user-main-container {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", "Segoe UI", Helvetica, Arial, sans-serif;
+  position: absolute;
+  overflow-y: scroll;
+}
+.user-main .user-main-container::-webkit-scrollbar {
+  display: none;
+}
+.user-main .user-main-container header .user-id {
   font-family: "Poppins", "Segoe UI", Helvetica, Arial, sans-serif;
   font-weight: 600;
   font-size: 18px;
   color: var(--text-color);
 }
-.user-main .user-main-title {
+.user-main .user-main-container .user-main-title {
   width: 100%;
   padding: 0 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.user-main .user-main-title img {
+.user-main .user-main-container .user-main-title img {
   width: 77px;
   height: 77px;
   border-radius: 50%;
   margin-right: 28px;
 }
-.user-main .user-main-title .info {
+.user-main .user-main-container .user-main-title .info {
   flex: 1;
   padding: 0 16px;
   color: var(--text-color);
@@ -580,65 +597,65 @@ nav .toggle-icon .sun-icon {
   justify-content: space-around;
   align-items: center;
 }
-.user-main .user-main-title .info * {
+.user-main .user-main-container .user-main-title .info * {
   text-align: center;
 }
-.user-main .user-main-title .info svg {
+.user-main .user-main-container .user-main-title .info svg {
   width: 24px;
   height: 24px;
 }
-.user-main .user-main-title .info svg path {
+.user-main .user-main-container .user-main-title .info svg path {
   fill: var(--text-color);
 }
-.user-main .intro {
+.user-main .user-main-container .intro {
   margin-bottom: 16px;
 }
-.user-main .intro .intro-wrapper {
+.user-main .user-main-container .intro .intro-wrapper {
   width: 100%;
   padding: 8px 16px;
   color: var(--text-color);
 }
-.user-main .intro .intro-wrapper .name {
+.user-main .user-main-container .intro .intro-wrapper .name {
   font-weight: 600;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.user-main .intro .intro-wrapper .education {
+.user-main .user-main-container .intro .intro-wrapper .education {
   display: flex;
   align-items: center;
   font-size: 14px;
 }
-.user-main .intro .intro-wrapper .education svg {
+.user-main .user-main-container .intro .intro-wrapper .education svg {
   width: 16px;
   height: 16px;
 }
-.user-main .intro .intro-wrapper .education svg:first-child {
+.user-main .user-main-container .intro .intro-wrapper .education svg:first-child {
   margin-right: 4px;
 }
-.user-main .intro .intro-wrapper .education svg:first-child path {
+.user-main .user-main-container .intro .intro-wrapper .education svg:first-child path {
   stroke: var(--text-color);
 }
-.user-main .intro .intro-wrapper .education svg:last-child {
+.user-main .user-main-container .intro .intro-wrapper .education svg:last-child {
   margin-left: 2px;
   fill: var(--text-color);
 }
-.user-main .intro .intro-wrapper .work-experience {
+.user-main .user-main-container .intro .intro-wrapper .work-experience {
   font-size: 14px;
   display: flex;
   align-items: center;
 }
-.user-main .intro .intro-wrapper .work-experience svg {
+.user-main .user-main-container .intro .intro-wrapper .work-experience svg {
   width: 16px;
   height: 16px;
   margin-right: 4px;
 }
-.user-main .intro .intro-wrapper .work-experience svg path {
+.user-main .user-main-container .intro .intro-wrapper .work-experience svg path {
   stroke: var(--text-color);
 }
-.user-main .intro .intro-wrapper .describe {
+.user-main .user-main-container .intro .intro-wrapper .describe {
   margin-top: 19px;
   font-size: 14px;
 }
-.user-main .skills {
+.user-main .user-main-container .skills {
   width: 100%;
   overflow-x: scroll;
   margin-bottom: 21px;
@@ -647,104 +664,104 @@ nav .toggle-icon .sun-icon {
   grid-gap: 10px;
   align-items: center;
 }
-.user-main .skills::-webkit-scrollbar {
+.user-main .user-main-container .skills::-webkit-scrollbar {
   display: none;
 }
-.user-main .skills .skill {
+.user-main .user-main-container .skills .skill {
   width: 75px;
   height: 85px;
   flex-direction: column;
   justify-content: space-between;
 }
-.user-main .skills .skill .skill-image {
+.user-main .user-main-container .skills .skill .skill-image {
   width: 64px;
   height: 64px;
   border-radius: 50%;
   border: 1px solid var(--hr-color);
 }
-.user-main .skills .skill .skill-image img {
+.user-main .user-main-container .skills .skill .skill-image img {
   width: 36px;
   height: 36px;
 }
-.user-main .skills .skill .skill-name {
+.user-main .user-main-container .skills .skill .skill-name {
   font-size: 14px;
   color: var(--text-color);
 }
-.user-main .menu-bar {
+.user-main .user-main-container .menu-bar {
   height: 45px;
 }
-.user-main .menu-bar .menu-bar-box {
+.user-main .user-main-container .menu-bar .menu-bar-box {
   height: 100%;
 }
-.user-main .menu-bar .menu-bar-box div {
+.user-main .user-main-container .menu-bar .menu-bar-box div {
   height: 100%;
   flex: 1;
   flex-direction: column;
 }
-.user-main .menu-bar .menu-bar-box div * {
+.user-main .user-main-container .menu-bar .menu-bar-box div * {
   pointer-events: none;
 }
-.user-main .menu-bar .menu-bar-box div svg {
+.user-main .user-main-container .menu-bar .menu-bar-box div svg {
   max-height: 45px;
   opacity: 1;
   transition: all 0.5s ease-in-out;
 }
-.user-main .menu-bar .menu-bar-box div h1 {
+.user-main .user-main-container .menu-bar .menu-bar-box div h1 {
   font-size: 1rem;
   font-weight: 500;
   max-height: 0;
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }
-.user-main .menu-bar .menu-bar-box div.active {
+.user-main .user-main-container .menu-bar .menu-bar-box div.active {
   border-bottom: 1px solid var(--text-color);
 }
-.user-main .menu-bar .menu-bar-box div.active svg {
+.user-main .user-main-container .menu-bar .menu-bar-box div.active svg {
   max-height: 0;
   opacity: 0;
 }
-.user-main .menu-bar .menu-bar-box div.active h1 {
+.user-main .user-main-container .menu-bar .menu-bar-box div.active h1 {
   max-height: 45px;
   opacity: 1;
   color: var(--text-color);
 }
-.user-main .post-banner {
-  width: inherit;
-  height: calc(100vh - 472px);
+.user-main .user-main-container .post-banner {
+  width: 100vw;
   margin-top: 1px;
-  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: scroll;
   scroll-snap-type: x mandatory;
   display: flex;
   flex-wrap: nowrap;
 }
-.user-main .post-banner::-webkit-scrollbar {
+.user-main .user-main-container .post-banner::-webkit-scrollbar {
   display: none;
 }
-.user-main .post-banner .post-box {
+.user-main .user-main-container .post-banner .post-box {
   width: inherit;
   scroll-snap-align: start;
 }
-.user-main .post-banner .post-box .grid-post {
+.user-main .user-main-container .post-banner .post-box .grid-post {
   width: inherit;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1px;
 }
-.user-main .post-banner .post-box .grid-post .post {
+.user-main .user-main-container .post-banner .post-box .grid-post .post {
   width: calc(33.3333333333vw - 1px);
   height: calc(33.3333333333vw - 1px);
 }
-.user-main .post-banner .post-box .grid-post .post img {
+.user-main .user-main-container .post-banner .post-box .grid-post .post img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   pointer-events: none;
 }
-.user-main .post-banner .resume-banner div {
+.user-main .user-main-container .post-banner .resume-banner div {
   width: inherit;
 }
-.user-main .experience-modal {
+.user-main .user-main-container .experience-modal {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -755,138 +772,138 @@ nav .toggle-icon .sun-icon {
   opacity: 0;
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
-.user-main .experience-modal header {
+.user-main .user-main-container .experience-modal header {
   height: 60px;
 }
-.user-main .experience-modal header .back-icon svg {
+.user-main .user-main-container .experience-modal header .back-icon svg {
   width: 24px;
   height: 24px;
   fill: var(--text-color);
   pointer-events: none;
 }
-.user-main .experience-modal .post-container {
+.user-main .user-main-container .experience-modal .post-container {
   max-height: calc(100vh - 108px);
   background-color: var(--bg-color);
   overflow-y: scroll;
   scroll-snap-align: start;
 }
-.user-main .experience-modal .post-container::-webkit-scrollbar {
+.user-main .user-main-container .experience-modal .post-container::-webkit-scrollbar {
   display: none;
 }
-.user-main .experience-modal .post-container .post {
+.user-main .user-main-container .experience-modal .post-container .post {
   width: inherit;
 }
-.user-main .experience-modal .post-container .post .title {
+.user-main .user-main-container .experience-modal .post-container .post .title {
   height: 48px;
   padding: 0 16px;
   border-bottom: 1px solid var(--hr-color);
   display: flex;
   align-items: center;
 }
-.user-main .experience-modal .post-container .post .title .user-img {
+.user-main .user-main-container .experience-modal .post-container .post .title .user-img {
   width: 42px;
   height: 42px;
   margin-right: 4px;
 }
-.user-main .experience-modal .post-container .post .title .user-img img {
+.user-main .user-main-container .experience-modal .post-container .post .title .user-img img {
   width: 32px;
   height: 32px;
   border-radius: 50%;
 }
-.user-main .experience-modal .post-container .post .title .describe {
+.user-main .user-main-container .experience-modal .post-container .post .title .describe {
   flex: 1;
 }
-.user-main .experience-modal .post-container .post .title .describe .user-name {
+.user-main .user-main-container .experience-modal .post-container .post .title .describe .user-name {
   font-weight: 600;
   color: var(--text-color);
 }
-.user-main .experience-modal .post-container .post .title .icon {
+.user-main .user-main-container .experience-modal .post-container .post .title .icon {
   width: 42px;
   height: 42px;
 }
-.user-main .experience-modal .post-container .post .title .icon svg {
+.user-main .user-main-container .experience-modal .post-container .post .title .icon svg {
   margin-left: 8px;
   fill: var(--text-color);
 }
-.user-main .experience-modal .post-container .post .content-image {
+.user-main .user-main-container .experience-modal .post-container .post .content-image {
   position: relative;
 }
-.user-main .experience-modal .post-container .post .content-image .dots {
+.user-main .user-main-container .experience-modal .post-container .post .content-image .dots {
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
 }
-.user-main .experience-modal .post-container .post .content-image .dots .dot {
+.user-main .user-main-container .experience-modal .post-container .post .content-image .dots .dot {
   width: 6px;
   height: 6px;
   background-color: rgba(255, 255, 255, 0.5019607843);
   border-radius: 50%;
   margin: 0 2px;
 }
-.user-main .experience-modal .post-container .post .content-image .dots .dot.active {
+.user-main .user-main-container .experience-modal .post-container .post .content-image .dots .dot.active {
   background-color: #007bff;
 }
-.user-main .experience-modal .post-container .post .content-image .post-images {
+.user-main .user-main-container .experience-modal .post-container .post .content-image .post-images {
   display: flex;
   width: 100vw;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
 }
-.user-main .experience-modal .post-container .post .content-image .post-images::-webkit-scrollbar {
+.user-main .user-main-container .experience-modal .post-container .post .content-image .post-images::-webkit-scrollbar {
   display: none;
 }
-.user-main .experience-modal .post-container .post .content-image .post-images img {
+.user-main .user-main-container .experience-modal .post-container .post .content-image .post-images img {
   width: inherit;
   height: inherit;
   -o-object-fit: cover;
      object-fit: cover;
   scroll-snap-align: start;
 }
-.user-main .experience-modal .post-container .post .footer {
+.user-main .user-main-container .experience-modal .post-container .post .footer {
   padding: 0 16px;
 }
-.user-main .experience-modal .post-container .post .footer .tools {
+.user-main .user-main-container .experience-modal .post-container .post .footer .tools {
   position: relative;
   justify-content: space-between;
 }
-.user-main .experience-modal .post-container .post .footer .tools .tool * {
+.user-main .user-main-container .experience-modal .post-container .post .footer .tools .tool * {
   width: 40px;
   height: 40px;
 }
-.user-main .experience-modal .post-container .post .footer .tools .tool * svg {
+.user-main .user-main-container .experience-modal .post-container .post .footer .tools .tool * svg {
   width: 24px;
   height: 24px;
   color: var(--text-color);
   fill: var(--text-color);
   pointer-events: none;
 }
-.user-main .experience-modal .post-container .post .footer .tools .tool .love svg:nth-child(2) {
+.user-main .user-main-container .experience-modal .post-container .post .footer .tools .tool .love svg:nth-child(2) {
   display: none;
 }
-.user-main .experience-modal .post-container .post .footer .tools .tool .love.active svg:first-child {
+.user-main .user-main-container .experience-modal .post-container .post .footer .tools .tool .love.active svg:first-child {
   display: none;
 }
-.user-main .experience-modal .post-container .post .footer .tools .tool .love.active svg:last-child {
+.user-main .user-main-container .experience-modal .post-container .post .footer .tools .tool .love.active svg:last-child {
   display: block;
 }
-.user-main .experience-modal .post-container .post .footer .tools .save {
+.user-main .user-main-container .experience-modal .post-container .post .footer .tools .save {
   width: 40px;
   height: 40px;
 }
-.user-main .experience-modal .post-container .post .footer .tools .save svg {
+.user-main .user-main-container .experience-modal .post-container .post .footer .tools .save svg {
   width: 24px;
   height: 24px;
   color: var(--text-color);
 }
-.user-main .experience-modal .post-container .post .footer .like-bar {
+.user-main .user-main-container .experience-modal .post-container .post .footer .like-bar {
   height: 18px;
   font-size: 15px;
   font-weight: 600;
   line-height: 18px;
   color: var(--text-color);
 }
-.user-main .experience-modal .post-container .post .footer .content {
+.user-main .user-main-container .experience-modal .post-container .post .footer .content {
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
   line-height: 1.5;
   overflow: hidden;
@@ -895,34 +912,34 @@ nav .toggle-icon .sun-icon {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
-.user-main .experience-modal .post-container .post .footer .content p {
+.user-main .user-main-container .experience-modal .post-container .post .footer .content p {
   width: 100%;
   font-size: 15px;
   line-height: 18px;
   white-space: pre-line;
   color: var(--text-color);
 }
-.user-main .experience-modal .post-container .post .footer .content span.user-id {
+.user-main .user-main-container .experience-modal .post-container .post .footer .content span.user-id {
   font-weight: 600;
 }
-.user-main .experience-modal .post-container .post .footer .content a {
+.user-main .user-main-container .experience-modal .post-container .post .footer .content a {
   text-decoration: none;
   color: var(--hashtag);
 }
-.user-main .experience-modal .post-container .post .footer .content .hashtag {
+.user-main .user-main-container .experience-modal .post-container .post .footer .content .hashtag {
   color: var(--hashtag);
 }
-.user-main .experience-modal .post-container .post .footer .more-btn {
+.user-main .user-main-container .experience-modal .post-container .post .footer .more-btn {
   display: inline-block;
   border: none;
   background-color: transparent;
   color: var(--detial);
 }
-.user-main .experience-modal .post-container .post .footer .date {
+.user-main .user-main-container .experience-modal .post-container .post .footer .date {
   font-size: 12px;
   color: var(--detial);
 }
-.user-main .projects-modal {
+.user-main .user-main-container .projects-modal {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -933,138 +950,138 @@ nav .toggle-icon .sun-icon {
   opacity: 0;
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
-.user-main .projects-modal header {
+.user-main .user-main-container .projects-modal header {
   height: 60px;
 }
-.user-main .projects-modal header .back-icon svg {
+.user-main .user-main-container .projects-modal header .back-icon svg {
   width: 24px;
   height: 24px;
   fill: var(--text-color);
   pointer-events: none;
 }
-.user-main .projects-modal .post-container {
+.user-main .user-main-container .projects-modal .post-container {
   max-height: calc(100vh - 108px);
   background-color: var(--bg-color);
   overflow-y: scroll;
   scroll-snap-align: start;
 }
-.user-main .projects-modal .post-container::-webkit-scrollbar {
+.user-main .user-main-container .projects-modal .post-container::-webkit-scrollbar {
   display: none;
 }
-.user-main .projects-modal .post-container .post {
+.user-main .user-main-container .projects-modal .post-container .post {
   width: inherit;
 }
-.user-main .projects-modal .post-container .post .title {
+.user-main .user-main-container .projects-modal .post-container .post .title {
   height: 48px;
   padding: 0 16px;
   border-bottom: 1px solid var(--hr-color);
   display: flex;
   align-items: center;
 }
-.user-main .projects-modal .post-container .post .title .user-img {
+.user-main .user-main-container .projects-modal .post-container .post .title .user-img {
   width: 42px;
   height: 42px;
   margin-right: 4px;
 }
-.user-main .projects-modal .post-container .post .title .user-img img {
+.user-main .user-main-container .projects-modal .post-container .post .title .user-img img {
   width: 32px;
   height: 32px;
   border-radius: 50%;
 }
-.user-main .projects-modal .post-container .post .title .describe {
+.user-main .user-main-container .projects-modal .post-container .post .title .describe {
   flex: 1;
 }
-.user-main .projects-modal .post-container .post .title .describe .user-name {
+.user-main .user-main-container .projects-modal .post-container .post .title .describe .user-name {
   font-weight: 600;
   color: var(--text-color);
 }
-.user-main .projects-modal .post-container .post .title .icon {
+.user-main .user-main-container .projects-modal .post-container .post .title .icon {
   width: 42px;
   height: 42px;
 }
-.user-main .projects-modal .post-container .post .title .icon svg {
+.user-main .user-main-container .projects-modal .post-container .post .title .icon svg {
   margin-left: 8px;
   fill: var(--text-color);
 }
-.user-main .projects-modal .post-container .post .content-image {
+.user-main .user-main-container .projects-modal .post-container .post .content-image {
   position: relative;
 }
-.user-main .projects-modal .post-container .post .content-image .dots {
+.user-main .user-main-container .projects-modal .post-container .post .content-image .dots {
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
 }
-.user-main .projects-modal .post-container .post .content-image .dots .dot {
+.user-main .user-main-container .projects-modal .post-container .post .content-image .dots .dot {
   width: 6px;
   height: 6px;
   background-color: rgba(255, 255, 255, 0.5019607843);
   border-radius: 50%;
   margin: 0 2px;
 }
-.user-main .projects-modal .post-container .post .content-image .dots .dot.active {
+.user-main .user-main-container .projects-modal .post-container .post .content-image .dots .dot.active {
   background-color: #007bff;
 }
-.user-main .projects-modal .post-container .post .content-image .post-images {
+.user-main .user-main-container .projects-modal .post-container .post .content-image .post-images {
   display: flex;
   width: 100vw;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
 }
-.user-main .projects-modal .post-container .post .content-image .post-images::-webkit-scrollbar {
+.user-main .user-main-container .projects-modal .post-container .post .content-image .post-images::-webkit-scrollbar {
   display: none;
 }
-.user-main .projects-modal .post-container .post .content-image .post-images img {
+.user-main .user-main-container .projects-modal .post-container .post .content-image .post-images img {
   width: inherit;
   height: inherit;
   -o-object-fit: cover;
      object-fit: cover;
   scroll-snap-align: start;
 }
-.user-main .projects-modal .post-container .post .footer {
+.user-main .user-main-container .projects-modal .post-container .post .footer {
   padding: 0 16px;
 }
-.user-main .projects-modal .post-container .post .footer .tools {
+.user-main .user-main-container .projects-modal .post-container .post .footer .tools {
   position: relative;
   justify-content: space-between;
 }
-.user-main .projects-modal .post-container .post .footer .tools .tool * {
+.user-main .user-main-container .projects-modal .post-container .post .footer .tools .tool * {
   width: 40px;
   height: 40px;
 }
-.user-main .projects-modal .post-container .post .footer .tools .tool * svg {
+.user-main .user-main-container .projects-modal .post-container .post .footer .tools .tool * svg {
   width: 24px;
   height: 24px;
   color: var(--text-color);
   fill: var(--text-color);
   pointer-events: none;
 }
-.user-main .projects-modal .post-container .post .footer .tools .tool .love svg:nth-child(2) {
+.user-main .user-main-container .projects-modal .post-container .post .footer .tools .tool .love svg:nth-child(2) {
   display: none;
 }
-.user-main .projects-modal .post-container .post .footer .tools .tool .love.active svg:first-child {
+.user-main .user-main-container .projects-modal .post-container .post .footer .tools .tool .love.active svg:first-child {
   display: none;
 }
-.user-main .projects-modal .post-container .post .footer .tools .tool .love.active svg:last-child {
+.user-main .user-main-container .projects-modal .post-container .post .footer .tools .tool .love.active svg:last-child {
   display: block;
 }
-.user-main .projects-modal .post-container .post .footer .tools .save {
+.user-main .user-main-container .projects-modal .post-container .post .footer .tools .save {
   width: 40px;
   height: 40px;
 }
-.user-main .projects-modal .post-container .post .footer .tools .save svg {
+.user-main .user-main-container .projects-modal .post-container .post .footer .tools .save svg {
   width: 24px;
   height: 24px;
   color: var(--text-color);
 }
-.user-main .projects-modal .post-container .post .footer .like-bar {
+.user-main .user-main-container .projects-modal .post-container .post .footer .like-bar {
   height: 18px;
   font-size: 15px;
   font-weight: 600;
   line-height: 18px;
   color: var(--text-color);
 }
-.user-main .projects-modal .post-container .post .footer .content {
+.user-main .user-main-container .projects-modal .post-container .post .footer .content {
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
   line-height: 1.5;
   overflow: hidden;
@@ -1073,34 +1090,72 @@ nav .toggle-icon .sun-icon {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
-.user-main .projects-modal .post-container .post .footer .content p {
+.user-main .user-main-container .projects-modal .post-container .post .footer .content p {
   width: 100%;
   font-size: 15px;
   line-height: 18px;
   white-space: pre-line;
   color: var(--text-color);
 }
-.user-main .projects-modal .post-container .post .footer .content span.user-id {
+.user-main .user-main-container .projects-modal .post-container .post .footer .content span.user-id {
   font-weight: 600;
 }
-.user-main .projects-modal .post-container .post .footer .content a {
+.user-main .user-main-container .projects-modal .post-container .post .footer .content a {
   text-decoration: none;
   color: var(--hashtag);
 }
-.user-main .projects-modal .post-container .post .footer .content .hashtag {
+.user-main .user-main-container .projects-modal .post-container .post .footer .content .hashtag {
   color: var(--hashtag);
 }
-.user-main .projects-modal .post-container .post .footer .more-btn {
+.user-main .user-main-container .projects-modal .post-container .post .footer .more-btn {
   display: inline-block;
   border: none;
   background-color: transparent;
   color: var(--detial);
 }
-.user-main .projects-modal .post-container .post .footer .date {
+.user-main .user-main-container .projects-modal .post-container .post .footer .date {
   font-size: 12px;
   color: var(--detial);
 }
 
+@media screen and (min-width: 470px) {
+  .user-main .user-main-container .user-main-title img {
+    width: 110px;
+    height: 110px;
+    margin-left: 12px;
+    margin-right: 28px;
+  }
+  .user-main .user-main-container .intro .intro-wrapper .name {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+  .user-main .user-main-container .intro .intro-wrapper .education {
+    font-size: 15px;
+  }
+  .user-main .user-main-container .intro .intro-wrapper .work-experience {
+    font-size: 15px;
+  }
+  .user-main .user-main-container .intro .intro-wrapper .describe {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 500px) {
+  .user-main .user-main-container header,
+  .user-main .user-main-container .user-main-title,
+  .user-main .user-main-container .intro, .user-main .user-main-container .skills,
+  .user-main .user-main-container .menu-bar,
+  .user-main .user-main-container .post-banner {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .user-main .user-main-container .post-banner .post-box {
+    width: 500px;
+  }
+  .user-main .user-main-container .post-banner .post-box .grid-post .post {
+    width: 165.6666666667px;
+    height: 165.6666666667px;
+  }
+}
 .search-main {
   width: inherit;
   height: inherit;
@@ -1236,7 +1291,10 @@ nav .toggle-icon .sun-icon {
   top: 0;
   left: 0;
   font-family: "Poppins", sans-serif;
-  transform: scale(0, 1);
+  overflow-y: scroll;
+}
+.message-main::-webkit-scrollbar {
+  display: none;
 }
 .message-main header .title {
   font-weight: 600;
@@ -1248,11 +1306,76 @@ nav .toggle-icon .sun-icon {
   margin: 0 auto;
   padding: 16px;
   z-index: -1;
+  color: var(--text-color);
+}
+.message-main .message-content .message-info {
+  text-align: center;
+}
+.message-main .message-content .message-info .info-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.message-main .message-content .message-info .phone {
+  margin-bottom: 4px;
+}
+.message-main .message-content .message-info .phone svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-color);
+}
+.message-main .message-content .message-info .email svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
+.message-main .message-content .message-info .email svg path {
+  stroke: var(--text-color);
+}
+.message-main .message-content .message-info .email svg rect {
+  stroke: var(--text-color);
+}
+.message-main .message-content .message-info .media {
+  margin-top: 16px;
+}
+.message-main .message-content .message-info .media .github svg, .message-main .message-content .message-info .media .instagram svg, .message-main .message-content .message-info .media .facebook svg {
+  width: 28px;
+  height: 28px;
+  margin: 0 6px;
+}
+.message-main .message-content .message-info .media .github svg path, .message-main .message-content .message-info .media .instagram svg path, .message-main .message-content .message-info .media .facebook svg path {
+  fill: var(--text-color);
+}
+.message-main .message-content .or-hr {
+  position: relative;
+  padding: 12px 0;
+}
+.message-main .message-content .or-hr .or-hr-text {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 8px;
+  font-size: 1.6rem;
+  color: var(--detial);
+  background-color: var(--bg-color);
+  position: relative;
+  z-index: 2;
+}
+.message-main .message-content .or-hr .or-hr-box {
+  width: 60%;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  background-color: var(--detial);
 }
 .message-main .message-content .message-content-title {
   width: 100%;
   text-align: center;
-  font-size: 1.15rem;
+  font-size: 1.4rem;
   font-weight: 500;
   padding: 0 0 16px 0;
   color: var(--text-color);
@@ -1261,11 +1384,11 @@ nav .toggle-icon .sun-icon {
   display: grid;
   row-gap: 1.15rem;
 }
-.message-main .message-content .input-box {
+.message-main .message-content form .input-box {
   position: relative;
   width: 100%;
 }
-.message-main .message-content input {
+.message-main .message-content form input {
   width: 100%;
   height: 52px;
   padding: 0 16px;
@@ -1277,29 +1400,29 @@ nav .toggle-icon .sun-icon {
   color: var(--text-color);
   transition: border 0.4s background-color 0.4s;
 }
-.message-main .message-content input::-moz-placeholder {
+.message-main .message-content form input::-moz-placeholder {
   color: #919191;
   -moz-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
-.message-main .message-content input::placeholder {
+.message-main .message-content form input::placeholder {
   color: #919191;
   transition: opacity 0.3s;
 }
-.message-main .message-content input:focus {
+.message-main .message-content form input:focus {
   border: 3px solid var(--input-foucs);
 }
-.message-main .message-content input:focus::-moz-placeholder {
+.message-main .message-content form input:focus::-moz-placeholder {
   opacity: 0;
 }
-.message-main .message-content input:focus::placeholder {
+.message-main .message-content form input:focus::placeholder {
   opacity: 0;
 }
-.message-main .message-content input:-webkit-autofill {
+.message-main .message-content form input:-webkit-autofill {
   -webkit-transition: background-color 6000s, color 6000s;
   transition: background-color 6000s, color 6000s;
 }
-.message-main .message-content label {
+.message-main .message-content form label {
   position: absolute;
   top: 8px;
   left: 12px;
@@ -1313,19 +1436,19 @@ nav .toggle-icon .sun-icon {
   transition: top 0.5s, opacity 0.2s, background-color 0.4s;
   opacity: 0;
 }
-.message-main .message-content input:not(:-moz-placeholder-shown) + label {
+.message-main .message-content form input:not(:-moz-placeholder-shown) + label {
   opacity: 1;
   top: -16px;
 }
-.message-main .message-content input:focus + label,
-.message-main .message-content input:not(:placeholder-shown) + label {
+.message-main .message-content form input:focus + label,
+.message-main .message-content form input:not(:placeholder-shown) + label {
   opacity: 1;
   top: -16px;
 }
-.message-main .message-content .message-area {
+.message-main .message-content form .message-area {
   position: relative;
 }
-.message-main .message-content .message-area textarea {
+.message-main .message-content form .message-area textarea {
   width: 100%;
   height: 20vh;
   padding: 0 16px;
@@ -1337,35 +1460,35 @@ nav .toggle-icon .sun-icon {
   resize: none;
   padding-top: 1rem;
 }
-.message-main .message-content .message-area textarea::-moz-placeholder {
+.message-main .message-content form .message-area textarea::-moz-placeholder {
   color: #919191;
   -moz-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-.message-main .message-content .message-area textarea::placeholder {
+.message-main .message-content form .message-area textarea::placeholder {
   color: #919191;
   transition: opacity 0.2s;
 }
-.message-main .message-content .message-area textarea:focus {
+.message-main .message-content form .message-area textarea:focus {
   border: 3px solid var(--input-foucs);
 }
-.message-main .message-content .message-area textarea:focus::-moz-placeholder {
+.message-main .message-content form .message-area textarea:focus::-moz-placeholder {
   opacity: 0;
 }
-.message-main .message-content .message-area textarea:focus::placeholder {
+.message-main .message-content form .message-area textarea:focus::placeholder {
   opacity: 0;
 }
-.message-main .message-content .message-area textarea:not(:-moz-placeholder-shown) + label {
+.message-main .message-content form .message-area textarea:not(:-moz-placeholder-shown) + label {
   opacity: 1;
   top: -16px;
 }
-.message-main .message-content .message-area textarea:focus + label,
-.message-main .message-content .message-area textarea:not(:placeholder-shown) + label {
+.message-main .message-content form .message-area textarea:focus + label,
+.message-main .message-content form .message-area textarea:not(:placeholder-shown) + label {
   opacity: 1;
   top: -16px;
 }
-.message-main .message-content .form-btn {
-  width: 80%;
+.message-main .message-content form .form-btn {
+  width: 60%;
   height: 56px;
   margin: 0 auto;
   font-size: 1.15rem;
@@ -1379,12 +1502,12 @@ nav .toggle-icon .sun-icon {
   justify-content: center;
   align-items: center;
 }
-.message-main .message-content .form-btn svg {
+.message-main .message-content form .form-btn svg {
   width: 28px;
   height: 28px;
   margin-left: 4px;
 }
-.message-main .message-content .form-btn svg path {
+.message-main .message-content form .form-btn svg path {
   stroke: var(--bg-color);
 }
 .message-main .envelope-wrapper {
@@ -1533,4 +1656,39 @@ nav .toggle-icon .sun-icon {
   margin-top: 16px;
   font-size: 1.25rem;
   font-weight: normal;
+}
+
+@media screen and (min-width: 470px) {
+  .message-main .message-content {
+    max-width: 470px;
+  }
+  .message-main .message-content form {
+    grid-gap: 1.65rem;
+  }
+  .message-main .message-content form .input-box {
+    max-width: 390px;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 560px) {
+  .message-main header {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 768px) {
+  .message-main header .header-wrapper {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hr-color);
+  }
+  .message-main header .header-wrapper .title {
+    margin: 0 auto;
+    font-size: 1.5rem;
+  }
+  .message-main header .header-wrapper .toggle-icon {
+    display: none;
+  }
+  .message-main .message-info {
+    margin-top: 16px;
+  }
 }/*# sourceMappingURL=style.css.map */
