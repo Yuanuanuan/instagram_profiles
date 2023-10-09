@@ -433,6 +433,7 @@
                   }
                 }
                 .love {
+                  cursor: pointer;
                   & svg:nth-child(2) {
                     display: none;
                   }
@@ -445,12 +446,19 @@
                 }
               }
               .save {
+                cursor: pointer;
                 width: 40px;
                 height: 40px;
                 svg {
                   width: 24px;
                   height: 24px;
                   color: var(--text-color);
+                  pointer-events: none;
+                }
+                &.active {
+                  svg polygon{
+                    fill: var(--text-color);
+                  }
                 }
               }
             }
@@ -843,13 +851,15 @@
         }
       }
       .experience-modal {
-        padding-left: 73px;
+        margin-left: 73px;
+        width: calc(100vw - 73px);
         .post-container {
           max-height: calc(100vh - 60px);
         }
       }
       .projects-modal {
-        padding-left: 73px;
+        margin-left: 73px;
+        width: calc(100vw - 73px);
         .post-container {
           max-height: calc(100vh - 60px);
         }
@@ -1030,7 +1040,8 @@
         }
       }
       .experience-modal {
-        padding-left: 244px;
+        margin-left: 244px;
+        width: calc(100vw - 244px);
         header {
           .header-wrapper {
             max-width: 635px;
@@ -1039,7 +1050,8 @@
         }
       }
       .projects-modal {
-        padding-left: 244px;
+        margin-left: 244px;
+        width: calc(100vw - 244px);
         header {
           .header-wrapper {
             max-width: 635px;

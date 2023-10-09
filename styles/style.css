@@ -1128,6 +1128,9 @@ nav .toggle-icon h1 {
   fill: var(--text-color);
   pointer-events: none;
 }
+.user-main .user-main-container .experience-modal .post-container .post .footer .tools .tool .love {
+  cursor: pointer;
+}
 .user-main .user-main-container .experience-modal .post-container .post .footer .tools .tool .love svg:nth-child(2) {
   display: none;
 }
@@ -1138,6 +1141,7 @@ nav .toggle-icon h1 {
   display: block;
 }
 .user-main .user-main-container .experience-modal .post-container .post .footer .tools .save {
+  cursor: pointer;
   width: 40px;
   height: 40px;
 }
@@ -1145,6 +1149,10 @@ nav .toggle-icon h1 {
   width: 24px;
   height: 24px;
   color: var(--text-color);
+  pointer-events: none;
+}
+.user-main .user-main-container .experience-modal .post-container .post .footer .tools .save.active svg polygon {
+  fill: var(--text-color);
 }
 .user-main .user-main-container .experience-modal .post-container .post .footer .like-bar {
   height: 18px;
@@ -1484,13 +1492,15 @@ nav .toggle-icon h1 {
     display: none;
   }
   .user-main .user-main-container .experience-modal {
-    padding-left: 73px;
+    margin-left: 73px;
+    width: calc(100vw - 73px);
   }
   .user-main .user-main-container .experience-modal .post-container {
     max-height: calc(100vh - 60px);
   }
   .user-main .user-main-container .projects-modal {
-    padding-left: 73px;
+    margin-left: 73px;
+    width: calc(100vw - 73px);
   }
   .user-main .user-main-container .projects-modal .post-container {
     max-height: calc(100vh - 60px);
@@ -1636,14 +1646,16 @@ nav .toggle-icon h1 {
     font-size: 16px;
   }
   .user-main .user-main-container .experience-modal {
-    padding-left: 244px;
+    margin-left: 244px;
+    width: calc(100vw - 244px);
   }
   .user-main .user-main-container .experience-modal header .header-wrapper {
     max-width: 635px;
     margin: 0 auto;
   }
   .user-main .user-main-container .projects-modal {
-    padding-left: 244px;
+    margin-left: 244px;
+    width: calc(100vw - 244px);
   }
   .user-main .user-main-container .projects-modal header .header-wrapper {
     max-width: 635px;
