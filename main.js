@@ -54,7 +54,16 @@ const addPostModal = document.querySelector('.add-post-modal')
 
 nav.addEventListener('click', (e) => {
   if (e.target instanceof HTMLLIElement) {
-    console.log(e.target.childNodes[1])
+
+    if (e.target.childNodes[1].classList.contains('add-post-icon')) {
+      addPostModal.style.transform = 'scale(1, 1)';
+      addPostModal.style.opacity = '1';
+      return
+    } else {
+      addPostModal.style.transform = 'scale(0, 0)';
+      addPostModal.style.opacity = '0';
+    }
+
     const items = nav.querySelectorAll('svg');
     items.forEach((item) => {
       item.classList.remove('active');
@@ -86,14 +95,6 @@ nav.addEventListener('click', (e) => {
         item.style.transform = 'scale(0, 1)';
       })
       userMain.style.transform = 'scale(1, 1)';
-    }
-
-    if (e.target.childNodes[1].classList.contains('add-post-icon')) {
-      addPostModal.style.transform = 'scale(1, 1)';
-      addPostModal.style.opacity = '1';
-    } else {
-      addPostModal.style.transform = 'scale(0, 0)';
-      addPostModal.style.opacity = '0';
     }
 
     e.target.childNodes[1].classList.add('active');

@@ -152,6 +152,7 @@ body {
   color: #ccc;
   font-size: 1.5rem;
   font-family: "Poppins", sans-serif;
+  cursor: pointer;
 }
 
 #all-main {
@@ -186,6 +187,10 @@ body {
   #all-main {
     width: calc(100vw - 244px);
     height: 100vh;
+    margin-left: 244px;
+  }
+  .add-post-modal {
+    width: calc(100vw - 244px);
     margin-left: 244px;
   }
 }
@@ -879,6 +884,14 @@ nav .toggle-icon h1 {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
+.user-main .user-main-container .intro .intro-wrapper .describe-more-btn {
+  display: inline-block;
+  border: none;
+  background-color: transparent;
+  color: var(--detial);
+  font-size: 14px;
+  cursor: pointer;
+}
 .user-main .user-main-container .skills {
   width: 100%;
   overflow-x: scroll;
@@ -1471,13 +1484,13 @@ nav .toggle-icon h1 {
     padding-left: 73px;
   }
   .user-main .user-main-container .experience-modal .post-container {
-    height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
   }
   .user-main .user-main-container .projects-modal {
     padding-left: 73px;
   }
   .user-main .user-main-container .projects-modal .post-container {
-    height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
   }
 }
 @media screen and (min-width: 1000px) {
@@ -1571,6 +1584,13 @@ nav .toggle-icon h1 {
   .user-main .user-main-container .intro .intro-wrapper .work-experience {
     display: none;
   }
+  .user-main .user-main-container .intro .intro-wrapper .describe {
+    display: block;
+    font-size: 15px;
+  }
+  .user-main .user-main-container .intro .intro-wrapper .describe-more-btn {
+    display: none;
+  }
   .user-main .user-main-container .skills {
     margin-top: 1rem;
     padding-bottom: 1.5rem;
@@ -1595,8 +1615,8 @@ nav .toggle-icon h1 {
     max-width: 935px;
   }
   .user-main .user-main-container .post-banner .post-box .grid-post .post {
-    width: 307.6666666667px;
-    height: 307.6666666667px;
+    width: 309px;
+    height: 309px;
   }
   .user-main .user-main-container .experience-modal header .header-wrapper {
     max-width: 635px;
@@ -1608,6 +1628,9 @@ nav .toggle-icon h1 {
   }
 }
 @media screen and (min-width: 1264px) {
+  .user-main .user-main-container .intro .intro-wrapper .describe {
+    font-size: 16px;
+  }
   .user-main .user-main-container .experience-modal {
     padding-left: 244px;
   }

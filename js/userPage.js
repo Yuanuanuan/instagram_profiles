@@ -1,4 +1,14 @@
 
+// describe-more-btn click events
+const moreBtn = document.querySelector('.describe-more-btn');
+const describe = document.querySelector('.intro-wrapper .describe');
+
+moreBtn.onclick = () => {
+  describe.style.webkitLineClamp = 'initial';
+  moreBtn.style.display = 'none';
+}
+
+
 // 選項按鈕切換
 const menuBox = document.querySelector('.menu-bar-box');
 

@@ -189,6 +189,14 @@
           -webkit-box-orient: vertical;
           text-overflow: ellipsis;
         }
+        .describe-more-btn {
+          display: inline-block;
+          border: none;
+          background-color: transparent;
+          color: var(--detial);
+          font-size: 14px;
+          cursor: pointer;
+        }
       }
     }
     .skills {
@@ -836,13 +844,13 @@
       .experience-modal {
         padding-left: 73px;
         .post-container {
-          height: calc(100vh - 60px);
+          max-height: calc(100vh - 60px);
         }
       }
       .projects-modal {
         padding-left: 73px;
         .post-container {
-          height: calc(100vh - 60px);
+          max-height: calc(100vh - 60px);
         }
       }
     }
@@ -953,6 +961,13 @@
           .work-experience {
             display: none;
           }
+          .describe {
+            display: block;
+            font-size: 15px;
+          }
+          .describe-more-btn {
+            display: none;
+          }
         }
       }
       .skills {
@@ -965,7 +980,7 @@
         .menu-bar-box {
           grid-gap: 4px;
           div {
-            width: calc((935px - 8px) * (1 / 3));
+            width: calc((935px - 8px) * 1 / 3);
           }
         }
       }
@@ -976,8 +991,8 @@
           .grid-post {
             max-width: 935px;
             .post {
-              width: calc(935px * (1 / 3) - 4px);
-              height: calc(935px * (1 / 3) - 4px);
+              width: calc((935px - 8px) * 1 / 3);
+              height: calc((935px - 8px) * 1 / 3);
             }
           }
         }
@@ -1005,6 +1020,13 @@
 @media screen and (min-width: 1264px) {
   .user-main {
     .user-main-container {
+      .intro {
+        .intro-wrapper {
+          .describe {
+            font-size: 16px;
+          }
+        }
+      }
       .experience-modal {
         padding-left: 244px;
         header {
