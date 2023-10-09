@@ -899,6 +899,7 @@ nav .toggle-icon h1 {
   overflow-x: scroll;
   margin-bottom: 21px;
   display: grid;
+  grid-template-columns: repeat(auto-fit, 75px);
   grid-auto-flow: column;
   grid-gap: 10px;
   align-items: center;
@@ -908,7 +909,7 @@ nav .toggle-icon h1 {
 }
 .user-main .user-main-container .skills .skill {
   width: 75px;
-  height: 85px;
+  height: 90px;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -1597,6 +1598,7 @@ nav .toggle-icon h1 {
     margin-top: 1rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--hr-color);
+    grid-template-columns: repeat(auto-fit, 90px);
   }
   .user-main .user-main-container .menu-bar {
     margin-top: 1rem;
