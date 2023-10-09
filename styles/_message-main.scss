@@ -25,13 +25,26 @@
     color: var(--text-color);
     .message-info {
       text-align: center;
+      font-size: 1rem;
       .info-title {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         font-weight: 500;
         margin-bottom: 12px;
       }
+      .location {
+        margin-bottom: 4px;
+        padding: .5rem 0;
+        svg {
+          width: 24px;
+          height: 24px;
+          path {
+            stroke: var(--text-color);
+          }
+        }
+      }
       .phone {
         margin-bottom: 4px;
+        padding: .5rem 0;
         svg {
           width: 24px;
           height: 24px;
@@ -39,6 +52,7 @@
         }
       }
       .email {
+        padding: .5rem 0;
         svg {
           width: 24px;
           height: 24px;
@@ -54,6 +68,7 @@
       .media {
         margin-top: 16px;
         .github, .instagram, .facebook {
+          margin: 0 .5rem;
           svg {
             width: 28px;
             height: 28px;
@@ -91,82 +106,37 @@
         border-radius: 50%;
       }
     }
-    .message-content-title {
-      width: 100%;
-      text-align: center;
-      font-size: 1.4rem;
-      font-weight: 500;
-      padding: 0 0 16px 0;
-      color: var(--text-color);
-    }
-    form {
-      display: grid;
-      row-gap: 1.15rem;
-      margin-bottom: 24px;
-      .input-box {
-        position: relative;
+    .message-form-content {
+      .message-content-title {
         width: 100%;
-      }
-      input {
-        width: 100%;
-        height: 52px;
-        padding: 0 16px;
-        background-color: transparent;
-        font-size: 16px;
-        font-family: 'Poppins', sans-serif;
-        outline: none;
-        border: 2px solid #919191;
+        text-align: center;
+        font-size: 1.35rem;
+        font-weight: 500;
+        padding: 0 0 16px 0;
         color: var(--text-color);
-        transition: border .4s background-color .4s;
-        &::placeholder {
-          color: #919191;
-          transition: opacity 0.3s;
-        }
-        &:focus {
-          border: 3px solid var(--input-foucs);
-          &::placeholder {
-            opacity: 0;
-          }
-        }
-        &:-webkit-autofill {
-          transition: background-color 6000s, color 6000s;
-        }
       }
-      label {
-        position: absolute;
-        top: 8px;
-        left: 12px;
-        color: #919191;
-        font-size: 16px;
-        font-weight: normal;
-        font-family: 'Poppins', sans-serif;
-        background-color: var(--bg-color);
-        padding: 2px 6px;
-        pointer-events: none;
-        transition: top .5s, opacity 0.2s, background-color .4s;
-        opacity: 0;
-      }
-      input:focus + label,
-      input:not(:placeholder-shown) + label {
-        opacity: 1;
-        top: -16px;
-      }
-      .message-area {
-        position: relative;
-        textarea {
+      form {
+        display: grid;
+        row-gap: 1.15rem;
+        margin-bottom: 24px;
+        .input-box {
+          position: relative;
           width: 100%;
-          height: 20vh;
+        }
+        input {
+          width: 100%;
+          height: 52px;
           padding: 0 16px;
           background-color: transparent;
           font-size: 16px;
           font-family: 'Poppins', sans-serif;
-          border: 2px solid #919191;
           outline: none;
-          resize: none;
-          padding-top: 1rem;
+          border: 2px solid #919191;
+          color: var(--text-color);
+          transition: border .4s background-color .4s;
           &::placeholder {
             color: #919191;
-            transition: opacity 0.2s;
+            transition: opacity 0.3s;
           }
           &:focus {
             border: 3px solid var(--input-foucs);
@@ -174,34 +144,77 @@
               opacity: 0;
             }
           }
+          &:-webkit-autofill {
+            transition: background-color 6000s, color 6000s;
+          }
         }
-        textarea:focus + label,
-        textarea:not(:placeholder-shown) + label {
+        label {
+          position: absolute;
+          top: 8px;
+          left: 12px;
+          color: #919191;
+          font-size: 16px;
+          font-weight: normal;
+          font-family: 'Poppins', sans-serif;
+          background-color: var(--bg-color);
+          padding: 2px 6px;
+          pointer-events: none;
+          transition: top .5s, opacity 0.2s, background-color .4s;
+          opacity: 0;
+        }
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
           opacity: 1;
           top: -16px;
         }
-      }
-      .form-btn {
-        width: 60%;
-        height: 56px;
-        margin: 0 auto;
-        font-size: 1.15rem;
-        font-weight: 500;
-        font-family: 'Poppins', sans-serif;
-        background-color: #B58658;
-        color: var(--bg-color);
-        border: none;
-        cursor: pointer;
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        svg {
-          width: 28px;
-          height: 28px;
-          margin-left: 4px;
-          path {
-            stroke: var(--bg-color);
+        .message-area {
+          position: relative;
+          textarea {
+            width: 100%;
+            height: 20vh;
+            padding: 0 16px;
+            background-color: transparent;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            border: 2px solid #919191;
+            outline: none;
+            resize: none;
+            padding-top: 1rem;
+            &::placeholder {
+              color: #919191;
+              transition: opacity 0.2s;
+            }
+            &:focus {
+              border: 3px solid var(--input-foucs);
+              &::placeholder {
+                opacity: 0;
+              }
+            }
+          }
+          textarea:focus + label,
+          textarea:not(:placeholder-shown) + label {
+            opacity: 1;
+            top: -16px;
+          }
+        }
+        .form-btn {
+          width: 50%;
+          height: 48px;
+          margin: 0 auto;
+          font-size: 1rem;
+          font-weight: 500;
+          font-family: 'Poppins', sans-serif;
+          background: var(--text-color);
+          color: var(--bg-color);
+          border: none;
+          cursor: pointer;
+          svg {
+            width: 24px;
+            height: 24px;
+            margin-left: 8px;
+            path {
+              stroke: var(--bg-color);
+            }
           }
         }
       }
@@ -210,9 +223,11 @@
   .envelope-wrapper {
     width: 100%;
     height: 100%;
+    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 50;
     display: none;
     pointer-events: none;
     .envelope {
@@ -327,20 +342,23 @@
     }
   }
   .error-modal {
-    width: 80%;
-    height: 40%;
-    position: absolute;
+    width: 280px;
+    height: 280px;
+    position: fixed;
     background-color: #fdfdfd;
     box-shadow: 0 0 10px 5px #e0e0e0, inset 0 0 10px 5px #fbfbfb;
     top: 50%;
     left: 50%;
+    z-index: 50;
     transform: translate(-50%, -50%);
     border-radius: 36px;
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     pointer-events: none;
     text-align: center;
     .emoji {
-      margin-top: 36px;
       font-size: 5rem;
     }
     .error-text {
@@ -358,15 +376,77 @@
   }
 }
 
+@media screen and (min-width: 370px) {
+  .message-main {
+    .message-content {
+      max-width: 470px;
+      .message-info {
+        font-size: 1.2rem;
+        .info-title {
+          font-size: 1.8rem;
+        }
+        .location {
+          margin-bottom: 4px;
+          padding: .5rem 0;
+          svg {
+            width: 28px;
+            height: 28px;
+          }
+        }
+        .phone {
+          padding: .5rem 0;
+          svg {
+            width: 28px;
+            height: 28px;
+          }
+        }
+        .email {
+          padding: .5rem 0;
+          svg {
+            width: 28px;
+            height: 28px;
+            margin-right: 4px;
+          }
+        }
+        .media {
+          margin-top: 16px;
+          .github, .instagram, .facebook {
+            margin: 0 .5rem;
+            svg {
+              width: 32px;
+              height: 32px;
+            }
+          }
+        }
+      }
+      .message-content-title {
+        font-size: 1.6rem;
+      }
+      .message-form-content {
+        form {
+          .form-btn {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 470px) {
   .message-main {
     .message-content {
       max-width: 470px;
-      form {
-        grid-gap: 1.65rem;
-        .input-box {
-          max-width: 390px;
-          margin: 0 auto;
+      .message-form-content {
+        form {
+          grid-gap: 1.65rem;
+          .input-box {
+            max-width: 360px;
+            margin: 0 auto;
+          }
+          .form-btn {
+            width: 40%;
+          }
         }
       }
     }
@@ -378,6 +458,10 @@
     header {
       max-width: 560px;
       margin: 0 auto;
+    }
+    .error-modal {
+      width: 400px;
+      height: 400px;
     }
   }
 }
@@ -397,8 +481,163 @@
         }
       }
     }
-    .message-info {
-      margin-top: 16px;
+    .message-content {
+      .message-info {
+        margin-top: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1160px) {
+  .message-main {
+    header {
+      height: 100px;
+      .header-wrapper {
+        .title {
+          font-size: 2.3rem;
+        }
+      }
+    }
+    .message-content {
+      height: calc(100vh - 100px);
+      max-width: 1600px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      .message-info {
+        width: 40%;
+        height: 60%;
+        padding: 4rem 2rem;
+        color: rgb(245, 245, 245);
+        background-color: var(--contact-me-intro);
+        font-size: 1.3rem;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 2;
+        transform: translateY(-50%);
+        .info-title {
+          font-size: 2rem;
+        }
+        .location,
+        .phone,
+        .email {
+          padding: 1.2rem 0;
+          justify-content: start;
+        }
+        .location {
+          svg {
+            path {
+              stroke: rgb(245, 245, 245);
+            }
+          }
+        }
+        .phone {
+          svg {
+            fill: rgb(245, 245, 245);
+          }
+        }
+        .email {
+          svg {
+            path {
+              stroke: rgb(245, 245, 245);
+            }
+            rect {
+              stroke: rgb(245, 245, 245);
+            }
+          }
+        }
+        .media {
+          margin-top: 2rem;
+          .github, .instagram, .facebook {
+            svg {
+              path {
+                fill: rgb(245, 245, 245);
+              }
+            }
+          }
+        }
+      }
+      .or-hr {
+        display: none;
+      }
+      .message-form-content {
+        width: 70%;
+        margin-top: 28px;
+        &::after {
+          content: '';
+          display: block;
+          width: 20%;
+          height: 85%;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          z-index: -1;
+          transform: translateY(-50%);
+          background: linear-gradient(60deg, #fed522 0%, #f56f23 25%, #ea1d28 50%, #c52d64 75%, #a53a96 100%);
+        }
+        .message-content-title {
+          font-size: 3rem;
+          text-align: start;
+          margin-left: 2rem;
+        }
+        .message-form {
+          max-width: 450px;
+          margin-left: 3rem;
+          padding-bottom: 2.5rem;
+          .input-box {
+            margin: 0;
+            max-width: 450px;
+          }
+          .message-area {
+            textarea {
+              height: 200px;
+            }
+          }
+          .form-btn {
+            width: 50%;
+            height: 60px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  .message-main {
+    .message-content {
+      max-width: 1000px;
+      .message-info {
+        width: 40%;
+        padding: 4rem 2rem;
+      }
+      .message-form-content {
+        width: 70%;
+        margin-top: 28px;
+        &::after {
+          width: 20%;
+          height: 85%;
+        }
+        .message-content-title {
+          font-size: 3rem;
+          margin-left: 2rem;
+        }
+        .message-form {
+          max-width: 450px;
+          margin: 2rem 0 0 3rem;
+          .input-box {
+            margin: 0;
+            max-width: 450px;
+          }
+          .form-btn {
+            width: 50%;
+            height: 60px;
+          }
+        }
+      }
     }
   }
 }

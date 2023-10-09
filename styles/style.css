@@ -17,6 +17,7 @@ body.light-mode {
   --search-color: #efefef;
   --form-color: #ededed;
   --input-foucs: #4f4f4f;
+  --contact-me-intro: rgba(0, 0, 0);
 }
 
 body.dark-mode {
@@ -28,6 +29,7 @@ body.dark-mode {
   --search-color: #262626;
   --form-color: #3d3d3d;
   --input-foucs: #f5f6f7;
+  --contact-me-intro: #353535;
 }
 
 body {
@@ -1876,19 +1878,35 @@ nav .toggle-icon h1 {
 }
 .message-main .message-content .message-info {
   text-align: center;
+  font-size: 1rem;
 }
 .message-main .message-content .message-info .info-title {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 12px;
 }
+.message-main .message-content .message-info .location {
+  margin-bottom: 4px;
+  padding: 0.5rem 0;
+}
+.message-main .message-content .message-info .location svg {
+  width: 24px;
+  height: 24px;
+}
+.message-main .message-content .message-info .location svg path {
+  stroke: var(--text-color);
+}
 .message-main .message-content .message-info .phone {
   margin-bottom: 4px;
+  padding: 0.5rem 0;
 }
 .message-main .message-content .message-info .phone svg {
   width: 24px;
   height: 24px;
   fill: var(--text-color);
+}
+.message-main .message-content .message-info .email {
+  padding: 0.5rem 0;
 }
 .message-main .message-content .message-info .email svg {
   width: 24px;
@@ -1903,6 +1921,9 @@ nav .toggle-icon h1 {
 }
 .message-main .message-content .message-info .media {
   margin-top: 16px;
+}
+.message-main .message-content .message-info .media .github, .message-main .message-content .message-info .media .instagram, .message-main .message-content .message-info .media .facebook {
+  margin: 0 0.5rem;
 }
 .message-main .message-content .message-info .media .github svg, .message-main .message-content .message-info .media .instagram svg, .message-main .message-content .message-info .media .facebook svg {
   width: 28px;
@@ -1939,24 +1960,24 @@ nav .toggle-icon h1 {
   background-color: var(--detial);
   border-radius: 50%;
 }
-.message-main .message-content .message-content-title {
+.message-main .message-content .message-form-content .message-content-title {
   width: 100%;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 500;
   padding: 0 0 16px 0;
   color: var(--text-color);
 }
-.message-main .message-content form {
+.message-main .message-content .message-form-content form {
   display: grid;
   row-gap: 1.15rem;
   margin-bottom: 24px;
 }
-.message-main .message-content form .input-box {
+.message-main .message-content .message-form-content form .input-box {
   position: relative;
   width: 100%;
 }
-.message-main .message-content form input {
+.message-main .message-content .message-form-content form input {
   width: 100%;
   height: 52px;
   padding: 0 16px;
@@ -1968,29 +1989,29 @@ nav .toggle-icon h1 {
   color: var(--text-color);
   transition: border 0.4s background-color 0.4s;
 }
-.message-main .message-content form input::-moz-placeholder {
+.message-main .message-content .message-form-content form input::-moz-placeholder {
   color: #919191;
   -moz-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
-.message-main .message-content form input::placeholder {
+.message-main .message-content .message-form-content form input::placeholder {
   color: #919191;
   transition: opacity 0.3s;
 }
-.message-main .message-content form input:focus {
+.message-main .message-content .message-form-content form input:focus {
   border: 3px solid var(--input-foucs);
 }
-.message-main .message-content form input:focus::-moz-placeholder {
+.message-main .message-content .message-form-content form input:focus::-moz-placeholder {
   opacity: 0;
 }
-.message-main .message-content form input:focus::placeholder {
+.message-main .message-content .message-form-content form input:focus::placeholder {
   opacity: 0;
 }
-.message-main .message-content form input:-webkit-autofill {
+.message-main .message-content .message-form-content form input:-webkit-autofill {
   -webkit-transition: background-color 6000s, color 6000s;
   transition: background-color 6000s, color 6000s;
 }
-.message-main .message-content form label {
+.message-main .message-content .message-form-content form label {
   position: absolute;
   top: 8px;
   left: 12px;
@@ -2004,19 +2025,19 @@ nav .toggle-icon h1 {
   transition: top 0.5s, opacity 0.2s, background-color 0.4s;
   opacity: 0;
 }
-.message-main .message-content form input:not(:-moz-placeholder-shown) + label {
+.message-main .message-content .message-form-content form input:not(:-moz-placeholder-shown) + label {
   opacity: 1;
   top: -16px;
 }
-.message-main .message-content form input:focus + label,
-.message-main .message-content form input:not(:placeholder-shown) + label {
+.message-main .message-content .message-form-content form input:focus + label,
+.message-main .message-content .message-form-content form input:not(:placeholder-shown) + label {
   opacity: 1;
   top: -16px;
 }
-.message-main .message-content form .message-area {
+.message-main .message-content .message-form-content form .message-area {
   position: relative;
 }
-.message-main .message-content form .message-area textarea {
+.message-main .message-content .message-form-content form .message-area textarea {
   width: 100%;
   height: 20vh;
   padding: 0 16px;
@@ -2028,62 +2049,61 @@ nav .toggle-icon h1 {
   resize: none;
   padding-top: 1rem;
 }
-.message-main .message-content form .message-area textarea::-moz-placeholder {
+.message-main .message-content .message-form-content form .message-area textarea::-moz-placeholder {
   color: #919191;
   -moz-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-.message-main .message-content form .message-area textarea::placeholder {
+.message-main .message-content .message-form-content form .message-area textarea::placeholder {
   color: #919191;
   transition: opacity 0.2s;
 }
-.message-main .message-content form .message-area textarea:focus {
+.message-main .message-content .message-form-content form .message-area textarea:focus {
   border: 3px solid var(--input-foucs);
 }
-.message-main .message-content form .message-area textarea:focus::-moz-placeholder {
+.message-main .message-content .message-form-content form .message-area textarea:focus::-moz-placeholder {
   opacity: 0;
 }
-.message-main .message-content form .message-area textarea:focus::placeholder {
+.message-main .message-content .message-form-content form .message-area textarea:focus::placeholder {
   opacity: 0;
 }
-.message-main .message-content form .message-area textarea:not(:-moz-placeholder-shown) + label {
+.message-main .message-content .message-form-content form .message-area textarea:not(:-moz-placeholder-shown) + label {
   opacity: 1;
   top: -16px;
 }
-.message-main .message-content form .message-area textarea:focus + label,
-.message-main .message-content form .message-area textarea:not(:placeholder-shown) + label {
+.message-main .message-content .message-form-content form .message-area textarea:focus + label,
+.message-main .message-content .message-form-content form .message-area textarea:not(:placeholder-shown) + label {
   opacity: 1;
   top: -16px;
 }
-.message-main .message-content form .form-btn {
-  width: 60%;
-  height: 56px;
+.message-main .message-content .message-form-content form .form-btn {
+  width: 50%;
+  height: 48px;
   margin: 0 auto;
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
-  background-color: #B58658;
+  background: var(--text-color);
   color: var(--bg-color);
   border: none;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.message-main .message-content form .form-btn svg {
-  width: 28px;
-  height: 28px;
-  margin-left: 4px;
+.message-main .message-content .message-form-content form .form-btn svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
 }
-.message-main .message-content form .form-btn svg path {
+.message-main .message-content .message-form-content form .form-btn svg path {
   stroke: var(--bg-color);
 }
 .message-main .envelope-wrapper {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 50;
   display: none;
   pointer-events: none;
 }
@@ -2196,21 +2216,24 @@ nav .toggle-icon h1 {
   padding-top: 1rem;
 }
 .message-main .error-modal {
-  width: 80%;
-  height: 40%;
-  position: absolute;
+  width: 280px;
+  height: 280px;
+  position: fixed;
   background-color: #fdfdfd;
   box-shadow: 0 0 10px 5px #e0e0e0, inset 0 0 10px 5px #fbfbfb;
   top: 50%;
   left: 50%;
+  z-index: 50;
   transform: translate(-50%, -50%);
   border-radius: 36px;
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   pointer-events: none;
   text-align: center;
 }
 .message-main .error-modal .emoji {
-  margin-top: 36px;
   font-size: 5rem;
 }
 .message-main .error-modal .error-text {
@@ -2226,22 +2249,79 @@ nav .toggle-icon h1 {
   font-weight: normal;
 }
 
+@media screen and (min-width: 370px) {
+  .message-main .message-content {
+    max-width: 470px;
+  }
+  .message-main .message-content .message-info {
+    font-size: 1.2rem;
+  }
+  .message-main .message-content .message-info .info-title {
+    font-size: 1.8rem;
+  }
+  .message-main .message-content .message-info .location {
+    margin-bottom: 4px;
+    padding: 0.5rem 0;
+  }
+  .message-main .message-content .message-info .location svg {
+    width: 28px;
+    height: 28px;
+  }
+  .message-main .message-content .message-info .phone {
+    padding: 0.5rem 0;
+  }
+  .message-main .message-content .message-info .phone svg {
+    width: 28px;
+    height: 28px;
+  }
+  .message-main .message-content .message-info .email {
+    padding: 0.5rem 0;
+  }
+  .message-main .message-content .message-info .email svg {
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+  }
+  .message-main .message-content .message-info .media {
+    margin-top: 16px;
+  }
+  .message-main .message-content .message-info .media .github, .message-main .message-content .message-info .media .instagram, .message-main .message-content .message-info .media .facebook {
+    margin: 0 0.5rem;
+  }
+  .message-main .message-content .message-info .media .github svg, .message-main .message-content .message-info .media .instagram svg, .message-main .message-content .message-info .media .facebook svg {
+    width: 32px;
+    height: 32px;
+  }
+  .message-main .message-content .message-content-title {
+    font-size: 1.6rem;
+  }
+  .message-main .message-content .message-form-content form .form-btn {
+    font-size: 1.25rem;
+  }
+}
 @media screen and (min-width: 470px) {
   .message-main .message-content {
     max-width: 470px;
   }
-  .message-main .message-content form {
+  .message-main .message-content .message-form-content form {
     grid-gap: 1.65rem;
   }
-  .message-main .message-content form .input-box {
-    max-width: 390px;
+  .message-main .message-content .message-form-content form .input-box {
+    max-width: 360px;
     margin: 0 auto;
+  }
+  .message-main .message-content .message-form-content form .form-btn {
+    width: 40%;
   }
 }
 @media screen and (min-width: 560px) {
   .message-main header {
     max-width: 560px;
     margin: 0 auto;
+  }
+  .message-main .error-modal {
+    width: 400px;
+    height: 400px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -2256,7 +2336,136 @@ nav .toggle-icon h1 {
   .message-main header .header-wrapper .toggle-icon {
     display: none;
   }
-  .message-main .message-info {
+  .message-main .message-content .message-info {
     margin-top: 16px;
+  }
+}
+@media screen and (min-width: 1160px) {
+  .message-main header {
+    height: 100px;
+  }
+  .message-main header .header-wrapper .title {
+    font-size: 2.3rem;
+  }
+  .message-main .message-content {
+    height: calc(100vh - 100px);
+    max-width: 1600px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
+  .message-main .message-content .message-info {
+    width: 40%;
+    height: 60%;
+    padding: 4rem 2rem;
+    color: rgb(245, 245, 245);
+    background-color: var(--contact-me-intro);
+    font-size: 1.3rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 2;
+    transform: translateY(-50%);
+  }
+  .message-main .message-content .message-info .info-title {
+    font-size: 2rem;
+  }
+  .message-main .message-content .message-info .location,
+  .message-main .message-content .message-info .phone,
+  .message-main .message-content .message-info .email {
+    padding: 1.2rem 0;
+    justify-content: start;
+  }
+  .message-main .message-content .message-info .location svg path {
+    stroke: rgb(245, 245, 245);
+  }
+  .message-main .message-content .message-info .phone svg {
+    fill: rgb(245, 245, 245);
+  }
+  .message-main .message-content .message-info .email svg path {
+    stroke: rgb(245, 245, 245);
+  }
+  .message-main .message-content .message-info .email svg rect {
+    stroke: rgb(245, 245, 245);
+  }
+  .message-main .message-content .message-info .media {
+    margin-top: 2rem;
+  }
+  .message-main .message-content .message-info .media .github svg path, .message-main .message-content .message-info .media .instagram svg path, .message-main .message-content .message-info .media .facebook svg path {
+    fill: rgb(245, 245, 245);
+  }
+  .message-main .message-content .or-hr {
+    display: none;
+  }
+  .message-main .message-content .message-form-content {
+    width: 70%;
+    margin-top: 28px;
+  }
+  .message-main .message-content .message-form-content::after {
+    content: "";
+    display: block;
+    width: 20%;
+    height: 85%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: -1;
+    transform: translateY(-50%);
+    background: linear-gradient(60deg, #fed522 0%, #f56f23 25%, #ea1d28 50%, #c52d64 75%, #a53a96 100%);
+  }
+  .message-main .message-content .message-form-content .message-content-title {
+    font-size: 3rem;
+    text-align: start;
+    margin-left: 2rem;
+  }
+  .message-main .message-content .message-form-content .message-form {
+    max-width: 450px;
+    margin-left: 3rem;
+    padding-bottom: 2.5rem;
+  }
+  .message-main .message-content .message-form-content .message-form .input-box {
+    margin: 0;
+    max-width: 450px;
+  }
+  .message-main .message-content .message-form-content .message-form .message-area textarea {
+    height: 200px;
+  }
+  .message-main .message-content .message-form-content .message-form .form-btn {
+    width: 50%;
+    height: 60px;
+  }
+}
+@media screen and (min-width: 1350px) {
+  .message-main .message-content {
+    max-width: 1000px;
+  }
+  .message-main .message-content .message-info {
+    width: 40%;
+    padding: 4rem 2rem;
+  }
+  .message-main .message-content .message-form-content {
+    width: 70%;
+    margin-top: 28px;
+  }
+  .message-main .message-content .message-form-content::after {
+    width: 20%;
+    height: 85%;
+  }
+  .message-main .message-content .message-form-content .message-content-title {
+    font-size: 3rem;
+    margin-left: 2rem;
+  }
+  .message-main .message-content .message-form-content .message-form {
+    max-width: 450px;
+    margin: 2rem 0 0 3rem;
+  }
+  .message-main .message-content .message-form-content .message-form .input-box {
+    margin: 0;
+    max-width: 450px;
+  }
+  .message-main .message-content .message-form-content .message-form .form-btn {
+    width: 50%;
+    height: 60px;
   }
 }/*# sourceMappingURL=style.css.map */

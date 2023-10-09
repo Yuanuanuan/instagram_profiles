@@ -33,10 +33,9 @@ formAnimation
     transformOrigin: 'top center', 
     duration: 0.4,
   })
-  .from('.seal-img', {scale: 3, opacity: 0, duration: .5})
+  .from('.seal-img', {scale: 3, opacity: 0, duration: .5, ease: 'power2'})
   .to('.envelope', {scale: 1.1, duration: .3})
-  .to('.envelope', {scale: 0.2, duration: .2})
-  .to('.envelope', {x: 300, y:-300, opacity: 0, duration: .5}, '<0.05')
+  .to('.envelope', {scale: 0, opacity: 0, duration: .5})
 
 const errorAnimationOpen = gsap.timeline({ paused: true});
 const errorAnimationClose = gsap.timeline({ paused: true});
