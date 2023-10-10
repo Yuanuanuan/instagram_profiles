@@ -148,3 +148,33 @@ contentImages.forEach((post) => {
     images[imageIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start'})
   }
 })
+
+// limit-news 改成點擊切換圖片
+const limitNews = document.querySelector('.limit-news-container')
+const limitBox = document.querySelector('.limit-news-box')
+const leftArrow = limitNews.querySelector('.left-arrow');
+const rightArrow = limitNews.querySelector('.right-arrow');
+let newsIndex = 0;
+
+leftArrow.style.display = 'none';
+
+limitBox.addEventListener('click', (e) => {
+  if (e.target.classList.contains('left-arrow')) {
+    limitBox.scrollLeft -= 300;
+  } else if (e.target.classList.contains('right-arrow')) {
+    limitBox.scrollLeft += 300;
+  }
+})
+
+limitBox.addEventListener('scroll', (e) => {
+  if (limitBox.scrollLeft === 0) {
+    leftArrow.style.display = 'none';
+  } else if (limitBox.scrollLeft === 532) {
+    rightArrow.style.display = 'none';
+  } else {
+    leftArrow.style.display = 'flex';
+    rightArrow.style.display = 'flex';
+  }
+  console.log(limitBox.scrollLeft);
+  console.log(limitBox.scrollWidth);
+})

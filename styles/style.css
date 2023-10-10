@@ -412,29 +412,34 @@ nav .toggle-icon h1 {
 }
 .home-main .main-container .limit-news-container {
   height: 100px;
-  overflow-x: scroll;
   border-bottom: 1px solid var(--hr-color);
+  position: relative;
+}
+.home-main .main-container .limit-news-container .limit-news-box {
+  height: 100px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
   display: grid;
   grid-auto-flow: column;
   grid-gap: 10px;
   align-items: center;
 }
-.home-main .main-container .limit-news-container::-webkit-scrollbar {
+.home-main .main-container .limit-news-container .limit-news-box::-webkit-scrollbar {
   display: none;
 }
-.home-main .main-container .limit-news-container .limit-item {
+.home-main .main-container .limit-news-container .limit-news-box .limit-item {
   width: 66px;
   height: 85px;
   flex-direction: column;
 }
-.home-main .main-container .limit-news-container .limit-item .user-image {
+.home-main .main-container .limit-news-container .limit-news-box .limit-item .user-image {
   width: 64px;
   height: 64px;
   border-radius: 50%;
   background: linear-gradient(45deg, #fed522 0%, #f56f23 25%, #ea1d28 50%, #c52d64 75%, #a53a96 100%);
   position: relative;
 }
-.home-main .main-container .limit-news-container .limit-item .user-image::after {
+.home-main .main-container .limit-news-container .limit-news-box .limit-item .user-image::after {
   content: "";
   width: 60px;
   height: 60px;
@@ -447,24 +452,24 @@ nav .toggle-icon h1 {
   transform: translate(-50%, -50%);
   z-index: -1;
 }
-.home-main .main-container .limit-news-container .limit-item .user-image a {
+.home-main .main-container .limit-news-container .limit-news-box .limit-item .user-image a {
   width: 60px;
   height: 60px;
 }
-.home-main .main-container .limit-news-container .limit-item .user-image a img {
+.home-main .main-container .limit-news-container .limit-news-box .limit-item .user-image a img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   border: 2px solid var(--bg-color);
   pointer-events: none;
 }
-.home-main .main-container .limit-news-container .limit-item .user-image img {
+.home-main .main-container .limit-news-container .limit-news-box .limit-item .user-image img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   border: 3px solid var(--bg-color);
 }
-.home-main .main-container .limit-news-container .limit-item h1 {
+.home-main .main-container .limit-news-container .limit-news-box .limit-item h1 {
   max-width: 70px;
   font-size: 13px;
   font-weight: 400;
@@ -473,6 +478,36 @@ nav .toggle-icon h1 {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.home-main .main-container .limit-news-container .left-arrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 40%;
+  left: 10px;
+  z-index: 3;
+  transform: translateY(-40%);
+  cursor: pointer;
+}
+.home-main .main-container .limit-news-container .left-arrow .left-arrow-box {
+  background-color: rgba(255, 255, 255, 0.5647058824);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.home-main .main-container .limit-news-container .right-arrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 40%;
+  right: 10px;
+  z-index: 3;
+  transform: translateY(-40%);
+  cursor: pointer;
+}
+.home-main .main-container .limit-news-container .right-arrow .right-arrow-box {
+  background-color: rgba(255, 255, 255, 0.5647058824);
+  border-radius: 50%;
+  pointer-events: none;
 }
 .home-main .main-container .post-container {
   max-width: 100%;
@@ -534,9 +569,6 @@ nav .toggle-icon h1 {
   border-radius: 50%;
   pointer-events: none;
 }
-.home-main .main-container .post-container .post .content-image .left-arrow .left-arrow-box svg path {
-  stroke: transparent;
-}
 .home-main .main-container .post-container .post .content-image .right-arrow {
   width: 30px;
   height: 30px;
@@ -551,9 +583,6 @@ nav .toggle-icon h1 {
   background-color: rgba(255, 255, 255, 0.5647058824);
   border-radius: 50%;
   pointer-events: none;
-}
-.home-main .main-container .post-container .post .content-image .right-arrow .right-arrow-box svg path {
-  stroke: transparent;
 }
 .home-main .main-container .post-container .post .content-image .dots {
   position: absolute;

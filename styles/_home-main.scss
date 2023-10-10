@@ -16,66 +16,102 @@
     }
     .limit-news-container {
       height: 100px;
-      overflow-x: scroll;
       border-bottom: 1px solid var(--hr-color);
+      position: relative;
+      .limit-news-box {
+        height: 100px;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        
 
-      display: grid;
-      grid-auto-flow: column;
-      grid-gap: 10px;
-      align-items: center;
-      &::-webkit-scrollbar {
-        display: none;
-      }
-      .limit-item {
-        width: 66px;
-        height: 85px;
-        flex-direction: column;
-        .user-image {
-          width: 64px;
-          height: 64px;
-          border-radius: 50%;
-          background: linear-gradient(45deg, #fed522 0%, #f56f23 25%, #ea1d28 50%, #c52d64 75%, #a53a96 100%);
-          position: relative;
-          &::after {
-            content: '';
-            width: 60px;
-            height: 60px;
-            background: var(--bg-color);
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 10px;
+        align-items: center;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        .limit-item {
+          width: 66px;
+          height: 85px;
+          flex-direction: column;
+          .user-image {
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
-            border: 1px solid #c9c9c9;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-          }
-          a {
-            width: 60px;
-            height: 60px;
+            background: linear-gradient(45deg, #fed522 0%, #f56f23 25%, #ea1d28 50%, #c52d64 75%, #a53a96 100%);
+            position: relative;
+            &::after {
+              content: '';
+              width: 60px;
+              height: 60px;
+              background: var(--bg-color);
+              border-radius: 50%;
+              border: 1px solid #c9c9c9;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: -1;
+            }
+            a {
+              width: 60px;
+              height: 60px;
+              img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                border: 2px solid var(--bg-color);
+                pointer-events: none;
+              }
+            }
             img {
               width: 60px;
               height: 60px;
               border-radius: 50%;
-              border: 2px solid var(--bg-color);
-              pointer-events: none;
+              border: 3px solid var(--bg-color);
             }
           }
-          img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 3px solid var(--bg-color);
+          h1 {
+            max-width: 70px;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 16px;
+            color: var(--text-color);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
           }
         }
-        h1 {
-          max-width: 70px;
-          font-size: 13px;
-          font-weight: 400;
-          line-height: 16px;
-          color: var(--text-color);
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
+      }
+      .left-arrow {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 40%;
+        left: 10px;
+        z-index: 3;
+        transform: translateY(-40%);
+        cursor: pointer;
+        .left-arrow-box {
+          background-color: #ffffff90;
+          border-radius: 50%;
+          pointer-events: none;
+        }
+      }
+      .right-arrow {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 40%;
+        right: 10px;
+        z-index: 3;
+        transform: translateY(-40%);
+        cursor: pointer;
+        .right-arrow-box {
+          background-color: #ffffff90;
+          border-radius: 50%;
+          pointer-events: none;
         }
       }
     }
@@ -135,9 +171,6 @@
               background-color: #ffffff90;
               border-radius: 50%;
               pointer-events: none;
-              svg path{
-                stroke: transparent;
-              }
             }
           }
           .right-arrow {
@@ -153,9 +186,6 @@
               background-color: #ffffff90;
               border-radius: 50%;
               pointer-events: none;
-              svg path{
-                stroke: transparent;
-              }
             }
           }
           .dots {
