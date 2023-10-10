@@ -487,6 +487,7 @@ nav .toggle-icon h1 {
   left: 10px;
   z-index: 3;
   transform: translateY(-40%);
+  display: none;
   cursor: pointer;
 }
 .home-main .main-container .limit-news-container .left-arrow .left-arrow-box {
@@ -502,6 +503,7 @@ nav .toggle-icon h1 {
   right: 10px;
   z-index: 3;
   transform: translateY(-40%);
+  display: none;
   cursor: pointer;
 }
 .home-main .main-container .limit-news-container .right-arrow .right-arrow-box {
@@ -562,6 +564,7 @@ nav .toggle-icon h1 {
   left: 10px;
   z-index: 3;
   transform: translateY(-50%);
+  display: none;
   cursor: pointer;
 }
 .home-main .main-container .post-container .post .content-image .left-arrow .left-arrow-box {
@@ -577,6 +580,7 @@ nav .toggle-icon h1 {
   right: 10px;
   z-index: 3;
   transform: translateY(-50%);
+  display: none;
   cursor: pointer;
 }
 .home-main .main-container .post-container .post .content-image .right-arrow .right-arrow-box {
@@ -734,6 +738,16 @@ nav .toggle-icon h1 {
   }
   .home-main .main-container .limit-news-container {
     margin-top: 2rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .home-main .main-container .limit-news-container .left-arrow,
+  .home-main .main-container .limit-news-container .right-arrow {
+    display: flex;
+  }
+  .home-main .main-container .post-container .post .content-image .left-arrow,
+  .home-main .main-container .post-container .post .content-image .right-arrow {
+    display: flex;
   }
 }
 @media screen and (min-width: 1160px) {
