@@ -740,6 +740,30 @@
           }
         }
       }
+      .experience-modal {
+        .post-container {
+          .post {
+            .title {
+              padding: 0;
+            }
+            .footer {
+              padding: 0;
+            }
+          }
+        }
+      }
+      .projects-modal {
+        .post-container {
+          .post {
+            .title {
+              padding: 0;
+            }
+            .footer {
+              padding: 0;
+            }
+          }
+        }
+      }
     }
   }
 }

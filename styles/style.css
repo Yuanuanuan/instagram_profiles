@@ -1496,6 +1496,18 @@ nav .toggle-icon h1 {
   .user-main .user-main-container .intro .intro-wrapper .describe {
     font-size: 15px;
   }
+  .user-main .user-main-container .experience-modal .post-container .post .title {
+    padding: 0;
+  }
+  .user-main .user-main-container .experience-modal .post-container .post .footer {
+    padding: 0;
+  }
+  .user-main .user-main-container .projects-modal .post-container .post .title {
+    padding: 0;
+  }
+  .user-main .user-main-container .projects-modal .post-container .post .footer {
+    padding: 0;
+  }
 }
 @media screen and (min-width: 500px) {
   .user-main .user-main-container header {
