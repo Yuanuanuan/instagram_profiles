@@ -399,6 +399,7 @@ nav .toggle-icon h1 {
   position: absolute;
   top: 0;
   left: 0;
+  transform: scale(0, 1);
   overflow-y: hidden;
 }
 .home-main .main-container {
@@ -780,7 +781,6 @@ nav .toggle-icon h1 {
   position: absolute;
   top: 0;
   left: 0;
-  transform: scale(0, 1);
 }
 .user-main .user-main-container {
   width: 100%;
@@ -1575,12 +1575,14 @@ nav .toggle-icon h1 {
   }
   .user-main .user-main-container .experience-modal {
     width: calc(100vw - 73px);
+    left: 73px;
   }
   .user-main .user-main-container .experience-modal .post-container {
     max-height: calc(100vh - 60px);
   }
   .user-main .user-main-container .projects-modal {
     width: calc(100vw - 73px);
+    left: 73px;
   }
   .user-main .user-main-container .projects-modal .post-container {
     max-height: calc(100vh - 60px);
@@ -1727,6 +1729,7 @@ nav .toggle-icon h1 {
   }
   .user-main .user-main-container .experience-modal {
     width: calc(100vw - 244px);
+    left: 244px;
   }
   .user-main .user-main-container .experience-modal header .header-wrapper {
     max-width: 635px;
@@ -1734,6 +1737,7 @@ nav .toggle-icon h1 {
   }
   .user-main .user-main-container .projects-modal {
     width: calc(100vw - 244px);
+    left: 244px;
   }
   .user-main .user-main-container .projects-modal header .header-wrapper {
     max-width: 635px;
