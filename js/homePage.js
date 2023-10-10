@@ -33,7 +33,6 @@ const saveIcon = document.querySelectorAll('.save')
 
 saveIcon.forEach((icon) => {
   icon.addEventListener('click', (e) => {
-    console.log(e.target)
     if (e.target.classList.contains('save')) {
       e.target.classList.toggle('active');
     }
@@ -109,3 +108,43 @@ window.onload = () => {
   })
 }
 
+// 螢幕到達PC 改成點擊切換圖片
+const contentImages = document.querySelectorAll('.content-image');
+
+contentImages.forEach((post) => {
+  const container = post.querySelector('.post-images');
+  const images = container.querySelectorAll('img');
+  const leftArrow = post.querySelector('.left-arrow');
+  const rightArrow = post.querySelector('.right-arrow');
+  let imageIndex = 0;
+
+  if (images.length <= 1 && leftArrow && rightArrow) {
+    leftArrow.style.display = 'none';
+    rightArrow.style.display = 'none';
+  }
+
+  if (imageIndex === 0 && leftArrow) {
+    leftArrow.style.display = 'none';
+  }
+
+  container.addEventListener('click', (e) => {
+    if (e.target.classList.contains('left-arrow')) {
+      imageIndex = Math.max(imageIndex - 1, 0);
+    } else if (e.target.classList.contains('right-arrow')) {
+      imageIndex = Math.min(imageIndex + 1, images.length - 1);
+    }
+    updateImage();
+  })
+
+  const updateImage = () => {
+    if (imageIndex === 0) {
+      leftArrow.style.display = 'none';
+    } else if (imageIndex === images.length - 1) {
+      rightArrow.style.display = 'none';
+    } else {
+      leftArrow.style.display = 'flex';
+      rightArrow.style.display = 'flex';
+    }
+    images[imageIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start'})
+  }
+})

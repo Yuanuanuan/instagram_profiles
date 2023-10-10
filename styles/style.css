@@ -399,7 +399,6 @@ nav .toggle-icon h1 {
   position: absolute;
   top: 0;
   left: 0;
-  transform: scale(0, 1);
   overflow-y: hidden;
 }
 .home-main .main-container {
@@ -520,6 +519,42 @@ nav .toggle-icon h1 {
 .home-main .main-container .post-container .post .content-image {
   position: relative;
 }
+.home-main .main-container .post-container .post .content-image .left-arrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  z-index: 3;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.home-main .main-container .post-container .post .content-image .left-arrow .left-arrow-box {
+  background-color: rgba(255, 255, 255, 0.5647058824);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.home-main .main-container .post-container .post .content-image .left-arrow .left-arrow-box svg path {
+  stroke: transparent;
+}
+.home-main .main-container .post-container .post .content-image .right-arrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  z-index: 3;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.home-main .main-container .post-container .post .content-image .right-arrow .right-arrow-box {
+  background-color: rgba(255, 255, 255, 0.5647058824);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.home-main .main-container .post-container .post .content-image .right-arrow .right-arrow-box svg path {
+  stroke: transparent;
+}
 .home-main .main-container .post-container .post .content-image .dots {
   position: absolute;
   bottom: 10px;
@@ -548,6 +583,7 @@ nav .toggle-icon h1 {
 .home-main .main-container .post-container .post .content-image .post-images img {
   width: 100%;
   scroll-snap-align: start;
+  pointer-events: none;
 }
 .home-main .main-container .post-container .post .footer {
   padding: 0 16px;
@@ -701,6 +737,7 @@ nav .toggle-icon h1 {
   position: absolute;
   top: 0;
   left: 0;
+  transform: scale(0, 1);
 }
 .user-main .user-main-container {
   width: 100%;
@@ -1192,6 +1229,7 @@ nav .toggle-icon h1 {
   border: none;
   background-color: transparent;
   color: var(--detial);
+  cursor: pointer;
 }
 .user-main .user-main-container .experience-modal .post-container .post .footer .date {
   font-size: 12px;
@@ -1381,6 +1419,7 @@ nav .toggle-icon h1 {
   border: none;
   background-color: transparent;
   color: var(--detial);
+  cursor: pointer;
 }
 .user-main .user-main-container .projects-modal .post-container .post .footer .date {
   font-size: 12px;
@@ -1492,14 +1531,12 @@ nav .toggle-icon h1 {
     display: none;
   }
   .user-main .user-main-container .experience-modal {
-    margin-left: 73px;
     width: calc(100vw - 73px);
   }
   .user-main .user-main-container .experience-modal .post-container {
     max-height: calc(100vh - 60px);
   }
   .user-main .user-main-container .projects-modal {
-    margin-left: 73px;
     width: calc(100vw - 73px);
   }
   .user-main .user-main-container .projects-modal .post-container {
@@ -1646,7 +1683,6 @@ nav .toggle-icon h1 {
     font-size: 16px;
   }
   .user-main .user-main-container .experience-modal {
-    margin-left: 244px;
     width: calc(100vw - 244px);
   }
   .user-main .user-main-container .experience-modal header .header-wrapper {
@@ -1654,7 +1690,6 @@ nav .toggle-icon h1 {
     margin: 0 auto;
   }
   .user-main .user-main-container .projects-modal {
-    margin-left: 244px;
     width: calc(100vw - 244px);
   }
   .user-main .user-main-container .projects-modal header .header-wrapper {
