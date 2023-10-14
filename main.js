@@ -49,6 +49,9 @@ const searchMain = document.getElementById('search-main');
 const messageMain = document.getElementById('message-main');
 const userMain = document.getElementById('user-main');
 
+const projectsModal = document.querySelector('.projects-modal')
+const experienceModal = document.querySelector('.experience-modal')
+
 const nav = document.querySelector('nav');
 const addPostModal = document.querySelector('.add-post-modal')
 
@@ -96,6 +99,11 @@ nav.addEventListener('click', (e) => {
       })
       userMain.style.transform = 'scale(1, 1)';
     }
+
+    projectsModal.style.transform = 'scale(0, 0)';
+    projectsModal.style.opacity = '0';
+    experienceModal.style.transform = 'scale(0, 0)';
+    experienceModal.style.opacity = '0';
 
     e.target.childNodes[1].classList.add('active');
   }

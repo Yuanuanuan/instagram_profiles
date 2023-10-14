@@ -299,6 +299,7 @@
           .post {
             width: calc((100vw - 2px) * 1 / 3);
             height: calc((100vw - 2px) * 1 / 3);
+            background-color: #fff;
             cursor: pointer;
             img {
               width: 100%;
@@ -320,7 +321,7 @@
       height: 100vh;
       position: fixed;
       top: 0;
-      left: 0;
+      right: 0;
       background-color: var(--bg-color);
       transform: scale(0, 0);
       opacity: 0;
@@ -383,6 +384,38 @@
           }
           .content-image {
             position: relative;
+            .left-arrow {
+              width: 30px;
+              height: 30px;
+              position: absolute;
+              top: 50%;
+              left: 10px;
+              z-index: 3;
+              transform: translateY(-50%);
+              display: none;
+              cursor: pointer;
+              .left-arrow-box {
+                background-color: #ffffff90;
+                border-radius: 50%;
+                pointer-events: none;
+              }
+            }
+            .right-arrow {
+              width: 30px;
+              height: 30px;
+              position: absolute;
+              top: 50%;
+              right: 10px;
+              z-index: 3;
+              transform: translateY(-50%);
+              display: none;
+              cursor: pointer;
+              .right-arrow-box {
+                background-color: #ffffff90;
+                border-radius: 50%;
+                pointer-events: none;
+              }
+            }
             .dots {
               position: absolute;
               bottom: 10px;
@@ -516,7 +549,7 @@
       height: 100%;
       position: fixed;
       top: 0;
-      left: 0;
+      right: 0;
       background-color: var(--bg-color);
       transform: scale(0, 0);
       opacity: 0;
@@ -542,7 +575,7 @@
           display: none;
         }
         .post {
-          width: inherit;
+          width: 100%;
           .title {
             height: 48px;
             padding: 0 16px;
@@ -578,6 +611,38 @@
           }
           .content-image {
             position: relative;
+            .left-arrow {
+              width: 30px;
+              height: 30px;
+              position: absolute;
+              top: 50%;
+              left: 10px;
+              z-index: 3;
+              transform: translateY(-50%);
+              display: none;
+              cursor: pointer;
+              .left-arrow-box {
+                background-color: #ffffff90;
+                border-radius: 50%;
+                pointer-events: none;
+              }
+            }
+            .right-arrow {
+              width: 30px;
+              height: 30px;
+              position: absolute;
+              top: 50%;
+              right: 10px;
+              z-index: 3;
+              transform: translateY(-50%);
+              display: none;
+              cursor: pointer;
+              .right-arrow-box {
+                background-color: #ffffff90;
+                border-radius: 50%;
+                pointer-events: none;
+              }
+            }
             .dots {
               position: absolute;
               bottom: 10px;
@@ -604,9 +669,9 @@
               }
               img {
                 width: inherit;
-                height: inherit;
                 object-fit: cover;
                 scroll-snap-align: start;
+                pointer-events: none;
               }
             }
           }
@@ -878,14 +943,12 @@
       }
       .experience-modal {
         width: calc(100vw - 73px);
-        left: 73px;
         .post-container {
           max-height: calc(100vh - 60px);
         }
       }
       .projects-modal {
         width: calc(100vw - 73px);
-        left: 73px;
         .post-container {
           max-height: calc(100vh - 60px);
         }
@@ -944,6 +1007,26 @@
             .post {
               width: calc((635px - 8px) * (1 / 3));
               height: calc((635px - 8px) * (1 / 3));
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .user-main {
+    .user-main-container {
+      .experience-modal,
+      .projects-modal {
+        .post-container {
+          .post {
+            .content-image {
+              .left-arrow,
+              .right-arrow {
+                display: flex;
+              }
             }
           }
         }
@@ -1067,7 +1150,6 @@
       }
       .experience-modal {
         width: calc(100vw - 244px);
-        left: 244px;
         header {
           .header-wrapper {
             max-width: 635px;
@@ -1077,7 +1159,6 @@
       }
       .projects-modal {
         width: calc(100vw - 244px);
-        left: 244px;
         header {
           .header-wrapper {
             max-width: 635px;

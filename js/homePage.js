@@ -139,7 +139,9 @@ contentImages.forEach((post) => {
   const updateImage = () => {
     if (imageIndex === 0) {
       leftArrow.style.display = 'none';
+      rightArrow.style.display = 'flex';
     } else if (imageIndex === images.length - 1) {
+      leftArrow.style.display = 'flex';
       rightArrow.style.display = 'none';
     } else {
       leftArrow.style.display = 'flex';
