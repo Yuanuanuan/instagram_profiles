@@ -19,8 +19,8 @@
 
 ## 如何使用
 
-只要到此網址即可
-[Click Me!](https://tzuyuan.netlify.app/)
+只要點擊右邊的👍即可
+[👍](https://tzuyuan.netlify.app/)
 
 ## 開發工具
 
