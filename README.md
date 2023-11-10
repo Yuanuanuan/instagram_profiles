@@ -12,7 +12,7 @@
 這不僅僅是一個網站，更是一個生活的投影，我希望讓訪客在我的網站上找到那輕鬆愉快的感受，仿佛置身於一個充滿溫暖、有趣且充滿生活情趣的社交空間中。
 ## 如何使用
 只要到此網址即可
-[h](https://tzuyuan.netlify.app/)
+[Click Me!](https://tzuyuan.netlify.app/)
 ## 開發工具
 - HTML
 - CSS
